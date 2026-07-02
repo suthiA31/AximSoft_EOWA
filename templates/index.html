@@ -1,0 +1,312 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Job Portal
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <span class="hero-badge">
+
+                </span>
+                <div class="hero-rating">
+
+
+
+            </div>
+
+                <h1 class="hero-title">
+                    Find Your
+                    <span class="gradient-text">
+                        Dream Job
+                    </span>
+                    Faster Than Ever
+                </h1>
+
+                <p class="hero-subtitle">
+                    Discover thousands of opportunities from top companies
+                    around the world.
+                </p>
+
+                <form action="{{ url_for('jobs.all_jobs') }}"
+                      method="GET">
+
+                    <div class="search-box">
+
+                        <input type="text"
+                               name="search"
+                               placeholder="Search jobs, skills, companies...">
+
+                        <button type="submit">
+                            Search
+                        </button>
+
+                    </div>
+                    <div class="trusted-companies">
+
+                            <span>Google</span>
+                            <span>Amazon</span>
+                            <span>Microsoft</span>
+                            <span>TCS</span>
+                            <span>Infosys</span>
+
+                            </div>
+
+                </form>
+
+                <div class="mt-4">
+
+                    <a href="{{ url_for('jobs.all_jobs') }}"
+                       class="btn btn-light btn-lg">
+
+                        Browse Jobs
+
+                    </a>
+
+                    <a href="{{ url_for('auth.register') }}"
+                       class="btn btn-outline-light btn-lg ms-2">
+
+                        Get Started
+
+                    </a>
+
+                </div>
+
+            </div>
+
+           <div class="col-lg-6 hero-right">
+
+   <div class="row align-items-center">
+
+    <div class="col-lg-6">
+
+        <!-- LEFT SIDE (UNCHANGED) -->
+        ...
+    </div>
+
+    <!-- FIXED RIGHT SIDE -->
+    <div class="col-lg-6 hero-right">
+
+        <div class="glass-card salary-card">
+            <h5> Highest Paying Role</h5>
+            <h3>AI Engineer</h3>
+            <p>₹18-35 LPA</p>
+        </div>
+
+        <div class="glass-card hiring-card">
+            <h5>🏢 Companies Hiring</h5>
+
+            <div class="company-list">
+                <span>Google</span>
+                <span>Microsoft</span>
+                <span>Amazon</span>
+                <span>Infosys</span>
+            </div>
+        </div>
+
+        <div class="glass-card skills-card">
+            <h5>📈 Trending Skills</h5>
+
+            <div class="skill-tags">
+                <span>Python</span>
+                <span>AI/ML</span>
+                <span>SQL</span>
+                <span>Cloud</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+        </div>
+
+    </div>
+
+</section>
+<section class="container my-5">
+
+
+<div class="row text-center">
+
+    <div class="col-md-3">
+
+        <div class="stats-card">
+
+            <h2>10K+</h2>
+
+            <p>Jobs</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="stats-card">
+
+            <h2>500+</h2>
+
+            <p>Companies</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="stats-card">
+
+            <h2>25K+</h2>
+
+            <p>Candidates</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="stats-card">
+
+            <h2>98%</h2>
+
+            <p>Success Rate</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+<section class="container my-5">
+
+
+<h2 class="text-center mb-5">
+    Popular Categories
+</h2>
+
+<div class="row g-4">
+
+    <div class="col-md-3">
+        <div class="category-card">
+            🤖 AI & ML
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="category-card">
+            💻 Web Development
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="category-card">
+            ☁ Cloud Computing
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="category-card">
+            📊 Data Science
+        </div>
+    </div>
+
+</div>
+
+
+</section>
+
+<section class="container my-5">
+
+
+<h2 class="text-center mb-4">
+    Latest Jobs
+</h2>
+
+<div class="row">
+
+    {% for job in jobs[:6] %}
+
+<div class="col-lg-4 mb-4">
+
+    <div class="job-card">
+
+        <div class="d-flex align-items-center mb-4">
+
+            <div class="company-logo">
+                {{ job.company_name[0] }}
+            </div>
+
+            <div class="ms-3">
+
+                <div class="company-name">
+                    {{ job.company_name }}
+                </div>
+
+                <div class="job-title">
+                    {{ job.title }}
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+
+            <span class="salary-badge">
+                ₹ {{ job.salary }}
+            </span>
+
+            <span class="exp-badge">
+                {{ job.experience }}
+            </span>
+
+        </div>
+
+        <p class="job-location">
+            📍 {{ job.location }}
+        </p>
+
+        <div class="mb-4">
+
+            {% for skill in job.skills.split(',') %}
+
+                <span class="skill-badge">
+                    {{ skill }}
+                </span>
+
+            {% endfor %}
+
+        </div>
+
+        <a href="{{ url_for('jobs.job_details', id=job.id) }}"
+           class="btn-job d-block text-center text-decoration-none">
+
+            View Details →
+
+        </a>
+
+    </div>
+
+</div>
+    {% endfor %}
+
+</div>
+
+
+</section>
+
+{% endblock %}

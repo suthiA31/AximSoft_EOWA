@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+.venv/
+venv/
+
+# Flask
+instance/
+*.db
+
+# Uploads
+static/uploads/
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# Mac/Linux
+.DS_Store
