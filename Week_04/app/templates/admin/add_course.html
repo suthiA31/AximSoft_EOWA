@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4">
+
+        <h2 class="mb-3">➕ Add New Course</h2>
+
+        <p class="text-muted">
+            Fill in course details and upload an optional image.
+        </p>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <input type="text"
+                   name="course_name"
+                   class="form-control mb-3"
+                   placeholder="Course Name (e.g. Python Basics)"
+                   required>
+
+            <input type="text"
+                   name="category"
+                   class="form-control mb-3"
+                   placeholder="Category (e.g. Programming)"
+                   required>
+
+            <input type="text"
+                   name="duration"
+                   class="form-control mb-3"
+                   placeholder="Duration (e.g. 4 Weeks)"
+                   required>
+
+            <textarea name="description"
+                      class="form-control mb-3"
+                      placeholder="Write course description..."
+                      rows="4"
+                      required></textarea>
+
+            <label class="form-label">
+                Course Image (optional)
+            </label>
+
+            <input type="file"
+                   name="course_image"
+                   class="form-control mb-3">
+
+            <button class="btn btn-success w-100">
+                Create Course
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

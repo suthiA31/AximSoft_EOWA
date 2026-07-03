@@ -1,0 +1,409 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<!-- =========================
+     HERO SECTION
+========================= -->
+<section class="home-hero-wrap">
+    <div class="container py-5">
+        <div class="hero hero-v2">
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6">
+                    <span class="hero-badge">
+                        🚀 Learn smarter. Build faster. Grow stronger.
+                    </span>
+
+                    <h1 class="hero-title mt-3">
+                        Turn curiosity into <span>career-ready skills</span> with LearnHub
+                    </h1>
+
+                    <p class="hero-subtitle mt-3">
+                        Explore practical courses in Python, Flask, Web Development, Data Science,
+                        and more. Enroll in courses, track your progress, and build your learning
+                        journey from one beautiful dashboard.
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="{{ url_for('courses.courses') }}"
+                           class="btn btn-primary btn-lg hero-btn">
+                            <i class="bi bi-book-half me-2"></i>Explore Courses
+                        </a>
+
+                        <a href="{{ url_for('auth.register') }}"
+                           class="btn btn-warning btn-lg hero-btn">
+                            <i class="bi bi-person-plus-fill me-2"></i>Join LearnHub
+                        </a>
+                    </div>
+
+                    <div class="hero-mini-stats mt-4">
+                        <div class="mini-stat">
+                            <h5>100+</h5>
+                            <p>Courses</p>
+                        </div>
+                        <div class="mini-stat">
+                            <h5>500+</h5>
+                            <p>Learners</p>
+                        </div>
+                        <div class="mini-stat">
+                            <h5>20+</h5>
+                            <p>Categories</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="hero-visual">
+                        <div class="hero-orb orb-1"></div>
+                        <div class="hero-orb orb-2"></div>
+
+                        <div class="hero-image-card">
+                            <img
+                                src="https://images.stockcake.com/public/f/8/0/f80a9fd0-d83b-40c0-9e96-3824e22d5a9a/cyber-study-focus-stockcake.jpg"
+                                class="img-fluid hero-image"
+                                alt="Learning illustration"
+                            >
+                        </div>
+
+                        <div class="floating-card floating-card-1">
+                            <i class="bi bi-bar-chart-line-fill"></i>
+                            <div>
+                                <h6>Progress Tracking</h6>
+                                <p>Stay on top of every enrolled course</p>
+                            </div>
+                        </div>
+
+                        <div class="floating-card floating-card-2">
+                            <i class="bi bi-journal-code"></i>
+                            <div>
+                                <h6>Practical Courses</h6>
+                                <p>Learn real-world skills step by step</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     TRUST / STATS STRIP
+========================= -->
+<section class="container">
+    <div class="stats-strip">
+        <div class="stats-strip-item">
+            <h3>100+</h3>
+            <p>Professional Courses</p>
+        </div>
+        <div class="stats-strip-item">
+            <h3>500+</h3>
+            <p>Active Learners</p>
+        </div>
+        <div class="stats-strip-item">
+            <h3>20+</h3>
+            <p>Course Categories</p>
+        </div>
+        <div class="stats-strip-item">
+            <h3>95%</h3>
+            <p>Completion Satisfaction</p>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     WHY LEARNHUB
+========================= -->
+<section class="container py-5 mt-4">
+    <div class="text-center mb-5">
+        <span class="section-kicker">WHY LEARNHUB</span>
+        <h2 class="section-title">A learning platform designed for real progress ✨</h2>
+        <p class="section-subtitle mx-auto">
+            LearnHub helps students and beginners explore courses, stay organized, and
+            keep momentum through a clean learning experience.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card feature-card h-100">
+                <div class="card-body text-center">
+                    <div class="feature-icon purple">
+                        <i class="bi bi-collection-play-fill"></i>
+                    </div>
+                    <h4 class="mt-4">Practical Learning</h4>
+                    <p>
+                        Learn with beginner-friendly and project-focused courses in Python,
+                        Flask, SQL, frontend development, and more.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card feature-card h-100">
+                <div class="card-body text-center">
+                    <div class="feature-icon cyan">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <h4 class="mt-4">Track Every Step</h4>
+                    <p>
+                        Monitor progress, enrolled courses, and completion percentages
+                        from a dashboard that keeps learning organized.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card feature-card h-100">
+                <div class="card-body text-center">
+                    <div class="feature-icon coral">
+                        <i class="bi bi-person-check-fill"></i>
+                    </div>
+                    <h4 class="mt-4">Personalized Journey</h4>
+                    <p>
+                        Update your profile, manage your course journey, and keep your
+                        learning experience tailored to your own goals.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================
+     FEATURED COURSES
+========================= -->
+<section class="container py-5">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+        <div>
+            <span class="section-kicker">FEATURED COURSES</span>
+            <h2 class="section-title mb-1">Start with something exciting 🚀</h2>
+            <p class="mb-0">Choose a course and begin building real skills today.</p>
+        </div>
+
+        <a href="{{ url_for('courses.courses') }}" class="btn btn-outline-dark rounded-pill px-4">
+            View All Courses
+        </a>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card course-card h-100">
+                <div class="card-body">
+                    <span class="course-badge">Programming</span>
+                    <h5 class="mt-3">Python Programming Mastery</h5>
+                    <p>
+                        Learn Python basics, OOP, functions, file handling, and project building
+                        through structured hands-on lessons.
+                    </p>
+
+                    <div class="course-meta mt-3">
+                        <span><i class="bi bi-clock"></i> 8 Weeks</span>
+                        <span><i class="bi bi-bar-chart"></i> Beginner to Advanced</span>
+                    </div>
+
+                    <a href="{{ url_for('courses.courses') }}" class="btn btn-primary w-100 mt-4">
+                        Explore Course
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card course-card h-100">
+                <div class="card-body">
+                    <span class="course-badge">Backend</span>
+                    <h5 class="mt-3">Flask Web Development</h5>
+                    <p>
+                        Build dynamic web applications with routing, Jinja templates,
+                        sessions, authentication, forms, and SQLite integration.
+                    </p>
+
+                    <div class="course-meta mt-3">
+                        <span><i class="bi bi-clock"></i> 6 Weeks</span>
+                        <span><i class="bi bi-diagram-3"></i> Full CRUD App</span>
+                    </div>
+
+                    <a href="{{ url_for('courses.courses') }}" class="btn btn-primary w-100 mt-4">
+                        Explore Course
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card course-card h-100">
+                <div class="card-body">
+                    <span class="course-badge">Frontend</span>
+                    <h5 class="mt-3">HTML, CSS & Bootstrap UI</h5>
+                    <p>
+                        Learn how to build responsive websites, modern layouts,
+                        clean components, and beautiful interfaces from scratch.
+                    </p>
+
+                    <div class="course-meta mt-3">
+                        <span><i class="bi bi-clock"></i> 5 Weeks</span>
+                        <span><i class="bi bi-phone"></i> Responsive Design</span>
+                    </div>
+
+                    <a href="{{ url_for('courses.courses') }}" class="btn btn-primary w-100 mt-4">
+                        Explore Course
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card course-card h-100">
+                <div class="card-body">
+                    <span class="course-badge">Database</span>
+                    <h5 class="mt-3">SQL & Database Essentials</h5>
+                    <p>
+                        Understand queries, joins, constraints, relationships,
+                        and how databases power real applications.
+                    </p>
+
+                    <div class="course-meta mt-3">
+                        <span><i class="bi bi-clock"></i> 4 Weeks</span>
+                        <span><i class="bi bi-database"></i> SQLite & SQL</span>
+                    </div>
+
+                    <a href="{{ url_for('courses.courses') }}" class="btn btn-primary w-100 mt-4">
+                        Explore Course
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card course-card h-100">
+                <div class="card-body">
+                    <span class="course-badge">Data Science</span>
+                    <h5 class="mt-3">Data Analysis with Python</h5>
+                    <p>
+                        Use NumPy and Pandas to clean data, analyze datasets,
+                        and create useful insights from raw information.
+                    </p>
+
+                    <div class="course-meta mt-3">
+                        <span><i class="bi bi-clock"></i> 7 Weeks</span>
+                        <span><i class="bi bi-graph-up"></i> Analysis Workflow</span>
+                    </div>
+
+                    <a href="{{ url_for('courses.courses') }}" class="btn btn-primary w-100 mt-4">
+                        Explore Course
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card course-card h-100">
+                <div class="card-body">
+                    <span class="course-badge">AI / ML</span>
+                    <h5 class="mt-3">Machine Learning Foundations</h5>
+                    <p>
+                        Get introduced to supervised learning, model basics,
+                        algorithms, and the practical side of machine learning.
+                    </p>
+
+                    <div class="course-meta mt-3">
+                        <span><i class="bi bi-clock"></i> 8 Weeks</span>
+                        <span><i class="bi bi-cpu"></i> Beginner Friendly</span>
+                    </div>
+
+                    <a href="{{ url_for('courses.courses') }}" class="btn btn-primary w-100 mt-4">
+                        Explore Course
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================
+     LEARNING PATH SECTION
+========================= -->
+<section class="container py-5">
+    <div class="path-box">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <span class="section-kicker text-white-50">HOW IT WORKS</span>
+                <h2 class="text-white fw-bold mb-3">
+                    Your learning path in three simple steps
+                </h2>
+                <p class="text-white-50 mb-0">
+                    No chaos. No confusion. Just a clean path from “I want to learn”
+                    to “I built something real.”
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="path-steps">
+                    <div class="path-step">
+                        <span>1</span>
+                        <div>
+                            <h6>Explore courses</h6>
+                            <p>Browse the catalog and find what matches your goal.</p>
+                        </div>
+                    </div>
+
+                    <div class="path-step">
+                        <span>2</span>
+                        <div>
+                            <h6>Enroll & learn</h6>
+                            <p>Join courses and follow a clear, structured learning flow.</p>
+                        </div>
+                    </div>
+
+                    <div class="path-step">
+                        <span>3</span>
+                        <div>
+                            <h6>Track progress</h6>
+                            <p>See your dashboard update as you move closer to completion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     CTA SECTION
+========================= -->
+<section class="container py-5">
+    <div class="cta-box text-center">
+        <span class="section-kicker text-white-50">READY TO START?</span>
+        <h2 class="fw-bold mb-3 text-white">
+            Start learning today, not “someday” 🌟
+        </h2>
+        <p class="mb-4 text-white-50">
+            Join LearnHub, explore practical courses, and build your skills one lesson at a time.
+        </p>
+
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+            <a href="{{ url_for('auth.register') }}" class="btn btn-warning btn-lg">
+                Create Free Account
+            </a>
+
+            <a href="{{ url_for('courses.courses') }}" class="btn btn-outline-light btn-lg">
+                Browse Courses
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
