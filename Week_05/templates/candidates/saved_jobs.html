@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Saved Jobs
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">
+        <i class="bi bi-bookmark-fill"></i>
+        Saved Jobs
+    </h2>
+
+    <div class="row">
+
+        {% for saved in saved_jobs %}
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card shadow-lg border-0 h-100">
+
+                <div class="card-body">
+
+                    <h4>
+                        {{ saved.job.title }}
+                    </h4>
+
+                    <h6 class="text-muted">
+                        {{ saved.job.company_name }}
+                    </h6>
+
+                    <p>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        {{ saved.job.location }}
+                    </p>
+
+                    <p>
+                        <strong>Salary:</strong>
+                        {{ saved.job.salary }}
+                    </p>
+
+                    <a href="{{ url_for('jobs.job_details',
+                    id=saved.job.id) }}"
+                    class="btn btn-primary">
+
+                        View Job
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="col-12">
+
+            <div class="alert alert-info">
+
+                No saved jobs yet.
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

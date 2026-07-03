@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Applied Jobs
+{% endblock %}
+
+{% block content %}
+
+<h2>Applied Jobs</h2>
+
+<table class="table table-bordered">
+
+<thead>
+
+<tr>
+    <th>Job</th>
+    <th>Company</th>
+    <th>Status</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for application in applications %}
+
+<tr>
+
+
+<td>
+    {{ application.job.title }}
+</td>
+
+<td>
+    {{ application.job.company_name }}
+</td>
+
+<td>
+
+    <span class="badge bg-success">
+
+        {{ application.status }}
+
+    </span>
+
+</td>
+
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}Applicants{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2 class="mb-4">Applicants</h2>
+
+<table class="table table-striped align-middle">
+
+<thead class="table-dark">
+
+<tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Resume</th>
+    <th>Action</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for application in applications %}
+
+<tr>
+
+    <!-- NAME -->
+    <td>{{ application.user.name }}</td>
+
+    <!-- EMAIL -->
+    <td>{{ application.user.email }}</td>
+
+    <!-- STATUS -->
+    <td>
+        {% if application.status == "Interview Scheduled" %}
+            <span class="badge bg-info">
+                {{ application.status }}
+            </span>
+        {% else %}
+            <span class="badge bg-success">
+                {{ application.status }}
+            </span>
+        {% endif %}
+    </td>
+
+    <!-- RESUME -->
+        <td>
+            {% if application.resume_file %}
+                <a href="{{ url_for('employer.view_resume',
+                    filename=application.resume_file) }}"
+                   class="btn btn-sm btn-primary">
+                    View Resume
+                </a>
+            {% else %}
+                <span class="text-danger">No Resume</span>
+            {% endif %}
+        </td>
+
+    <!-- ACTION -->
+    <td>
+        {% if application.status == "Interview Scheduled" %}
+
+            <button class="btn btn-secondary btn-sm" disabled>
+                Interview Scheduled
+            </button>
+
+        {% else %}
+
+            <a href="{{ url_for('employer.schedule_interview',
+                application_id=application.id) }}"
+                class="btn btn-warning btn-sm">
+
+                Schedule Interview
+            </a>
+
+        {% endif %}
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

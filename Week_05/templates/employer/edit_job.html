@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Job{% endblock %}
+
+{% block content %}
+
+<h2>Edit Job</h2>
+
+<form method="POST">
+
+
+<div class="mb-3">
+    <input type="text"
+           name="title"
+           value="{{ job.title }}"
+           class="form-control">
+</div>
+
+<div class="mb-3">
+    <input type="text"
+           name="location"
+           value="{{ job.location }}"
+           class="form-control">
+</div>
+
+<div class="mb-3">
+    <textarea class="form-control"
+              name="description"
+              rows="5">{{ job.description }}</textarea>
+</div>
+
+<button class="btn btn-primary">
+    Update Job
+</button>
+
+
+</form>
+
+{% endblock %}

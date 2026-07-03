@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+
+<body style="font-family: Arial, sans-serif;">
+
+
+<h2 style="color: #0d6efd;">
+    Welcome to Job Portal 🎉
+</h2>
+
+<p>
+    Hello {{ user.name }},
+</p>
+
+<p>
+    Thank you for registering with Job Portal.
+</p>
+
+<p>
+    Your account has been successfully created and you can now:
+</p>
+
+<ul>
+    {% if user.role == "candidate" %}
+        <li>Search for jobs</li>
+        <li>Apply for jobs</li>
+        <li>Upload your resume</li>
+        <li>Track application status</li>
+    {% endif %}
+
+    {% if user.role == "employer" %}
+        <li>Post job openings</li>
+        <li>Manage applicants</li>
+        <li>Schedule interviews</li>
+        <li>Track recruitment progress</li>
+    {% endif %}
+</ul>
+
+<p>
+    We are excited to have you on board.
+</p>
+
+<br>
+
+<p>
+    Regards,
+    <br>
+    <strong>Job Portal Team</strong>
+</p>
+
+
+</body>
+
+</html>

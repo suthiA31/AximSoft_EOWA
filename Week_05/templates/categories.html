@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Categories
+{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold display-5">
+            Explore Job Categories
+        </h1>
+
+        <p class="text-muted fs-5">
+            Find opportunities in your favorite domain
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+            <div class="category-box">
+                <div class="category-icon">🤖</div>
+                <h4>AI & ML</h4>
+                <p>Artificial Intelligence & Machine Learning Jobs</p>
+                <span class="badge bg-primary">120 Jobs</span>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="category-box">
+                <div class="category-icon">📊</div>
+                <h4>Data Science</h4>
+                <p>Analytics & Data Engineering Roles</p>
+                <span class="badge bg-success">95 Jobs</span>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="category-box">
+                <div class="category-icon">💻</div>
+                <h4>Web Development</h4>
+                <p>Frontend & Backend Development</p>
+                <span class="badge bg-warning text-dark">140 Jobs</span>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="category-box">
+                <div class="category-icon">☁️</div>
+                <h4>Cloud Computing</h4>
+                <p>AWS, Azure & DevOps Careers</p>
+                <span class="badge bg-info">70 Jobs</span>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="category-box">
+                <div class="category-icon">🔐</div>
+                <h4>Cyber Security</h4>
+                <p>Security Analyst & Ethical Hacking</p>
+                <span class="badge bg-danger">60 Jobs</span>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="category-box">
+                <div class="category-icon">📱</div>
+                <h4>Mobile Development</h4>
+                <p>Android & iOS Development</p>
+                <span class="badge bg-secondary">80 Jobs</span>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="category-box">
+                <div class="category-icon">📈</div>
+                <h4>Business Analyst</h4>
+                <p>Business & Product Analysis Roles</p>
+                <span class="badge bg-dark">55 Jobs</span>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="category-box">
+                <div class="category-icon">🎨</div>
+                <h4>UI/UX Design</h4>
+                <p>Design and User Experience Careers</p>
+                <span class="badge bg-primary">45 Jobs</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+/* =========================
+   PAGE BACKGROUND
+========================= */
+
+body {
+    background: linear-gradient(180deg, #f9f7ff, #ffffff);
+}
+
+/* =========================
+   HEADER TEXT
+========================= */
+
+.display-5 {
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.text-muted {
+    color: #6b7280 !important;
+}
+
+/* =========================
+   CATEGORY BOX (CLEAN CARD)
+========================= */
+
+.category-box {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 28px;
+    text-align: center;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.category-box:hover {
+    transform: translateY(-6px);
+    border-color: #c4b5fd;
+}
+
+/* =========================
+   ICON STYLE (SOFT FLOATING LOOK)
+========================= */
+
+.category-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+    display: inline-block;
+    padding: 12px;
+    border-radius: 14px;
+    background: #f5f3ff;
+}
+
+/* =========================
+   TITLE + TEXT
+========================= */
+
+.category-box h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.category-box p {
+    font-size: 13px;
+    color: #6b7280;
+    min-height: 45px;
+}
+
+/* =========================
+   JOB COUNT BADGE (SOFT ONLY ONE STYLE)
+========================= */
+
+.category-box .badge {
+    background: #f5f3ff !important;
+    color: #7c3aed !important;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #e9d5ff;
+}
+
+/* =========================
+   REMOVE BOOTSTRAP COLOR CHAOS
+========================= */
+
+.bg-primary,
+.bg-success,
+.bg-warning,
+.bg-info,
+.bg-danger,
+.bg-secondary,
+.bg-dark {
+    background: #f5f3ff !important;
+    color: #7c3aed !important;
+    border: 1px solid #e9d5ff;
+}
