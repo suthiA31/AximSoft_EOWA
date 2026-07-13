@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+
+                <i class="bi bi-truck text-primary"></i>
+
+                Delivery Analytics
+
+            </h2>
+
+            <p class="text-secondary">
+
+                Shipping performance and delivery insights.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- KPI -->
+
+    <div class="row g-4">
+
+        <div class="col-lg-3">
+
+            <div class="kpi-card revenue">
+
+                <small>Average Delivery</small>
+
+                <h2>{{ kpis.avg_delivery }} Days</h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="kpi-card orders">
+
+                <small>Delayed Orders</small>
+
+                <h2>{{ kpis.delayed_rate }}%</h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="kpi-card customers">
+
+                <small>Completed Orders</small>
+
+                <h2>{{ "{:,}".format(kpis.orders) }}</h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="kpi-card sellers">
+
+                <small>Average Review</small>
+
+                <h2>{{ kpis.avg_review }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Charts -->
+
+    <div class="row mt-4">
+
+        <div class="col-lg-6">
+
+            <div class="chart-card">
+
+                <h4>Delivery Time Distribution</h4>
+
+                {{ delivery_chart|safe }}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="chart-card">
+
+                <h4>Delivery vs Review</h4>
+
+                {{ scatter|safe }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Insights -->
+
+    <div class="row mt-4">
+
+        <div class="col-md-4">
+
+            <div class="insight-card">
+
+                <h5>Fast Delivery</h5>
+
+                <h2>{{ kpis.avg_delivery }} Days</h2>
+
+                <p>Average shipping duration.</p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="insight-card">
+
+                <h5>Delayed Deliveries</h5>
+
+                <h2>{{ kpis.delayed_rate }}%</h2>
+
+                <p>Orders delivered late.</p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="insight-card">
+
+                <h5>Customer Satisfaction</h5>
+
+                <h2>{{ kpis.avg_review }}/5</h2>
+
+                <p>Average review score.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

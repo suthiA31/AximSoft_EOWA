@@ -1,0 +1,329 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- ==========================
+        PAGE HEADER
+=========================== -->
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+
+        <h2 class="fw-bold">
+
+            <i class="bi bi-shop text-primary"></i>
+
+            Seller Analytics
+
+        </h2>
+
+        <p class="text-muted">
+
+            Analyze seller performance, revenue contribution and delivery efficiency.
+
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ==========================
+        KPI CARDS
+=========================== -->
+
+<div class="row g-4">
+
+    <div class="col-lg-3">
+
+        <div class="kpi-card sellers">
+
+            <small>Total Sellers</small>
+
+            <h2>{{ "{:,}".format(kpis.sellers) }}</h2>
+
+            <p>Registered Sellers</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-3">
+
+        <div class="kpi-card revenue">
+
+            <small>Top Seller Revenue</small>
+
+            <h2>
+
+                ${{ "{:,.2f}".format(kpis.top_seller_revenue) }}
+
+            </h2>
+
+            <p>Highest Revenue Seller</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-3">
+
+        <div class="kpi-card orders">
+
+            <small>Average Revenue</small>
+
+            <h2>
+
+                ${{ "{:,.2f}".format(kpis.avg_seller_revenue) }}
+
+            </h2>
+
+            <p>Revenue per Seller</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-3">
+
+        <div class="kpi-card customers">
+
+            <small>Average Delivery</small>
+
+            <h2>
+
+                {{ kpis.avg_delivery }} Days
+
+            </h2>
+
+            <p>Seller Delivery Time</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================
+        CHARTS ROW 1
+=========================== -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-8">
+
+        <div class="chart-card">
+
+            <h4 class="mb-3">
+
+                Top 10 Sellers by Revenue
+
+            </h4>
+
+            {{ seller_chart|safe }}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="chart-card">
+
+            <h4 class="mb-3">
+
+                Seller Distribution
+
+            </h4>
+
+            {{ seller_state_chart|safe }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================
+        CHARTS ROW 2
+=========================== -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="chart-card">
+
+            <h4 class="mb-3">
+
+                Delivery Performance
+
+            </h4>
+
+            {{ delivery_chart|safe }}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="chart-card">
+
+            <h4 class="mb-3">
+
+                Revenue Distribution
+
+            </h4>
+
+            {{ seller_revenue_chart|safe }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================
+        TOP SELLERS TABLE
+=========================== -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-12">
+
+        <div class="chart-card">
+
+            <h3 class="mb-3">
+
+                Top 20 Sellers
+
+            </h3>
+
+            <table class="table table-hover dark-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Seller ID</th>
+
+                        <th>Total Revenue</th>
+
+                        <th>Orders</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% for seller in top_sellers %}
+
+                    <tr>
+
+                        <td>{{ seller.seller_id }}</td>
+
+                        <td>${{ "{:,.2f}".format(seller.Revenue) }}</td>
+
+                        <td>{{ seller.Orders }}</td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================
+        INSIGHTS
+=========================== -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-12">
+
+        <div class="chart-card">
+
+            <h3>
+
+                Seller Insights
+
+            </h3>
+
+            <hr>
+
+            <div class="row text-center">
+
+                <div class="col-md-3">
+
+                    <i class="bi bi-shop fs-1 text-primary"></i>
+
+                    <h4 class="mt-3">
+
+                        {{ "{:,}".format(kpis.sellers) }}
+
+                    </h4>
+
+                    <p>Total Sellers</p>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <i class="bi bi-currency-dollar fs-1 text-success"></i>
+
+                    <h4 class="mt-3">
+
+                        ${{ "{:,.2f}".format(kpis.top_seller_revenue) }}
+
+                    </h4>
+
+                    <p>Top Seller Revenue</p>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <i class="bi bi-truck fs-1 text-warning"></i>
+
+                    <h4 class="mt-3">
+
+                        {{ kpis.avg_delivery }}
+
+                    </h4>
+
+                    <p>Average Delivery Days</p>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <i class="bi bi-graph-up-arrow fs-1 text-danger"></i>
+
+                    <h4 class="mt-3">
+
+                        ${{ "{:,.2f}".format(kpis.avg_seller_revenue) }}
+
+                    </h4>
+
+                    <p>Average Seller Revenue</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

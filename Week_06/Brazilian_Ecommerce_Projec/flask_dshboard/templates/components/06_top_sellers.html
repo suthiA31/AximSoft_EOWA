@@ -1,0 +1,141 @@
+<div class="row mt-4">
+
+    <div class="col-lg-12">
+
+        <div class="chart-card">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <h3>
+
+                    <i class="bi bi-award-fill text-warning"></i>
+
+                    Top Sellers Performance
+
+                </h3>
+
+                <span class="badge bg-success">
+
+                    Top 10 Sellers
+
+                </span>
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table table-dark table-hover align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+
+                            <th>Seller ID</th>
+
+                            <th>Revenue</th>
+
+                            <th>Orders</th>
+
+                            <th>Review</th>
+
+                            <th>Delivery</th>
+
+                            <th>Performance</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for seller in top_sellers %}
+
+                        <tr>
+
+                            <td>
+
+                                {{ loop.index }}
+
+                            </td>
+
+                            <td>
+
+                                <small>
+
+                                    {{ seller.seller_id }}
+
+                                </small>
+
+                            </td>
+
+                            <td>
+
+                                ${{ "{:,.2f}".format(seller.Revenue) }}
+
+                            </td>
+
+                            <td>
+
+                                {{ seller.Orders }}
+
+                            </td>
+
+                            <td>
+
+                                ⭐ {{ seller.Avg_Review }}
+
+                            </td>
+
+                            <td>
+
+                                {{ seller.Avg_Delivery }} Days
+
+                            </td>
+
+                            <td>
+
+                                {% if seller.Avg_Review >= 4.5 %}
+
+                                    <span class="badge bg-warning text-dark">
+
+                                        🥇 Gold
+
+                                    </span>
+
+                                {% elif seller.Avg_Review >= 4 %}
+
+                                    <span class="badge bg-info">
+
+                                        🥈 Silver
+
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="badge bg-secondary">
+
+                                        🥉 Bronze
+
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

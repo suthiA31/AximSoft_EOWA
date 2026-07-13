@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+
+                <i class="bi bi-table text-primary"></i>
+
+                Dataset Explorer
+
+            </h2>
+
+            <p class="text-secondary">
+
+                Search, sort and explore the cleaned Olist dataset.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="chart-card">
+
+        <div class="table-responsive">
+
+            <table class="table table-dark table-hover"
+
+                   id="datasetTable">
+
+                <thead>
+
+                    <tr>
+
+                        {% for col in columns %}
+
+                        <th>
+
+                            {{ col }}
+
+                        </th>
+
+                        {% endfor %}
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for row in tables %}
+
+                    <tr>
+
+                        {% for col in columns %}
+
+                        <td>
+
+                            {{ row[col] }}
+
+                        </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+$('#datasetTable').DataTable({
+
+pageLength:25,
+
+scrollX:true,
+
+responsive:true,
+
+ordering:true,
+
+searching:true
+
+});
+
+});
+
+</script>
+
+{% endblock %}
