@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Employer Profile{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow">
+
+                <div class="card-body">
+
+                    <div class="text-center mb-4">
+
+                        {% if current_user.profile_pic %}
+
+                        <img src="{{ url_for('static', filename='uploads/profile/' + current_user.profile_pic) }}"
+                             class="rounded-circle border"
+                             width="150"
+                             height="150">
+
+                        {% else %}
+
+                        <img src="{{ url_for('static', filename='uploads/profile/Pasted image.png') }}"
+                             class="rounded-circle border"
+                             width="150"
+                             height="150">
+
+                        {% endif %}
+
+                        <h2 class="mt-3">
+
+                            {{ current_user.name }}
+
+                        </h2>
+
+                        <span class="badge bg-primary">
+
+                            Employer
+
+                        </span>
+
+                    </div>
+
+                    <table class="table table-bordered">
+
+                        <tr>
+
+                            <th width="30%">Name</th>
+
+                            <td>{{ current_user.name }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Email</th>
+
+                            <td>{{ current_user.email }}</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Skills</th>
+
+                            <td>
+
+                                {% if current_user.skills %}
+
+                                    {{ current_user.skills }}
+
+                                {% else %}
+
+                                    Not Added
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Experience</th>
+
+                            <td>
+
+                                {% if current_user.experience %}
+
+                                    {{ current_user.experience }}
+
+                                {% else %}
+
+                                    Not Added
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>About Company</th>
+
+                            <td>
+
+                                {% if current_user.bio %}
+
+                                    {{ current_user.bio }}
+
+                                {% else %}
+
+                                    Not Added
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                    <div class="text-center mt-4">
+
+                        <a href="{{ url_for('employer.edit_profile') }}"
+                           class="btn btn-warning">
+
+                            <i class="bi bi-pencil-square"></i>
+
+                            Edit Profile
+
+                        </a>
+
+                        <a href="{{ url_for('employer.dashboard') }}"
+                           class="btn btn-secondary">
+
+                            <i class="bi bi-arrow-left"></i>
+
+                            Back to Dashboard
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

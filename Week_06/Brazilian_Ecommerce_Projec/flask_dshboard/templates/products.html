@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold">
+
+                <i class="bi bi-box-seam-fill text-warning"></i>
+
+                Product Analytics
+
+            </h2>
+
+            <p class="text-secondary">
+
+                Product performance and category revenue analysis.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- KPI Cards -->
+
+    <div class="row g-4">
+
+        <div class="col-lg-3">
+
+            <div class="kpi-card revenue">
+
+                <small>Total Revenue</small>
+
+                <h2>${{ "{:,.2f}".format(kpis.revenue) }}</h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="kpi-card customers">
+
+                <small>Top Category</small>
+
+                <h2>{{ kpis.top_category }}</h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="kpi-card orders">
+
+                <small>Total Orders</small>
+
+                <h2>{{ "{:,}".format(kpis.orders) }}</h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="kpi-card sellers">
+
+                <small>Average Review</small>
+
+                <h2>{{ kpis.avg_review }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Charts -->
+
+    <div class="row mt-4">
+
+        <div class="col-lg-8">
+
+            <div class="chart-card">
+
+                <h4>Best Selling Categories</h4>
+
+                {{ product_chart|safe }}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="chart-card">
+
+                <h4>Revenue Treemap</h4>
+
+                {{ treemap|safe }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Business Summary -->
+
+    <div class="row mt-4">
+
+        <div class="col-lg-4">
+
+            <div class="insight-card">
+
+                <h5>Top Category</h5>
+
+                <h2>{{ kpis.top_category }}</h2>
+
+                <p>
+
+                    Highest revenue generating category.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="insight-card">
+
+                <h5>Total Revenue</h5>
+
+                <h2>${{ "{:,.2f}".format(kpis.revenue) }}</h2>
+                =;,
+
+                    Revenue generated from all products.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="insight-card">
+
+                <h5>Average Rating</h5>
+
+                <h2>{{ kpis.avg_review }}</h2>
+
+                <p>
+
+                    Customer satisfaction across products.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}2

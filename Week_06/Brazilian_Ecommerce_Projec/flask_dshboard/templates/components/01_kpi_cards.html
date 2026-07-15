@@ -1,0 +1,160 @@
+<div class="row g-4">
+
+    <!-- Revenue Card -->
+    <div class="col-lg-3 col-md-6">
+
+        <div class="kpi-card revenue">
+
+            <div class="card-top">
+
+                <div>
+
+                    <small>Total Revenue</small>
+
+                    <h2>
+                        ${{ "{:,.2f}".format(kpis.revenue) }}
+                    </h2>
+
+                    <p class="positive">
+
+                        <i class="bi bi-arrow-up"></i>
+
+                        {{ kpis.growth }}%
+
+                        <span>vs Previous Month</span>
+
+                    </p>
+
+                </div>
+
+                <div class="icon-circle">
+
+                    <i class="bi bi-cash-stack"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Orders -->
+
+    <div class="col-lg-3 col-md-6">
+
+        <div class="kpi-card orders">
+
+            <div class="card-top">
+
+                <div>
+
+                    <small>Total Orders</small>
+
+                    <h2>
+
+                    {{ kpis.orders }}
+
+                    </h2>
+
+                    <p class="positive">
+
+                        <i class="bi bi-bag-check-fill"></i>
+
+                        Completed Orders
+
+                    </p>
+
+                </div>
+
+                <div class="icon-circle">
+
+                    <i class="bi bi-cart4"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Customers -->
+
+    <div class="col-lg-3 col-md-6">
+
+        <div class="kpi-card customers">
+
+            <div class="card-top">
+
+                <div>
+
+                    <small>Customers</small>
+
+
+                    <h2>
+                        {{ kpis.customers }}
+                    </h2>
+
+                    <p class="positive">
+
+                        Repeat Rate
+
+                        {{ kpis.repeat_rate }}%
+
+                    </p>
+
+                </div>
+
+                <div class="icon-circle">
+
+                    <i class="bi bi-people-fill"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Sellers -->
+
+    <div class="col-lg-3 col-md-6">
+
+        <div class="kpi-card sellers">
+
+            <div class="card-top">
+
+                <div>
+
+                    <small>Sellers</small>
+
+                    <h2>
+                       {{ kpis.sellers }}
+                        
+                    </h2>
+
+                    <p>
+
+                        Avg Review ⭐
+
+                        {{ kpis.avg_review }}
+
+                    </p>
+
+                </div>
+
+                <div class="icon-circle">
+
+                    <i class="bi bi-shop-window"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Candidate Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+
+<!-- Welcome Section -->
+
+<div class="card border-0 shadow-lg dashboard-banner mb-4">
+    <div class="card-body p-4">
+
+        <div class="row align-items-center">
+
+            <div class="col-md-8">
+
+                <h2 class="fw-bold">
+                    Welcome, {{ current_user.name }} 👋
+                </h2>
+
+                <p class="text-muted">
+                    Track applications, save jobs, and manage your profile.
+                </p>
+
+            </div>
+
+            <div class="col-md-4 text-center">
+
+                {% if current_user.profile_picture %}
+
+                <img src="{{ url_for('static',
+                filename='uploads/' + current_user.profile_picture) }}"
+                class="dashboard-avatar">
+
+                {% else %}
+
+                <img src="https://ui-avatars.com/api/?name={{ current_user.name }}"
+                class="dashboard-avatar">
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Statistics -->
+
+<div class="row g-4 mb-4">
+
+    <div class="col-md-4">
+
+        <div class="card stat-card bg-primary text-white">
+
+            <div class="card-body text-center">
+
+                <h1>{{ total_applied }}</h1>
+
+                <p>Applied Jobs</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card stat-card bg-success text-white">
+
+            <div class="card-body text-center">
+
+                <h1>{{ saved_jobs }}</h1>
+
+                <p>Saved Jobs</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card stat-card bg-warning">
+
+            <div class="card-body text-center">
+
+                <h1>{{ notifications }}</h1>
+
+
+                <a href="{{ url_for('candidate.notifications') }}"
+   class="btn btn-warning">
+
+    Notifications
+
+</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Quick Actions -->
+
+<div class="card shadow border-0 mb-4">
+
+    <div class="card-body">
+
+        <h4 class="mb-3">
+            Quick Actions
+        </h4>
+
+        <a href="{{ url_for('jobs.all_jobs') }}"
+           class="btn btn-primary me-2">
+
+            <i class="bi bi-search"></i>
+            Browse Jobs
+
+        </a>
+
+        <a href="{{ url_for('candidate.applied_jobs') }}"
+           class="btn btn-success me-2">
+
+            <i class="bi bi-file-earmark-check"></i>
+            Applied Jobs
+
+        </a>
+
+        <a href="{{ url_for('candidate.saved_jobs') }}"
+           class="btn btn-warning me-2">
+
+            <i class="bi bi-bookmark-fill"></i>
+            Saved Jobs
+
+        </a>
+
+        <a href="{{ url_for('candidate.profile') }}"
+           class="btn btn-dark">
+
+            <i class="bi bi-person-circle"></i>
+            Profile
+
+        </a>
+
+    </div>
+
+</div>
+
+<div class="card shadow-lg mt-4">
+    <div class="card-body">
+
+        <h3>Recent Applications</h3>
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>Job</th>
+                    <th>Company</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            {% for app in recent_applications %}
+
+            <tr>
+                <td>{{ app.job.title }}</td>
+                <td>{{ app.job.company_name }}</td>
+            </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+<!-- Recent Saved Jobs -->
+
+<div class="card shadow-lg mt-4">
+    <div class="card-body">
+
+        <h3>Recently Saved Jobs</h3>
+
+        <div class="row">
+
+        {% for saved in recent_saved_jobs %}
+
+        <div class="col-md-4">
+
+            <div class="card mb-3">
+
+                <div class="card-body">
+
+                    <h5>{{ saved.job.title }}</h5>
+
+                    <p>
+                        {{ saved.job.company_name }}
+                    </p>
+
+                    <a href="{{ url_for('jobs.job_details',
+                                        id=saved.job.id) }}"
+                       class="btn btn-primary">
+
+                        View Job
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

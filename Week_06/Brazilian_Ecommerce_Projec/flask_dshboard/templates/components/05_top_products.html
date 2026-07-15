@@ -1,0 +1,105 @@
+<div class="row mt-4">
+
+    <div class="col-lg-12">
+
+        <div class="chart-card">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <h3>
+
+                    <i class="bi bi-trophy-fill text-warning"></i>
+
+                    Top Product Categories
+
+                </h3>
+
+                <span class="badge bg-warning text-dark">
+
+                    Top 10
+
+                </span>
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table table-dark table-hover align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+
+                            <th>Category</th>
+
+                            <th>Revenue ($)</th>
+
+                            <th>Orders</th>
+
+                            <th>Avg Review</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for product in top_products %}
+
+                        <tr>
+
+                            <td>
+
+                                {{ loop.index }}
+
+                            </td>
+
+                            <td>
+
+                                <span class="fw-bold">
+
+                                    {{ product.product_category_name_english }}
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                ${{ "{:,.2f}".format(product.Revenue) }}
+
+                            </td>
+
+                            <td>
+
+                                {{ "{:,}".format(product.Orders) }}
+
+                            </td>
+
+                            <td>
+
+                                <span class="badge bg-success">
+
+                                    ⭐ {{ product.Average_Review }}
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

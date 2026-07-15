@@ -1,0 +1,99 @@
+<div class="row mt-4">
+
+    <!-- Monthly Revenue -->
+
+    <div class="col-lg-8">
+
+        <div class="chart-card">
+
+            <h4 class="mb-3">
+
+                Monthly Revenue Trend
+
+            </h4>
+
+            {{ monthly_chart|safe }}
+
+        </div>
+
+    </div>
+
+    <!-- Payment -->
+
+    <div class="col-lg-4">
+
+        <div class="chart-card">
+
+            <h4 class="mb-3">
+
+                Payment Distribution
+
+            </h4>
+
+            {{ payment_chart|safe }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-4">
+
+    <!-- Category -->
+
+    <div class="col-lg-6">
+
+        <div class="chart-card">
+
+            <h4 class="mb-3">
+
+                Revenue by Category
+
+            </h4>
+
+            {{ category_chart|safe }}
+
+        </div>
+
+    </div>
+
+    <!-- State -->
+
+    <div class="col-lg-6">
+
+        <div class="chart-card">
+
+            <h4 class="mb-3">
+
+                Revenue by State
+
+            </h4>
+
+            {{ state_chart|safe }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-4">
+
+    <div class="col-lg-12">
+
+        <div class="chart-card">
+
+            <h4 class="mb-3">
+
+                Customer Review Distribution
+
+            </h4>
+
+            {{ review_chart|safe }}
+
+        </div>
+
+    </div>
+
+</div>

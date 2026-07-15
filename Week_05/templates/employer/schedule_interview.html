@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Schedule Interview{% endblock %}
+
+{% block content %}
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h2>Schedule Interview</h2>
+
+<form method="POST">
+
+<div class="mb-3">
+
+<label>Date</label>
+
+<input type="date"
+    name="date"
+    class="form-control">
+
+</div>
+
+<div class="mb-3">
+
+<label>Time</label>
+
+<input type="time"
+    name="time"
+    class="form-control">
+
+</div>
+
+<div class="mb-3">
+
+<label>Mode</label>
+
+<select name="mode"
+     class="form-select">
+
+<option>Online</option>
+<option>Offline</option>
+<option>Google Meet</option>
+<option>Zoom</option>
+
+</select>
+
+</div>
+
+<button class="btn btn-success">
+
+Schedule
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

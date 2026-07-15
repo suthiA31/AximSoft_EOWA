@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+Course Details
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-body p-5">
+
+            <span class="badge bg-primary mb-3">
+                {{ course.category }}
+            </span>
+
+            <h1>
+                {{ course.course_name }}
+            </h1>
+
+            <p class="text-muted">
+                Duration:
+                {{ course.duration }}
+            </p>
+
+            <hr>
+
+            <p>
+                {{ course.description }}
+            </p>
+                {% if enrolled %}
+
+                    <button
+                        class="btn btn-secondary"
+                        disabled>
+
+                        Already Enrolled
+
+                    </button>
+
+                    {% else %}
+
+                    <a href="{{ url_for(
+                        'courses.enroll',
+                        course_id=course.course_id
+                    ) }}"
+                    class="btn btn-success">
+
+                        Enroll Now
+
+                    </a>
+
+                    {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

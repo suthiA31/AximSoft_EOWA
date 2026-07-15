@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% block title %}
+View Job
+{% endblock %}
+
+{% block content %}
+
+<div class="card shadow">
+
+
+<div class="card-body">
+
+    <div class="d-flex justify-content-between">
+
+        <div>
+
+            <h2>
+                {{ job.title }}
+            </h2>
+
+            <h5 class="text-muted">
+                {{ job.company_name }}
+            </h5>
+
+        </div>
+
+        <div>
+
+            <span class="badge bg-success">
+                {{ job.status }}
+            </span>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p>
+        <strong>Location:</strong>
+        {{ job.location }}
+    </p>
+
+    <p>
+        <strong>Experience:</strong>
+        {{ job.experience }}
+    </p>
+
+    <p>
+        <strong>Salary:</strong>
+        {{ job.salary }}
+    </p>
+
+    <p>
+        <strong>Skills Required:</strong>
+        {{ job.skills }}
+    </p>
+
+    <p>
+        <strong>Description:</strong>
+    </p>
+
+    <p>
+        {{ job.description }}
+    </p>
+
+    <hr>
+
+    <div class="row text-center">
+
+        <div class="col-md-4">
+
+            <div class="card bg-primary text-white">
+
+                <div class="card-body">
+
+                    <h3>
+                        {{ total_applications }}
+                    </h3>
+
+                    <p>
+                        Applications
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card bg-success text-white">
+
+                <div class="card-body">
+
+                    <h3>
+                        {{ shortlisted }}
+                    </h3>
+
+                    <p>
+                        Shortlisted
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card bg-warning">
+
+                <div class="card-body">
+
+                    <h3>
+                        {{ interviews }}
+                    </h3>
+
+                    <p>
+                        Interviews
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <a href="{{ url_for('employer.edit_job',
+    job_id=job.id) }}"
+    class="btn btn-warning">
+
+        Edit Job
+
+    </a>
+
+    <a href="{{ url_for('employer.view_applicants',
+    job_id=job.id) }}"
+    class="btn btn-info">
+
+        View Applicants
+
+    </a>
+
+</div>
+
+
+</div>
+
+{% endblock %}

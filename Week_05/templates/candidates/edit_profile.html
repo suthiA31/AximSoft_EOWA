@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Profile
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+
+<div class="card shadow-lg border-0 rounded-4">
+
+    <div class="card-header bg-primary text-white">
+
+        <h3 class="mb-0">
+            <i class="bi bi-person-circle"></i>
+            Edit Profile
+        </h3>
+
+    </div>
+
+    <div class="card-body p-4">
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">
+                        Full Name
+                    </label>
+
+                    <input type="text"
+                           name="name"
+                           value="{{ current_user.name }}"
+                           class="form-control">
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">
+                        Email
+                    </label>
+
+                    <input type="email"
+                           value="{{ current_user.email }}"
+                           class="form-control"
+                           readonly>
+
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Skills
+                </label>
+
+                <input type="text"
+                       name="skills"
+                       value="{{ current_user.skills }}"
+                       class="form-control"
+                       placeholder="Python, Flask, SQL">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Experience
+                </label>
+
+                <input type="text"
+                       name="experience"
+                       value="{{ current_user.experience }}"
+                       class="form-control"
+                       placeholder="Fresher / 1 Year">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Bio
+                </label>
+
+                <textarea name="bio"
+                          rows="4"
+                          class="form-control">{{ current_user.bio }}</textarea>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Upload Profile Picture
+                </label>
+
+                <input type="file"
+                       name="profile_pic"
+                       class="form-control">
+
+            </div>
+            <div class="mb-3">
+
+    <label class="form-label">
+        Upload Resume (PDF)
+    </label>
+
+    <input
+        type="file"
+        name="resume"
+        class="form-control"
+        accept=".pdf">
+
+    {% if current_user.resume %}
+        <small class="text-success">
+            Current Resume:
+            <a href="{{ url_for('static', filename='uploads/' + current_user.resume) }}"
+               target="_blank">
+                View Resume
+            </a>
+        </small>
+    {% endif %}
+
+</div>
+
+            <button type="submit"
+                    class="btn btn-success">
+
+                <i class="bi bi-check-circle"></i>
+                Save Changes
+
+            </button>
+
+            <a href="{{ url_for('candidate.profile') }}"
+               class="btn btn-secondary">
+
+                Cancel
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+</div>
+
+{% endblock %}

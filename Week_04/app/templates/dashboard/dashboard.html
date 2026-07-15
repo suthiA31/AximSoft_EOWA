@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <!-- Header -->
+    <div class="mb-4">
+        <h1 class="fw-bold">My Learning Dashboard</h1>
+        <p class="text-muted">Track your progress and continue learning</p>
+    </div>
+
+    <!-- STATS CARDS -->
+    <div class="row mb-5 text-center">
+
+        <div class="col-md-4">
+            <div class="p-4 shadow-sm rounded bg-white">
+                <h2 class="text-primary">{{ total_courses }}</h2>
+                <p class="mb-0 text-muted">Total Enrolled</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-4 shadow-sm rounded bg-white">
+                <h2 class="text-success">{{ completed_courses }}</h2>
+                <p class="mb-0 text-muted">Completed</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-4 shadow-sm rounded bg-white">
+                <h2 class="text-warning">{{ total_courses - completed_courses }}</h2>
+                <p class="mb-0 text-muted">Active Courses</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- COURSE LIST -->
+    <div class="row">
+
+        {% for course in enrolled_courses %}
+
+        <div class="col-md-6 mb-4">
+
+            <div class="card border-0 shadow-sm h-100">
+
+                <div class="card-body">
+
+                    <!-- Course Title -->
+                    <h4 class="fw-bold">
+                        {{ course.course_name }}
+                    </h4>
+
+                    <!-- Category -->
+                    <p class="text-muted mb-2">
+                        {{ course.category }}
+                    </p>
+
+                    <!-- Progress Label -->
+                    <div class="d-flex justify-content-between">
+                        <small>Progress</small>
+                        <small class="fw-bold">{{ course.progress }}%</small>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="progress mb-3" style="height: 8px;">
+                        <div class="progress-bar bg-success"
+                             role="progressbar"
+                             style="width: {{ course.progress }}%;"
+                             aria-valuenow="{{ course.progress }}"
+                             aria-valuemin="0"
+                             aria-valuemax="100">
+                        </div>
+                    </div>
+
+                    <!-- Status Badge -->
+                    {% if course.progress >= 100 %}
+                        <span class="badge bg-success">Completed</span>
+                    {% else %}
+                        <span class="badge bg-warning text-dark">In Progress</span>
+                    {% endif %}
+
+                    <br>
+
+                    <!-- Action Button -->
+                    <a href="{{ url_for('dashboard.update_progress', course_id=course.course_id) }}"
+                       class="btn btn-success btn-sm mt-3">
+                        Update Progress
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}
