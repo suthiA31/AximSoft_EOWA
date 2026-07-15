@@ -1,0 +1,376 @@
+/*=================================================
+        NOTEBOOK PAGE - PREMIUM GLASS THEME
+==================================================*/
+
+.page-header{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+.page-header h2{
+
+    color:#fff;
+
+    font-size:38px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+.page-header p{
+
+    color:#d9cbff;
+
+    font-size:16px;
+
+}
+
+
+
+/*=================================================
+                NOTEBOOK CARD
+==================================================*/
+
+.report-box{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:24px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    transition:.45s;
+
+    box-shadow:
+
+    0 12px 35px rgba(0,0,0,.35);
+
+}
+
+
+
+/* Shine Effect */
+
+.report-box::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-60%;
+
+    left:-140%;
+
+    width:55%;
+
+    height:260%;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.35),
+
+        transparent
+
+    );
+
+    transform:rotate(25deg);
+
+    transition:1s;
+
+}
+
+.report-box:hover::after{
+
+    left:180%;
+
+}
+
+
+
+/* Purple Border Glow */
+
+.report-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:24px;
+
+    padding:1.5px;
+
+    background:linear-gradient(
+
+        135deg,
+
+        rgba(168,85,247,.9),
+
+        rgba(192,132,252,.9),
+
+        rgba(99,102,241,.9)
+
+    );
+
+    -webkit-mask:
+
+    linear-gradient(#fff 0 0) content-box,
+
+    linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+    opacity:0;
+
+    transition:.5s;
+
+}
+
+.report-box:hover::before{
+
+    opacity:1;
+
+}
+
+
+
+/* Hover */
+
+.report-box:hover{
+
+    transform:
+
+        translateY(-10px)
+
+        scale(1.03);
+
+    box-shadow:
+
+    0 0 20px rgba(168,85,247,.35),
+
+    0 0 40px rgba(168,85,247,.25),
+
+    0 25px 45px rgba(0,0,0,.4);
+
+}
+
+
+
+/*=================================================
+                    ICON
+==================================================*/
+
+.report-icon{
+
+    width:85px;
+
+    height:85px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:34px;
+
+    color:white;
+
+    margin-bottom:22px;
+
+    background:linear-gradient(
+
+        135deg,
+
+        #7c3aed,
+
+        #a855f7
+
+    );
+
+    box-shadow:
+
+    0 0 20px rgba(168,85,247,.45);
+
+    transition:.45s;
+
+}
+
+
+
+.report-box:hover .report-icon{
+
+    transform:
+
+        rotate(10deg)
+
+        scale(1.15);
+
+    box-shadow:
+
+    0 0 35px rgba(192,132,252,.75);
+
+}
+
+
+
+/*=================================================
+                TEXT
+==================================================*/
+
+.report-box h4{
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.report-box p{
+
+    color:#e8ddff;
+
+    line-height:1.7;
+
+    margin-bottom:28px;
+
+}
+
+
+
+/*=================================================
+            PURPLE DOWNLOAD BUTTON
+==================================================*/
+
+.report-box .btn{
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:12px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(
+
+        135deg,
+
+        #7c3aed,
+
+        #a855f7
+
+    );
+
+    transition:.4s;
+
+}
+
+
+
+.report-box .btn:hover{
+
+    color:white;
+
+    transform:translateY(-2px);
+
+    background:linear-gradient(
+
+        135deg,
+
+        #8b5cf6,
+
+        #c084fc
+
+    );
+
+    box-shadow:
+
+    0 0 20px rgba(168,85,247,.55),
+
+    0 0 35px rgba(192,132,252,.35);
+
+}
+
+
+
+/*=================================================
+            GRID SPACING
+==================================================*/
+
+.row{
+
+    row-gap:30px;
+
+}
+
+
+
+/*=================================================
+            RESPONSIVE
+==================================================*/
+
+@media(max-width:992px){
+
+    .report-box{
+
+        padding:30px 20px;
+
+    }
+
+}
+
+.text-muted{
+    color:aliceblue;
+}
+
+@media(max-width:768px){
+
+    .page-header h2{
+
+        font-size:30px;
+
+    }
+
+}
+.text-muted{
+    color: rgba(255,255,255,.85) !important;
+}

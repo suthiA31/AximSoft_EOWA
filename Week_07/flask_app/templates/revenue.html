@@ -1,0 +1,360 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/revenue.css') }}">
+
+<div class="page-header mb-4">
+
+    <h2>
+
+        <i class="fa-solid fa-dollar-sign"></i>
+
+        Revenue Analytics Dashboard
+
+    </h2>
+
+    <p class="text-muted">
+
+        Analyze revenue, ADR, seasonal performance and hotel profitability.
+
+    </p>
+
+</div>
+
+<!-- ================= KPI ================= -->
+
+<div class="row">
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card booking">
+
+            <h6>Total Revenue</h6>
+
+            <h2>${{kpi.total}}</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card adr">
+
+            <h6>Average ADR</h6>
+
+            <h2>${{kpi.adr}}</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card stay">
+
+            <h6>Average Stay</h6>
+
+            <h2>{{kpi.stay}}</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card cancel">
+
+            <h6>Weekend Revenue</h6>
+
+            <h2>${{kpi.weekend}}</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card booking">
+
+            <h6>Weekday Revenue</h6>
+
+            <h2>${{kpi.weekday}}</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card adr">
+
+            <h6>Top Hotel</h6>
+
+            <h2>{{kpi.hotel}}</h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Charts Row 1 ================= -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-8">
+
+        <div class="dashboard-card">
+
+            <h5>Monthly Revenue</h5>
+
+            {{revenue|safe}}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="dashboard-card">
+
+            <h5>Revenue by Hotel</h5>
+
+            {{hotel|safe}}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Charts Row 2 ================= -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>Revenue by Season</h5>
+
+            {{season|safe}}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>ADR Distribution</h5>
+
+            {{adr|safe}}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Charts Row 3 ================= -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>Revenue Histogram</h5>
+
+            {{hist|safe}}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>Weekend Revenue</h5>
+
+            {{weekend|safe}}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Charts Row 4 ================= -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>Lead Time vs Revenue</h5>
+
+            {{scatter|safe}}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>Revenue Distribution</h5>
+
+            {{violin|safe}}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Executive Summary ================= -->
+
+<div class="dashboard-card mt-5">
+
+    <h4>
+
+        Revenue Summary
+
+    </h4>
+
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <div class="mini-card">
+
+                <h6>Best Season</h6>
+
+                <h3>Summer</h3>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="mini-card">
+
+                <h6>Highest ADR</h6>
+
+                <h3>City Hotel</h3>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="mini-card">
+
+                <h6>Peak Revenue</h6>
+
+                <h3>August</h3>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="mini-card">
+
+                <h6>Best Segment</h6>
+
+                <h3>Online TA</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Insights ================= -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h4>Business Insights</h4>
+
+            <ul>
+
+                <li>City Hotel generates the highest overall revenue.</li>
+
+                <li>Summer contributes the maximum seasonal revenue.</li>
+
+                <li>ADR is considerably higher during weekends.</li>
+
+                <li>Revenue increases with longer customer stays.</li>
+
+                <li>Online Travel Agencies generate the highest income.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h4>Recommendations</h4>
+
+            <ul>
+
+                <li>Increase premium pricing during peak demand.</li>
+
+                <li>Promote long-stay packages.</li>
+
+                <li>Target high-value customer segments.</li>
+
+                <li>Optimize weekend pricing strategies.</li>
+
+                <li>Improve occupancy during low-demand seasons.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Table ================= -->
+
+<div class="dashboard-card mt-5">
+
+    <h4>
+
+        Revenue Records
+
+    </h4>
+
+    <div class="table-responsive">
+
+        {{table|safe}}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/explorer.css') }}">
+<div class="explorer-wrapper">
+
+
+<!-- HEADER -->
+
+<div class="explorer-title">
+
+    <h2>
+        <i class="fa-solid fa-database"></i>
+        Data Explorer
+    </h2>
+
+    <p>
+        Interactive exploration of hotel booking analytics dataset
+    </p>
+
+</div>
+
+
+
+<!-- KPI ROW -->
+
+<div class="row g-3 mb-3">
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="glass-kpi">
+
+<div>
+<h6>Total Records</h6>
+<h2>{{total}}</h2>
+<span>Bookings</span>
+</div>
+
+<i class="fa-solid fa-database"></i>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="glass-kpi">
+
+<div>
+<h6>Hotels</h6>
+<h2>{{hotels|length}}</h2>
+<span>Categories</span>
+</div>
+
+<i class="fa-solid fa-hotel"></i>
+
+</div>
+
+</div>
+
+
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="glass-kpi">
+
+<div>
+<h6>Countries</h6>
+<h2>{{countries|length}}</h2>
+<span>Locations</span>
+</div>
+
+<i class="fa-solid fa-globe"></i>
+
+</div>
+
+</div>
+
+
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="glass-kpi">
+
+<div>
+<h6>Customers</h6>
+<h2>{{customers|length}}</h2>
+<span>Guest Types</span>
+</div>
+
+<i class="fa-solid fa-users"></i>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- MIDDLE AREA -->
+
+
+<div class="row g-3 mb-3">
+
+
+<!-- INSIGHTS -->
+
+
+<div class="col-lg-8">
+
+
+<div class="glass-panel">
+
+
+<h4>
+<i class="fa-solid fa-chart-line"></i>
+Dataset Insights
+</h4>
+
+
+<div class="row g-3">
+
+
+<div class="col-md-4">
+
+<div class="compact-card">
+
+<i class="fa-solid fa-hotel"></i>
+
+<h5>Popular Hotel</h5>
+
+<h3>City Hotel</h3>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4">
+
+<div class="compact-card">
+
+<i class="fa-solid fa-earth-americas"></i>
+
+<h5>Top Country</h5>
+
+<h3>Portugal</h3>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4">
+
+<div class="compact-card">
+
+<i class="fa-solid fa-calendar"></i>
+
+<h5>Peak Season</h5>
+
+<h3>Summer</h3>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- QUALITY -->
+
+
+<div class="col-lg-4">
+
+
+<div class="glass-panel quality">
+
+
+<h4>
+<i class="fa-solid fa-shield"></i>
+Quality
+</h4>
+
+
+<div class="quality-item">
+
+<span>Features</span>
+
+<b>32</b>
+
+</div>
+
+
+<div class="quality-item">
+
+<span>Missing</span>
+
+<b>0%</b>
+
+</div>
+
+
+<div class="quality-item">
+
+<span>Status</span>
+
+<b>Clean</b>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- TABLE -->
+
+
+<div class="glass-panel table-panel">
+
+
+<div class="table-header">
+
+
+<h4>
+<i class="fa-solid fa-table"></i>
+Booking Records
+</h4>
+
+
+<span>
+{{total}} Records
+</span>
+
+
+</div>
+
+
+<div class="table-responsive">
+
+{{table|safe}}
+
+</div>
+
+
+</div>
+
+
+
+{% endblock %}

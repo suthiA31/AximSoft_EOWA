@@ -1,0 +1,1049 @@
+/*==================================================
+ CUSTOMER ANALYTICS DASHBOARD
+==================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+
+--primary:#7C3AED;
+--secondary:#06B6D4;
+--accent:#A855F7;
+
+--success:#22C55E;
+--warning:#F59E0B;
+--danger:#EF4444;
+
+--glass:rgba(255,255,255,.08);
+--border:rgba(255,255,255,.12);
+
+--text:#ffffff;
+--muted:#D8D5FF;
+
+--radius:24px;
+
+--shadow:
+0 18px 40px rgba(0,0,0,.30);
+
+}
+
+/*==================================================
+ BODY
+==================================================*/
+
+body{
+
+font-family:Poppins,sans-serif;
+
+background:url("../images/bg1.jpg") center center fixed;
+
+background-size:cover;
+
+color:white;
+
+overflow-x:hidden;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+rgba(14,11,31,.82),
+
+rgba(35,18,70,.70),
+
+rgba(73,30,118,.62)
+
+);
+
+backdrop-filter:blur(6px);
+
+z-index:-1;
+
+}
+
+/*==================================================
+ PAGE HEADER
+==================================================*/
+
+.page-header{
+
+margin-bottom:35px;
+
+}
+
+.page-header h2{
+
+font-size:38px;
+
+font-weight:700;
+
+color:white;
+
+}
+
+.page-header p{
+
+color:#d7d2ff;
+
+font-size:16px;
+
+margin-top:10px;
+
+}
+
+/*==================================================
+ GLASS CARD
+==================================================*/
+
+.dashboard-card{
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(16px);
+
+-webkit-backdrop-filter:blur(16px);
+
+border:1px solid rgba(255,255,255,.10);
+
+border-radius:24px;
+
+padding:24px;
+
+box-shadow:var(--shadow);
+
+transition:.35s;
+
+overflow:hidden;
+
+position:relative;
+
+margin-bottom:25px;
+
+}
+
+.dashboard-card:hover{
+
+transform:translateY(-6px);
+
+border-color:#8F5BFF;
+
+box-shadow:
+
+0 0 28px rgba(143,91,255,.35);
+
+}
+
+.dashboard-card h4,
+.dashboard-card h5{
+
+font-weight:600;
+
+margin-bottom:20px;
+
+color:white;
+
+}
+
+/*==================================================
+ FILTER PANEL
+==================================================*/
+
+.dashboard-card form label{
+
+font-weight:500;
+
+margin-bottom:8px;
+
+display:block;
+
+color:#E7E2FF;
+
+}
+
+.form-select{
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.12);
+
+color:white;
+
+border-radius:14px;
+
+padding:12px;
+
+}
+
+.form-select:focus{
+
+border-color:#06B6D4;
+
+box-shadow:0 0 18px rgba(6,182,212,.30);
+
+background:rgba(255,255,255,.10);
+
+}
+
+.form-select option{
+
+background:#2b174b;
+
+color:white;
+
+}
+
+.btn-primary{
+
+background:linear-gradient(
+
+135deg,
+
+#7C3AED,
+
+#06B6D4
+
+);
+
+border:none;
+
+border-radius:14px;
+
+font-weight:600;
+
+padding:12px;
+
+transition:.35s;
+
+}
+
+.btn-primary:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 10px 25px rgba(6,182,212,.30);
+
+}
+
+/*==================================================
+ KPI CARDS
+==================================================*/
+
+.kpi-card{
+
+padding:26px;
+
+border-radius:22px;
+
+position:relative;
+
+overflow:hidden;
+
+color:white;
+
+min-height:165px;
+
+transition:.35s;
+
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+margin-bottom:20px;
+
+}
+
+.kpi-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.kpi-card h6{
+
+font-size:15px;
+
+font-weight:500;
+
+opacity:.9;
+
+margin-bottom:18px;
+
+}
+
+.kpi-card h2{
+
+font-size:36px;
+
+font-weight:700;
+
+}
+
+.kpi-card i{
+
+position:absolute;
+
+right:22px;
+
+bottom:20px;
+
+font-size:50px;
+
+opacity:.18;
+
+transition:.35s;
+
+}
+
+.kpi-card:hover i{
+
+transform:scale(1.15);
+
+opacity:.35;
+
+}
+
+/*==================================================
+ KPI COLORS
+==================================================*/
+
+.booking{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#7C3AED,
+
+#9D4EDD
+
+);
+
+}
+
+.adr{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#2563EB,
+
+#06B6D4
+
+);
+
+}
+
+.cancel{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#0F766E,
+
+#14B8A6
+
+);
+
+}
+
+.stay{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#EA580C,
+
+#F59E0B
+
+);
+
+}
+
+.guests{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#DB2777,
+
+#EC4899
+
+);
+
+}
+
+.revenue{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#4F46E5,
+
+#6366F1
+
+);
+
+}
+
+/*==================================================
+ MINI CARDS
+==================================================*/
+
+.mini-card{
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:18px;
+
+padding:22px;
+
+text-align:center;
+
+transition:.35s;
+
+height:100%;
+
+}
+
+.mini-card:hover{
+
+transform:translateY(-6px);
+
+background:rgba(143,91,255,.12);
+
+}
+
+.mini-card h6{
+
+font-size:14px;
+
+color:#d7d2ff;
+
+margin-bottom:12px;
+
+}
+
+.mini-card h3{
+
+font-size:28px;
+
+font-weight:700;
+
+color:white;
+
+margin-bottom:8px;
+
+}
+
+.mini-card small{
+
+color:#cfc9ff;
+
+}
+/*==================================================
+ CHART CARDS
+==================================================*/
+
+.chart-card{
+
+height:100%;
+
+}
+
+.chart-card h5{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+font-size:20px;
+
+font-weight:600;
+
+margin-bottom:18px;
+
+color:white;
+
+}
+
+.chart-card i{
+
+font-size:18px;
+
+color:#06B6D4;
+
+}
+
+.chart-card:hover{
+
+border-color:#06B6D4;
+
+box-shadow:
+
+0 0 30px rgba(6,182,212,.25);
+
+}
+
+/*==================================================
+ PLOTLY
+==================================================*/
+
+.plotly,
+.js-plotly-plot,
+.plotly-graph-div{
+
+width:100%!important;
+
+height:100%!important;
+
+}
+
+.plotly-graph-div{
+
+min-height:380px;
+
+}
+
+.modebar{
+
+background:rgba(255,255,255,.06)!important;
+
+border-radius:10px!important;
+
+}
+
+/*==================================================
+ PROGRESS BAR
+==================================================*/
+
+.progress{
+
+height:28px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:30px;
+
+overflow:hidden;
+
+}
+
+.progress-bar{
+
+font-size:14px;
+
+font-weight:600;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#7C3AED,
+
+#06B6D4
+
+);
+
+}
+
+/*==================================================
+ TABLE
+==================================================*/
+
+.table-responsive{
+
+border-radius:18px;
+
+overflow:hidden;
+
+}
+
+.table{
+
+margin-bottom:0;
+
+color:white!important;
+
+}
+
+.table th{
+
+background:rgba(124,58,237,.35);
+
+border:none;
+
+padding:16px;
+
+font-weight:600;
+
+color:white;
+
+}
+
+.table td{
+
+background:rgba(255,255,255,.04);
+
+border-color:rgba(255,255,255,.05);
+
+padding:14px;
+
+vertical-align:middle;
+
+}
+
+.table-striped tbody tr:nth-of-type(odd){
+
+background:rgba(255,255,255,.03);
+
+}
+
+.table-hover tbody tr:hover{
+
+background:rgba(6,182,212,.10);
+
+transition:.3s;
+
+}
+
+/*==================================================
+ DASHBOARD LIST
+==================================================*/
+
+.dashboard-list{
+
+list-style:none;
+
+padding-left:0;
+
+margin-bottom:0;
+
+}
+
+.dashboard-list li{
+
+padding:12px 0;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+color:#E5E3FF;
+
+line-height:1.7;
+
+}
+
+.dashboard-list li:last-child{
+
+border:none;
+
+}
+
+.dashboard-list li::before{
+
+content:"✔";
+
+margin-right:10px;
+
+color:#06B6D4;
+
+font-weight:700;
+
+}
+
+/*==================================================
+ EXPORT BUTTONS
+==================================================*/
+
+.btn-success,
+.btn-danger,
+.btn-primary{
+
+border:none;
+
+border-radius:12px;
+
+font-weight:600;
+
+padding:10px 18px;
+
+transition:.35s;
+
+}
+
+.btn-success:hover,
+.btn-danger:hover,
+.btn-primary:hover{
+
+transform:translateY(-3px);
+
+}
+
+/*==================================================
+ ICONS
+==================================================*/
+
+.fa-chart-pie,
+.fa-chart-line,
+.fa-user-check,
+.fa-users,
+.fa-lightbulb,
+.fa-earth-europe,
+.fa-money-bill-wave{
+
+color:#06B6D4;
+
+}
+
+/*==================================================
+ HOVER EFFECTS
+==================================================*/
+
+.dashboard-card,
+.kpi-card,
+.mini-card{
+
+animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/*==================================================
+ SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#1d1636;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#7C3AED;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#06B6D4;
+
+}
+
+/*==================================================
+ RESPONSIVE
+==================================================*/
+
+@media(max-width:992px){
+
+.page-header{
+
+text-align:center;
+
+}
+
+.kpi-card{
+
+margin-bottom:20px;
+
+}
+
+.chart-card{
+
+margin-bottom:20px;
+
+}
+
+.dashboard-card{
+
+padding:20px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.page-header h2{
+
+font-size:30px;
+
+}
+
+.kpi-card h2{
+
+font-size:30px;
+
+}
+
+.mini-card{
+
+margin-bottom:20px;
+
+}
+
+.chart-card h5{
+
+font-size:18px;
+
+}
+
+.plotly-graph-div{
+
+min-height:300px;
+
+}
+
+.table{
+
+font-size:14px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.page-header h2{
+
+font-size:26px;
+
+}
+
+.dashboard-card{
+
+padding:18px;
+
+}
+
+.kpi-card{
+
+padding:20px;
+
+min-height:140px;
+
+}
+
+.kpi-card h2{
+
+font-size:26px;
+
+}
+
+.btn{
+
+width:100%;
+
+margin-bottom:10px;
+
+}
+
+}
+.text-muted{
+    color: rgba(255,255,255,.85) !important;
+}glass-card,
+.report-box,
+.kpi-card,
+.chart-card{
+    transition:all .45s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.glass-card:hover,
+.report-box:hover,
+.kpi-card:hover,
+.chart-card:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+    box-shadow:
+    0 20px 50px rgba(147,51,234,.35),
+    0 0 25px rgba(168,85,247,.35);
+
+    border-color:rgba(192,132,252,.5);
+}
+.glass-card::before,
+.report-box::before,
+.kpi-card::before,
+.chart-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+
+    left:-60%;
+
+    width:45%;
+
+    height:300%;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.25),
+
+        transparent
+
+    );
+
+    transform:rotate(25deg);
+
+    transition:.8s;
+
+}
+
+.glass-card:hover::before,
+.report-box:hover::before,
+.kpi-card:hover::before,
+.chart-card:hover::before{
+
+    left:150%;
+
+}
+.glass-card:hover,
+.report-box:hover,
+.kpi-card:hover,
+.chart-card:hover{
+
+    box-shadow:
+
+    0 0 12px rgba(168,85,247,.4),
+
+    0 0 25px rgba(168,85,247,.3),
+
+    0 0 45px rgba(168,85,247,.2);
+
+}
+.btn{
+
+    transition:.35s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 12px 30px rgba(147,51,234,.45);
+
+}
+.table tbody tr{
+
+    transition:.35s;
+
+}
+
+.table tbody tr:hover{
+
+    background:rgba(168,85,247,.12);
+
+    transform:scale(1.01);
+
+}
+.chart-card:hover{
+
+    border:1px solid rgba(192,132,252,.45);
+
+}
+select,
+input{
+
+    transition:.35s;
+
+}
+
+select:hover,
+input:hover{
+
+    border-color:#b388ff;
+
+    box-shadow:0 0 15px rgba(168,85,247,.25);
+
+}
+.report-icon,
+.card-icon{
+
+    transition:.4s;
+
+}
+
+.report-box:hover .report-icon,
+.kpi-card:hover .card-icon{
+
+    transform:rotate(-10deg) scale(1.25);
+
+    color:#d8b4fe;
+

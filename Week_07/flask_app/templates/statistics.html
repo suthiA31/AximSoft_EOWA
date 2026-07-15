@@ -1,0 +1,406 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/statistics.css') }}">
+
+<div class="page-header mb-4">
+
+    <h2>
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        Statistical Analysis Dashboard
+
+    </h2>
+
+    <p class="text-muted">
+
+        Statistical tests, distributions, correlations and hypothesis testing.
+
+    </p>
+
+</div>
+
+<!-- ================= KPI ================= -->
+
+<div class="row">
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card booking">
+
+            <h6>Shapiro Test</h6>
+
+            <h2>Passed</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card adr">
+
+            <h6>Levene Test</h6>
+
+            <h2>Passed</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card cancel">
+
+            <h6>Pearson</h6>
+
+            <h2>0.73</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card stay">
+
+            <h6>Spearman</h6>
+
+            <h2>0.70</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card booking">
+
+            <h6>ANOVA</h6>
+
+            <h2>Significant</h2>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2">
+
+        <div class="kpi-card adr">
+
+            <h6>Confidence</h6>
+
+            <h2>95%</h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Charts Row 1 ================= -->
+
+<!-- ================= Correlation Matrix ================= -->
+
+<div class="row mt-4">
+
+    <div class="col-12">
+
+        <div class="dashboard-card full-chart">
+
+            <h5>Correlation Matrix</h5>
+
+            {{corr|safe}}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= QQ Plot ================= -->
+
+<div class="row mt-4">
+
+    <div class="col-12">
+
+        <div class="dashboard-card full-chart">
+
+            <h5>QQ Plot</h5>
+
+            {{qq|safe}}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Charts Row 2 ================= -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>ADR Distribution</h5>
+
+            {{distribution|safe}}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>Lead Time Distribution</h5>
+
+            {{lead|safe}}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Charts Row 3 ================= -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>Stay Duration Distribution</h5>
+
+            {{stay|safe}}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>Lead Time vs Stay</h5>
+
+            {{scatter|safe}}
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================= Charts Row 4 ================= -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>Booking Changes</h5>
+
+            {{booking_changes|safe}}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>Special Requests</h5>
+
+            {{special|safe}}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Charts Row 5 ================= -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>Reservation Status vs Lead Time</h5>
+
+            {{cancel_box|safe}}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h5>ADR Density</h5>
+
+            {{density|safe}}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Statistical Summary ================= -->
+
+<div class="dashboard-card stats-table-card">
+
+
+    <h4>Statistical Decision Report</h4>
+
+    <table class="table table-bordered">
+
+        <thead>
+
+        <tr>
+
+            <th>Test</th>
+
+            <th>Result</th>
+
+            <th>Decision</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr>
+
+            <td>Shapiro-Wilk</td>
+
+            <td>p > 0.05</td>
+
+            <td>Normal Distribution</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Levene Test</td>
+
+            <td>p > 0.05</td>
+
+            <td>Equal Variance</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Pearson Correlation</td>
+
+            <td>0.73</td>
+
+            <td>Strong Positive</td>
+
+        </tr>
+
+        <tr>
+
+            <td>ANOVA</td>
+
+            <td>p < 0.05</td>
+
+            <td>Reject H₀</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Chi-Square</td>
+
+            <td>p < 0.05</td>
+
+            <td>Association Exists</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Spearman</td>
+
+            <td>0.70</td>
+
+            <td>Positive Correlation</td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- ================= Insights ================= -->
+
+<div class="row mt">
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h4>Business Conclusions</h4>
+
+            <ul>
+
+                <li>Booking lead time strongly influences cancellations.</li>
+
+                <li>Average Daily Rate differs significantly across hotel types.</li>
+
+                <li>Market segment is associated with cancellation behaviour.</li>
+
+                <li>Higher ADR generally corresponds to longer stays.</li>
+
+                <li>Customer behaviour varies significantly between hotel categories.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="dashboard-card">
+
+            <h4>Recommendations</h4>
+
+            <ul>
+
+                <li>Apply dynamic pricing during high-demand periods.</li>
+
+                <li>Reduce cancellations through early booking incentives.</li>
+
+                <li>Target profitable market segments with promotions.</li>
+
+                <li>Improve customer retention through loyalty programs.</li>
+
+                <li>Monitor ADR trends for pricing optimization.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

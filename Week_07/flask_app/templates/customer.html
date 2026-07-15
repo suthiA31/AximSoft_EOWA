@@ -1,0 +1,931 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% block head %}
+
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+{% endblock %}
+
+<div class="container-fluid px-2">
+
+    <!-- ===================================== -->
+    <!-- PAGE HEADER -->
+    <!-- ===================================== -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold mb-1">
+
+                <i class="fa-solid fa-users text-primary"></i>
+
+                Customer Analytics Dashboard
+
+            </h2>
+
+            <p class="text-muted mb-0">
+
+                Analyze customer behaviour, demographics, loyalty and booking patterns.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- ===================================== -->
+    <!-- KPI CARDS -->
+    <!-- ===================================== -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-lg-2 col-md-4">
+
+            <div class="kpi-card booking">
+
+                <div>
+
+                    <h6>Total Guests</h6>
+
+                    <h2>{{kpi.total}}</h2>
+
+                </div>
+
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+
+            <div class="kpi-card adr">
+
+                <div>
+
+                    <h6>Repeat Guests</h6>
+
+                    <h2>{{kpi.repeat}}</h2>
+
+                </div>
+
+                <i class="fa-solid fa-user-check"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+
+            <div class="kpi-card cancel">
+
+                <div>
+
+                    <h6>New Guests</h6>
+
+                    <h2>{{kpi.new}}</h2>
+
+                </div>
+
+                <i class="fa-solid fa-user-plus"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+
+            <div class="kpi-card stay">
+
+                <div>
+
+                    <h6>Adults</h6>
+
+                    <h2>{{kpi.adults}}</h2>
+
+                </div>
+
+                <i class="fa-solid fa-person"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+
+            <div class="kpi-card booking">
+
+                <div>
+
+                    <h6>Children</h6>
+
+                    <h2>{{kpi.children}}</h2>
+
+                </div>
+
+                <i class="fa-solid fa-child-reaching"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-2 col-md-4">
+
+            <div class="kpi-card adr">
+
+                <div>
+
+                    <h6>Babies</h6>
+
+                    <h2>{{kpi.babies}}</h2>
+
+                </div>
+
+                <i class="fa-solid fa-baby"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===================================== -->
+    <!-- QUICK SUMMARY -->
+    <!-- ===================================== -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-lg-3">
+
+            <div class="mini-card">
+
+                <h6>
+
+                    Top Customer
+
+                </h6>
+
+                <h3>
+
+                    Transient
+
+                </h3>
+
+                <span class="badge bg-primary">
+
+                    Most Active
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="mini-card">
+
+                <h6>
+
+                    Repeat Rate
+
+                </h6>
+
+                <h3>
+
+                    3.2%
+
+                </h3>
+
+                <span class="badge bg-success">
+
+                    Growing
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="mini-card">
+
+                <h6>
+
+                    Average Guests
+
+                </h6>
+
+                <h3>
+
+                    2.1
+
+                </h3>
+
+                <span class="badge bg-info">
+
+                    Per Booking
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3">
+
+            <div class="mini-card">
+
+                <h6>
+
+                    Top Country
+
+                </h6>
+
+                <h3>
+
+                    PRT
+
+                </h3>
+
+                <span class="badge bg-warning text-dark">
+
+                    Highest Demand
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+        <!-- ===================================== -->
+    <!-- CHART ROW 1 -->
+    <!-- ===================================== -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    <i class="fa-solid fa-chart-pie text-primary"></i>
+
+                    Customer Type Distribution
+
+                </h5>
+
+                {{ customer|safe }}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    <i class="fa-solid fa-user-check text-success"></i>
+
+                    Repeat Guest Analysis
+
+                </h5>
+
+                {{ repeat|safe }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- CHART ROW 2 -->
+    <!-- ===================================== -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    <i class="fa-solid fa-people-group text-info"></i>
+
+                    Guest Demographics
+
+                </h5>
+
+                {{ guest|safe }}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    <i class="fa-solid fa-star text-warning"></i>
+
+                    Special Requests
+
+                </h5>
+
+                {{ request_chart|safe }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- CHART ROW 3 -->
+    <!-- ===================================== -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    <i class="fa-solid fa-earth-europe text-primary"></i>
+
+                    Country-wise Customers
+
+                </h5>
+
+                {{ country_chart|safe }}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    <i class="fa-solid fa-sitemap text-danger"></i>
+
+                    Customer Market Segment
+
+                </h5>
+
+                {{ segment_chart|safe }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- ADVANCED CUSTOMER ANALYTICS -->
+    <!-- ===================================== -->
+
+    <div class="dashboard-card mb-5">
+
+        <div class="row text-center">
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <i class="fa-solid fa-crown fa-2x text-warning mb-3"></i>
+
+                    <h6>Premium Guests</h6>
+
+                    <h3>18%</h3>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <i class="fa-solid fa-repeat fa-2x text-success mb-3"></i>
+
+                    <h6>Loyal Customers</h6>
+
+                    <h3>{{kpi.repeat}}</h3>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <i class="fa-solid fa-child fa-2x text-info mb-3"></i>
+
+                    <h6>Family Trips</h6>
+
+                    <h3>{{kpi.children}}</h3>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <i class="fa-solid fa-heart fa-2x text-danger mb-3"></i>
+
+                    <h6>Satisfaction</h6>
+
+                    <h3>94%</h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- CHART ROW 4 -->
+    <!-- ===================================== -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    <i class="fa-solid fa-money-bill-wave text-success"></i>
+
+                    ADR by Customer Group
+
+                </h5>
+
+                {{ box_chart|safe }}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    <i class="fa-solid fa-chart-line text-info"></i>
+
+                    Lead Time vs Stay Duration
+
+                </h5>
+
+                {{ scatter_chart|safe }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- CUSTOMER PERFORMANCE -->
+    <!-- ===================================== -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card">
+
+                <h4>
+
+                    Customer Loyalty Score
+
+                </h4>
+
+                <div class="progress mt-4" style="height:28px;">
+
+                    <div
+                        class="progress-bar bg-success"
+                        style="width:91%;">
+
+                        91%
+
+                    </div>
+
+                </div>
+
+                <p class="mt-4 mb-0">
+
+                    Customer engagement remains excellent with increasing repeat bookings and strong guest satisfaction.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card">
+
+                <h4>
+
+                    Customer Overview
+
+                </h4>
+
+                <table class="table table-borderless">
+
+                    <tr>
+
+                        <td>Total Guests</td>
+
+                        <td class="fw-bold">
+
+                            {{kpi.total}}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Repeat Guests</td>
+
+                        <td class="text-success fw-bold">
+
+                            {{kpi.repeat}}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>New Guests</td>
+
+                        <td class="text-warning fw-bold">
+
+                            {{kpi.new}}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Adults</td>
+
+                        <td>
+
+                            {{kpi.adults}}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Children</td>
+
+                        <td>
+
+                            {{kpi.children}}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Babies</td>
+
+                        <td>
+
+                            {{kpi.babies}}
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+        <!-- ===================================== -->
+    <!-- EXECUTIVE SUMMARY -->
+    <!-- ===================================== -->
+
+    <div class="dashboard-card mb-5">
+
+        <h4 class="mb-4">
+
+            <i class="fa-solid fa-lightbulb text-warning"></i>
+
+            Executive Summary
+
+        </h4>
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <i class="fa-solid fa-users fa-2x text-primary mb-3"></i>
+
+                    <h6>Top Customer</h6>
+
+                    <h3>Transient</h3>
+
+                    <small class="text-muted">
+
+                        Highest Booking Share
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <i class="fa-solid fa-repeat fa-2x text-success mb-3"></i>
+
+                    <h6>Repeat Rate</h6>
+
+                    <h3>3.2%</h3>
+
+                    <small class="text-muted">
+
+                        Loyal Customers
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <i class="fa-solid fa-user-group fa-2x text-info mb-3"></i>
+
+                    <h6>Average Guests</h6>
+
+                    <h3>2.1</h3>
+
+                    <small class="text-muted">
+
+                        Per Reservation
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <i class="fa-solid fa-earth-europe fa-2x text-warning mb-3"></i>
+
+                    <h6>Top Country</h6>
+
+                    <h3>PRT</h3>
+
+                    <small class="text-muted">
+
+                        Highest Customer Count
+
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===================================== -->
+    <!-- BUSINESS INSIGHTS -->
+    <!-- ===================================== -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card h-100">
+
+                <h4>
+
+                    <i class="fa-solid fa-chart-line text-success"></i>
+
+                    Business Insights
+
+                </h4>
+
+                <ul class="dashboard-list">
+
+                    <li>Transient customers generate the highest number of reservations.</li>
+
+                    <li>Portugal contributes the largest customer base.</li>
+
+                    <li>Most bookings include two adults.</li>
+
+                    <li>Guests with special requests show higher satisfaction.</li>
+
+                    <li>Repeat guests represent a valuable loyalty segment.</li>
+
+                    <li>Family bookings increase during holiday seasons.</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card h-100">
+
+                <h4>
+
+                    <i class="fa-solid fa-bullseye text-primary"></i>
+
+                    Recommendations
+
+                </h4>
+
+                <ul class="dashboard-list">
+
+                    <li>Expand customer loyalty programs.</li>
+
+                    <li>Provide personalized offers for repeat guests.</li>
+
+                    <li>Increase marketing in high-performing countries.</li>
+
+                    <li>Promote family vacation packages.</li>
+
+                    <li>Improve premium services for high-value guests.</li>
+
+                    <li>Offer discounts for early repeat bookings.</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===================================== -->
+    <!-- CUSTOMER RECORDS -->
+    <!-- ===================================== -->
+
+    <div class="dashboard-card mb-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+
+                <h4 class="mb-1">
+
+                    Customer Records
+
+                </h4>
+
+                <small class="text-muted">
+
+                    Preview of cleaned customer dataset
+
+                </small>
+
+            </div>
+
+            <div class="d-flex gap-2">
+
+                <button class="btn btn-success">
+
+                    <i class="fa-solid fa-file-csv"></i>
+
+                    CSV
+
+                </button>
+
+                <button class="btn btn-danger">
+
+                    <i class="fa-solid fa-file-pdf"></i>
+
+                    PDF
+
+                </button>
+
+                <button class="btn btn-primary">
+
+                    <i class="fa-solid fa-file-excel"></i>
+
+                    Excel
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="table-responsive">
+
+            {{ table|safe }}
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===================================== -->
+    <!-- FOOTER SUMMARY -->
+    <!-- ===================================== -->
+
+    <div class="dashboard-card">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-9">
+
+                <h4>
+
+                    Customer Analytics Conclusion
+
+                </h4>
+
+                <p class="mb-0 text-muted">
+
+                    Customer analytics reveals that transient guests dominate bookings, while repeat customers provide long-term business value. By improving loyalty programs, personalizing offers, and targeting high-performing markets, hotels can strengthen customer retention and maximize revenue growth.
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-3 text-center">
+
+                <i class="fa-solid fa-users-viewfinder"
+
+                   style="font-size:80px;color:#8F5BFF;opacity:.25;"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

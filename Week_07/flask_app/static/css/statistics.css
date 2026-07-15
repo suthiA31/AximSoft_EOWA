@@ -1,0 +1,575 @@
+/*==========================================
+STATISTICS PAGE
+==========================================*/
+
+.statistics-page{
+    animation:fadeUp .7s ease;
+}
+
+/*==========================================
+PAGE HEADER
+==========================================*/
+
+.page-header{
+    margin-bottom:35px;
+}
+
+.page-header h2{
+    color:#fff;
+    font-size:34px;
+    font-weight:700;
+}
+
+.page-header p{
+    color:#d7d2ff;
+    font-size:15px;
+    margin-top:8px;
+}
+
+/*==========================================
+KPI CARDS
+==========================================*/
+
+.kpi-card{
+    border-radius:22px;
+    padding:28px;
+    color:#fff;
+    min-height:150px;
+    position:relative;
+    overflow:hidden;
+    transition:.35s;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.kpi-card:hover{
+    transform:translateY(-8px);
+}
+
+.kpi-card h6{
+    font-size:14px;
+    margin-bottom:14px;
+    opacity:.95;
+}
+
+.kpi-card h2{
+    font-size:30px;
+    font-weight:700;
+}
+
+/*==========================================
+CHART CARDS
+==========================================*/
+
+.dashboard-card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:24px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+    transition:.35s;
+
+    height:100%;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#C77DFF;
+
+}
+
+.dashboard-card h4,
+.dashboard-card h5{
+
+    color:#fff;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+/*==========================================
+PLOTLY
+==========================================*/
+
+.plotly-graph-div,
+.js-plotly-plot{
+
+    width:100%!important;
+
+    height:100%!important;
+
+}
+
+.modebar{
+
+    background:rgba(255,255,255,.08)!important;
+
+    border-radius:10px!important;
+
+}
+/*==========================================
+STATISTICAL REPORT TABLE
+==========================================*/
+
+.statistics-table{
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    margin-top:20px;
+
+}
+
+.statistics-table .table{
+
+    margin-bottom:0;
+
+    color:#fff;
+
+    border-collapse:collapse;
+
+}
+
+.statistics-table thead th{
+
+    background:linear-gradient(
+        135deg,
+        #7C3AED,
+        #A855F7
+    );
+
+    color:#fff;
+
+    border:none;
+
+    padding:16px;
+
+    text-align:center;
+
+    font-weight:600;
+
+}
+
+.statistics-table tbody td{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    padding:15px;
+
+    color:#eee;
+
+    text-align:center;
+
+}
+
+.statistics-table tbody tr:hover td{
+
+    background:rgba(199,125,255,.10);
+
+}
+
+/*==========================================
+BUSINESS CONCLUSION
+==========================================*/
+
+.insight-card{
+
+    background:rgba(255,255,255,.06);
+
+    border-radius:22px;
+
+    padding:25px;
+
+    height:100%;
+
+    transition:.35s;
+
+}
+
+.insight-card:hover{
+
+    transform:translateY(-6px);
+
+    background:rgba(199,125,255,.12);
+
+}
+
+.insight-card h4{
+
+    color:#fff;
+
+    margin-bottom:20px;
+
+}
+
+.insight-card ul{
+
+    padding-left:20px;
+
+    margin:0;
+
+}
+
+.insight-card li{
+
+    color:#ddd;
+
+    margin-bottom:15px;
+
+    line-height:1.8;
+
+}
+
+/*==========================================
+BADGES
+==========================================*/
+
+.success-badge{
+
+    background:#198754;
+
+    color:#fff;
+
+    padding:5px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+}
+
+.danger-badge{
+
+    background:#dc3545;
+
+    color:#fff;
+
+    padding:5px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+}
+
+.primary-badge{
+
+    background:#7C3AED;
+
+    color:#fff;
+
+    padding:5px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+}
+
+/*==========================================
+SUMMARY TABLE TITLE
+==========================================*/
+
+.dashboard-card h4{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.dashboard-card h4::after{
+
+    content:"";
+
+    flex:1;
+
+    height:2px;
+
+    background:rgba(255,255,255,.10);
+
+}
+
+/*==========================================
+TABLE RESPONSIVE
+==========================================*/
+
+.table-responsive{
+
+    overflow-x:auto;
+
+    border-radius:20px;
+
+}
+
+/*==========================================
+ROW SPACING
+==========================================*/
+
+.row{
+
+    margin-bottom:8px;
+
+}
+
+/*==========================================
+CARD ANIMATION
+==========================================*/
+
+.dashboard-card,
+.kpi-card,
+.insight-card{
+
+    animation:fadeUp .7s ease;
+
+}
+
+/*==========================================
+RESPONSIVE
+==========================================*/
+
+@media(max-width:992px){
+
+    .page-header{
+
+        text-align:center;
+
+    }
+
+    .dashboard-card{
+
+        height:auto;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .page-header h2{
+
+        font-size:28px;
+
+    }
+
+    .kpi-card{
+
+        margin-bottom:18px;
+
+    }
+
+    .dashboard-card{
+
+        padding:18px;
+
+    }
+
+    .dashboard-card h4,
+    .dashboard-card h5{
+
+        font-size:18px;
+
+    }
+
+    .statistics-table thead th,
+    .statistics-table tbody td{
+
+        padding:10px;
+
+        font-size:13px;
+
+    }
+
+}
+/* ==========================================
+   FULL WIDTH RECTANGLE CHART
+========================================== */
+
+.full-chart{
+    width:100%;
+    min-height:560px;
+    padding:25px;
+    border-radius:22px;
+}
+
+.full-chart h5{
+    color:#fff;
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:20px;
+    border-left:5px solid #b983ff;
+    padding-left:15px;
+}
+
+.full-chart .js-plotly-plot,
+.full-chart .plotly-graph-div{
+    width:100% !important;
+    height:480px !important;
+}
+.stats-table-card{
+    height:auto !important;
+    min-height:unset !important;
+    display:block !important;
+    padding:25px;
+}
+.text-muted{
+    color: rgba(255,255,255,.85) !important;
+}glass-card,
+.report-box,
+.kpi-card,
+.chart-card{
+    transition:all .45s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.glass-card:hover,
+.report-box:hover,
+.kpi-card:hover,
+.chart-card:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+    box-shadow:
+    0 20px 50px rgba(147,51,234,.35),
+    0 0 25px rgba(168,85,247,.35);
+
+    border-color:rgba(192,132,252,.5);
+}
+.glass-card::before,
+.report-box::before,
+.kpi-card::before,
+.chart-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+
+    left:-60%;
+
+    width:45%;
+
+    height:300%;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.25),
+
+        transparent
+
+    );
+
+    transform:rotate(25deg);
+
+    transition:.8s;
+
+}
+
+.glass-card:hover::before,
+.report-box:hover::before,
+.kpi-card:hover::before,
+.chart-card:hover::before{
+
+    left:150%;
+
+}
+.glass-card:hover,
+.report-box:hover,
+.kpi-card:hover,
+.chart-card:hover{
+
+    box-shadow:
+
+    0 0 12px rgba(168,85,247,.4),
+
+    0 0 25px rgba(168,85,247,.3),
+
+    0 0 45px rgba(168,85,247,.2);
+
+}
+.btn{
+
+    transition:.35s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 12px 30px rgba(147,51,234,.45);
+
+}
+.table tbody tr{
+
+    transition:.35s;
+
+}
+
+.table tbody tr:hover{
+
+    background:rgba(168,85,247,.12);
+
+    transform:scale(1.01);
+
+}
+.chart-card:hover{
+
+    border:1px solid rgba(192,132,252,.45);
+
+}
+select,
+input{
+
+    transition:.35s;
+
+}
+
+select:hover,
+input:hover{
+
+    border-color:#b388ff;
+
+    box-shadow:0 0 15px rgba(168,85,247,.25);
+
+}
+.report-icon,
+.card-icon{
+
+    transition:.4s;
+
+}
+
+.report-box:hover .report-icon,
+.kpi-card:hover .card-icon{
+
+    transform:rotate(-10deg) scale(1.25);
+
+    color:#d8b4fe;
+

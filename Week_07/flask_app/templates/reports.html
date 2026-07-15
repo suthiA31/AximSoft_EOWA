@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/report.css') }}">
+
+<div class="page-header mb-5">
+
+    <h2>
+        <i class="fa-solid fa-file-lines"></i>
+        Reports Center
+    </h2>
+
+    <p class="text-muted">
+        Download datasets and view project documentation.
+    </p>
+
+</div>
+
+
+<div class="row g-4">
+
+    <!-- Cleaned Dataset -->
+
+    <div class="col-lg-4">
+
+        <div class="report-box">
+
+            <i class="fa-solid fa-file-csv report-icon"></i>
+
+            <h4>Cleaned Dataset</h4>
+
+            <p>
+                Dataset after preprocessing and cleaning.
+            </p>
+
+            <a href="{{ url_for('download_cleaned_dataset') }}"
+   class="btn btn-success w-100">
+
+    <i class="fa-solid fa-download"></i>
+
+    Download CSV
+
+</a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Processed Dataset -->
+
+    <div class="col-lg-4">
+
+        <div class="report-box">
+
+            <i class="fa-solid fa-table report-icon"></i>
+
+            <h4>Processed Dataset</h4>
+
+            <p>
+                Feature engineered dataset used for analytics.
+            </p>
+
+            <<a href="{{ url_for('download_processed_dataset') }}"
+   class="btn btn-primary w-100">
+
+    <i class="fa-solid fa-download"></i>
+
+    Download CSV
+
+</a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Notebook -->
+
+    <div class="col-lg-4">
+
+        <div class="report-box">
+
+            <i class="fa-solid fa-book report-icon"></i>
+
+            <h4>Notebook</h4>
+
+            <p>
+                Exploratory Data Analysis notebook.
+            </p>
+
+           <a href="{{ url_for('notebooks') }}"
+   class="btn btn-primary w-100">
+
+    <i class="fa-solid fa-book-open"></i>
+
+    View Notebooks
+
+</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Executive Summary -->
+
+<div class="report-box mt-5">
+
+    <h3>
+
+        Executive Summary
+
+    </h3>
+
+    <table class="table">
+
+        <tr>
+
+            <th>Total Records</th>
+
+            <td>{{ table|length if table else "119390" }}</td>
+
+        </tr>
+
+        <tr>
+
+            <th>Analytics Modules</th>
+
+            <td>5</td>
+
+        </tr>
+
+        <tr>
+
+            <th>Interactive Charts</th>
+
+            <td>12+</td>
+
+        </tr>
+
+        <tr>
+
+            <th>Technology</th>
+
+            <td>Python • Flask • Plotly</td>
+
+        </tr>
+
+    </table>
+
+</div>
+
+
+
+<div class="row mt-4">
+
+    <div class="col-lg-6">
+
+        <div class="report-box">
+
+            <h4>
+
+                Key Insights
+
+            </h4>
+
+            <ul>
+
+                <li>City Hotel receives the highest bookings.</li>
+
+                <li>August shows peak booking demand.</li>
+
+                <li>Long lead time increases cancellations.</li>
+
+                <li>Online Travel Agencies dominate bookings.</li>
+
+                <li>Higher ADR contributes more revenue.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-lg-6">
+
+        <div class="report-box">
+
+            <h4>
+
+                Future Scope
+
+            </h4>
+
+            <ul>
+
+                <li>Demand Prediction using Machine Learning.</li>
+
+                <li>Dynamic Pricing Dashboard.</li>
+
+                <li>Customer Segmentation.</li>
+
+                <li>Forecast Future Bookings.</li>
+
+                <li>Real-time Hotel Monitoring.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

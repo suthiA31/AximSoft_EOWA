@@ -1,0 +1,1088 @@
+/*==========================================
+REVENUE PAGE
+==========================================*/
+
+.revenue-page{
+    animation:fadeUp .7s ease;
+}
+
+/*==========================================
+PAGE HEADER
+==========================================*/
+
+.revenue-header{
+    margin-bottom:35px;
+}
+
+.revenue-header h2{
+    font-size:34px;
+    font-weight:700;
+    color:#fff;
+}
+
+.revenue-header p{
+    color:#d7d2ff;
+    margin-top:8px;
+}
+
+/*==========================================
+KPI CARDS
+==========================================*/
+
+.revenue-kpi{
+    border-radius:22px;
+    padding:28px;
+    position:relative;
+    overflow:hidden;
+    min-height:160px;
+    color:#fff;
+    transition:.35s;
+}
+
+.revenue-kpi:hover{
+    transform:translateY(-8px);
+}
+
+.revenue-kpi h6{
+    font-size:14px;
+    opacity:.9;
+    margin-bottom:15px;
+}
+
+.revenue-kpi h2{
+    font-size:34px;
+    font-weight:700;
+}
+
+.revenue-kpi i{
+    position:absolute;
+    right:25px;
+    bottom:20px;
+    font-size:52px;
+    opacity:.18;
+}
+
+/*==========================================
+KPI COLORS
+==========================================*/
+
+.rev-total{
+    background:linear-gradient(135deg,#7C3AED,#A855F7);
+}
+
+.rev-adr{
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
+}
+
+.rev-stay{
+    background:linear-gradient(135deg,#0EA5E9,#06B6D4);
+}
+
+.rev-weekend{
+    background:linear-gradient(135deg,#16A34A,#22C55E);
+}
+
+.rev-weekday{
+    background:linear-gradient(135deg,#F59E0B,#FBBF24);
+}
+
+.rev-hotel{
+    background:linear-gradient(135deg,#EC4899,#F472B6);
+}
+
+/*==========================================
+CHART CARD
+==========================================*/
+
+.revenue-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:22px;
+    box-shadow:0 18px 35px rgba(0,0,0,.25);
+    transition:.35s;
+    height:100%;
+}
+
+.revenue-card:hover{
+    transform:translateY(-6px);
+    border-color:#C77DFF;
+}
+
+.revenue-card h5{
+    color:#fff;
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+/*==========================================
+SUMMARY CARD
+==========================================*/
+
+.summary-box{
+    background:rgba(255,255,255,.06);
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    transition:.35s;
+}
+
+.summary-box:hover{
+    background:rgba(199,125,255,.12);
+    transform:translateY(-6px);
+}
+
+.summary-box i{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.summary-box h6{
+    color:#ddd;
+    margin-bottom:10px;
+}
+
+.summary-box h3{
+    color:#fff;
+    font-weight:700;
+}
+/*==========================================
+ BUSINESS INSIGHTS
+==========================================*/
+
+.insight-card{
+    background:rgba(255,255,255,.06);
+    border-radius:22px;
+    padding:25px;
+    height:100%;
+    transition:.35s;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.insight-card:hover{
+    transform:translateY(-6px);
+    border-color:#C77DFF;
+}
+
+.insight-card h4{
+    color:#fff;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.insight-card ul{
+    padding-left:18px;
+    margin:0;
+}
+
+.insight-card li{
+    color:#ddd;
+    margin-bottom:14px;
+    line-height:1.8;
+}
+
+/*==========================================
+ EXECUTIVE SUMMARY
+==========================================*/
+
+.executive-summary{
+    margin-top:40px;
+}
+
+.executive-summary .summary-box{
+    height:100%;
+}
+
+/*==========================================
+ PERFORMANCE SCORE
+==========================================*/
+
+.performance-card{
+    background:rgba(255,255,255,.08);
+    border-radius:22px;
+    padding:28px;
+}
+
+.performance-card h4{
+    color:#fff;
+    margin-bottom:20px;
+}
+
+.progress{
+    height:28px;
+    background:rgba(255,255,255,.08);
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    background:linear-gradient(
+        90deg,
+        #7C3AED,
+        #C77DFF
+    );
+    font-weight:600;
+}
+
+/*==========================================
+ REVENUE TABLE
+==========================================*/
+
+.revenue-table{
+    background:rgba(255,255,255,.06);
+    border-radius:22px;
+    padding:20px;
+}
+
+.revenue-table h4{
+    color:#fff;
+    margin-bottom:20px;
+}
+
+.revenue-table .table{
+    color:#fff;
+    margin-bottom:0;
+}
+
+.revenue-table th{
+    background:rgba(255,255,255,.10);
+    color:#fff;
+    border:none;
+    padding:15px;
+}
+
+.revenue-table td{
+    background:rgba(255,255,255,.03);
+    border-color:rgba(255,255,255,.06);
+    padding:14px;
+}
+
+.revenue-table tr:hover td{
+    background:rgba(199,125,255,.08);
+}
+
+/*==========================================
+ EXPORT BUTTONS
+==========================================*/
+
+.export-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.export-buttons .btn{
+    padding:12px 24px;
+    border:none;
+    border-radius:14px;
+    font-weight:600;
+    transition:.35s;
+}
+
+.export-buttons .btn:hover{
+    transform:translateY(-4px);
+}
+
+/*==========================================
+ REVENUE HIGHLIGHTS
+==========================================*/
+
+.highlight-box{
+    background:rgba(255,255,255,.06);
+    border-radius:20px;
+    padding:22px;
+    text-align:center;
+    transition:.35s;
+    height:100%;
+}
+
+.highlight-box:hover{
+    background:rgba(199,125,255,.12);
+    transform:translateY(-6px);
+}
+
+.highlight-box h6{
+    color:#ddd;
+    margin-bottom:10px;
+}
+
+.highlight-box h3{
+    color:#fff;
+    font-weight:700;
+}
+
+/*==========================================
+ PLOTLY FIX
+==========================================*/
+
+.js-plotly-plot,
+.plotly-graph-div{
+    width:100%!important;
+    height:100%!important;
+}
+
+.modebar{
+    background:rgba(255,255,255,.08)!important;
+    border-radius:10px!important;
+}
+
+/*==========================================
+ RESPONSIVE
+==========================================*/
+
+@media(max-width:992px){
+
+    .revenue-header{
+        text-align:center;
+    }
+
+    .revenue-header h2{
+        font-size:30px;
+    }
+
+    .revenue-kpi{
+        margin-bottom:20px;
+    }
+
+    .summary-box{
+        margin-bottom:20px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .revenue-header h2{
+        font-size:26px;
+    }
+
+    .revenue-kpi h2{
+        font-size:28px;
+    }
+
+    .export-buttons{
+        flex-direction:column;
+    }
+
+    .export-buttons .btn{
+        width:100%;
+    }
+
+}
+
+/*==========================================
+ ANIMATIONS
+==========================================*/
+
+.revenue-card,
+.revenue-kpi,
+.summary-box,
+.insight-card,
+.highlight-box,
+.performance-card{
+    animation:fadeUp .7s ease;
+}
+/*==================================
+REVENUE PAGE
+==================================*/
+
+.page-header h2{
+    font-size:32px;
+    font-weight:700;
+    color:#fff;
+}
+
+.page-header p{
+    color:#cbd5e1;
+}
+
+/*==================================
+KPI CARDS
+==================================*/
+
+.kpi-card{
+    padding:20px;
+    border-radius:18px;
+    color:#fff;
+    min-height:130px;
+    transition:.3s;
+    margin-bottom:20px;
+}
+
+.kpi-card:hover{
+    transform:translateY(-5px);
+}
+
+.kpi-card h6{
+    font-size:14px;
+    opacity:.9;
+    margin-bottom:10px;
+}
+
+.kpi-card h2{
+    font-size:26px;
+    font-weight:700;
+}
+
+/* KPI COLORS */
+
+.booking{
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+}
+
+.adr{
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.stay{
+    background:linear-gradient(135deg,#0ea5e9,#06b6d4);
+}
+
+.cancel{
+    background:linear-gradient(135deg,#16a34a,#22c55e);
+}
+
+/*==================================
+CARDS
+==================================*/
+
+.dashboard-card{
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    height:auto;
+    overflow:hidden;
+}
+
+.dashboard-card h4,
+.dashboard-card h5{
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+/*==================================
+SUMMARY
+==================================*/
+
+.mini-card{
+    background:#f8fafc;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    height:100%;
+    border:1px solid #e5e7eb;
+    transition:.3s;
+}
+
+.mini-card:hover{
+    transform:translateY(-4px);
+}
+
+.mini-card h6{
+    color:#64748b;
+    font-size:14px;
+}
+
+.mini-card h3{
+    color:#1e293b;
+    font-weight:700;
+    margin-top:8px;
+}
+
+/*==================================
+LISTS
+==================================*/
+
+.dashboard-card ul{
+    margin:0;
+    padding-left:20px;
+}
+
+.dashboard-card li{
+    margin-bottom:12px;
+    line-height:1.6;
+}
+
+/*==================================
+TABLE
+==================================*/
+
+.table-responsive{
+    overflow-x:auto;
+}
+
+.table{
+    margin-bottom:0;
+}
+
+.table th{
+    background:#7c3aed;
+    color:#fff;
+}
+
+.table td{
+    vertical-align:middle;
+}
+
+/*==================================
+PLOTLY
+==================================*/
+
+.plotly-graph-div{
+    width:100%!important;
+    height:380px!important;
+}
+
+.js-plotly-plot{
+    width:100%!important;
+}
+
+/*==================================
+RESPONSIVE
+==================================*/
+
+@media(max-width:992px){
+
+    .kpi-card{
+        margin-bottom:15px;
+    }
+
+    .dashboard-card{
+        margin-bottom:20px;
+    }
+}
+
+@media(max-width:768px){
+
+    .page-header h2{
+        font-size:26px;
+    }
+
+    .kpi-card h2{
+        font-size:22px;
+    }
+
+    .plotly-graph-div{
+        height:300px!important;
+    }
+}
+/*==================================
+REVENUE PAGE
+==================================*/
+
+.page-header h2{
+    font-size:32px;
+    font-weight:700;
+    color:#fff;
+}
+
+.page-header p{
+    color:#cbd5e1;
+}
+
+/*==================================
+KPI CARDS
+==================================*/
+
+.kpi-card{
+    padding:20px;
+    border-radius:18px;
+    color:#fff;
+    min-height:130px;
+    transition:.3s;
+    margin-bottom:20px;
+}
+
+.kpi-card:hover{
+    transform:translateY(-5px);
+}
+
+.kpi-card h6{
+    font-size:14px;
+    opacity:.9;
+    margin-bottom:10px;
+}
+
+.kpi-card h2{
+    font-size:26px;
+    font-weight:700;
+}
+
+/* KPI COLORS */
+
+.booking{
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+}
+
+.adr{
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.stay{
+    background:linear-gradient(135deg,#0ea5e9,#06b6d4);
+}
+
+.cancel{
+    background:linear-gradient(135deg,#16a34a,#22c55e);
+}
+
+/*==================================
+CARDS
+==================================*/
+
+.dashboard-card{
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    height:auto;
+    overflow:hidden;
+}
+
+.dashboard-card h4,
+.dashboard-card h5{
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+/*==================================
+SUMMARY
+==================================*/
+
+.mini-card{
+    background:#f8fafc;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    height:100%;
+    border:1px solid #e5e7eb;
+    transition:.3s;
+}
+
+.mini-card:hover{
+    transform:translateY(-4px);
+}
+
+.mini-card h6{
+    color:#64748b;
+    font-size:14px;
+}
+
+.mini-card h3{
+    color:#1e293b;
+    font-weight:700;
+    margin-top:8px;
+}
+
+/*==================================
+LISTS
+==================================*/
+
+.dashboard-card ul{
+    margin:0;
+    padding-left:20px;
+}
+
+.dashboard-card li{
+    margin-bottom:12px;
+    line-height:1.6;
+}
+
+/*==================================
+TABLE
+==================================*/
+
+.table-responsive{
+    overflow-x:auto;
+}
+
+.table{
+    margin-bottom:0;
+}
+
+.table th{
+    background:#7c3aed;
+    color:#fff;
+}
+
+.table td{
+    vertical-align:middle;
+}
+
+/*==================================
+PLOTLY
+==================================*/
+
+.plotly-graph-div{
+    width:100%!important;
+    height:380px!important;
+}
+
+.js-plotly-plot{
+    width:100%!important;
+}
+
+/*==================================
+RESPONSIVE
+==================================*/
+
+@media(max-width:992px){
+
+    .kpi-card{
+        margin-bottom:15px;
+    }
+
+    .dashboard-card{
+        margin-bottom:20px;
+    }
+}
+
+@media(max-width:768px){
+
+    .page-header h2{
+        font-size:26px;
+    }
+
+    .kpi-card h2{
+        font-size:22px;
+    }
+
+    .plotly-graph-div{
+        height:300px!important;
+    }
+}
+.page-header h2{
+    color:#ffffff;
+    font-weight:700;
+}
+
+.page-header p{
+    color:#e9d5ff;
+}
+.page-header h2{
+    color:#ffffff;
+    font-weight:700;
+}
+
+.page-header p{
+    color:#e9d5ff;
+}
+.booking,
+.adr,
+.stay,
+.cancel{
+    background:transparent;
+}
+.dashboard-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+
+    padding:22px;
+    margin-bottom:22px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.20);
+}
+
+.dashboard-card:hover{
+    border-color:#d8b4fe;
+}
+
+.dashboard-card h4,
+.dashboard-card h5{
+    color:#fff;
+    font-weight:600;
+}
+.mini-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+}
+
+.mini-card h6{
+    color:#e9d5ff;
+}
+
+.mini-card h3{
+    color:#fff;
+}
+.mini-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+}
+
+.mini-card h6{
+    color:#e9d5ff;
+}
+
+.mini-card h3{
+    color:#fff;
+}
+.table{
+    color:#fff;
+}
+
+.table th{
+    background:rgba(255,255,255,.12);
+    color:#fff;
+    border:none;
+}
+
+.table td{
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    border-color:rgba(255,255,255,.10);
+}
+
+.table tbody tr:hover td{
+    background:rgba(255,255,255,.10);
+}
+.plotly-graph-div{
+    background:transparent !important;
+}
+
+.js-plotly-plot{
+    background:transparent !important;
+}
+/*==================================
+ KPI CARDS
+==================================*/
+
+.kpi-card{
+    background: linear-gradient(135deg,
+        #5B21B6 0%,
+        #7C3AED 50%,
+        #C026D3 100%);
+    color:#fff;
+    padding:22px;
+    border-radius:18px;
+    min-height:135px;
+    position:relative;
+    overflow:hidden;
+    transition:.35s;
+    box-shadow:0 10px 25px rgba(91,33,182,.45);
+}
+
+.kpi-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(91,33,182,.55);
+}
+
+.kpi-card::before{
+    content:"";
+    position:absolute;
+    top:-40%;
+    right:-20%;
+    width:120px;
+    height:120px;
+    background:rgba(255,255,255,.15);
+    border-radius:50%;
+}
+
+.kpi-card::after{
+    content:"";
+    position:absolute;
+    bottom:-50%;
+    left:-20%;
+    width:100px;
+    height:100px;
+    background:rgba(255,255,255,.08);
+    border-radius:50%;
+}
+
+.kpi-card h6{
+    color:#F5EFFF;
+    font-size:14px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:12px;
+    position:relative;
+    z-index:2;
+}
+
+.kpi-card h2{
+    color:#fff;
+    font-size:30px;
+    font-weight:700;
+    position:relative;
+    z-index:2;
+}
+.page-header h2{
+    color:#fff;
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:.5px;
+    text-shadow:0 2px 10px rgba(0,0,0,.35);
+}
+
+.page-header p{
+    color:#E9D5FF;
+    font-size:16px;
+}
+.dashboard-card h4,
+.dashboard-card h5{
+    color:#fff;
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:18px;
+    padding-bottom:10px;
+    border-bottom:2px solid rgba(255,255,255,.15);
+}
+.text-muted{
+    color: rgba(255,255,255,.85) !important;
+}glass-card,
+.report-box,
+.kpi-card,
+.chart-card{
+    transition:all .45s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.glass-card:hover,
+.report-box:hover,
+.kpi-card:hover,
+.chart-card:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+    box-shadow:
+    0 20px 50px rgba(147,51,234,.35),
+    0 0 25px rgba(168,85,247,.35);
+
+    border-color:rgba(192,132,252,.5);
+}
+.glass-card::before,
+.report-box::before,
+.kpi-card::before,
+.chart-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+
+    left:-60%;
+
+    width:45%;
+
+    height:300%;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.25),
+
+        transparent
+
+    );
+
+    transform:rotate(25deg);
+
+    transition:.8s;
+
+}
+
+.glass-card:hover::before,
+.report-box:hover::before,
+.kpi-card:hover::before,
+.chart-card:hover::before{
+
+    left:150%;
+
+}
+.glass-card:hover,
+.report-box:hover,
+.kpi-card:hover,
+.chart-card:hover{
+
+    box-shadow:
+
+    0 0 12px rgba(168,85,247,.4),
+
+    0 0 25px rgba(168,85,247,.3),
+
+    0 0 45px rgba(168,85,247,.2);
+
+}
+.btn{
+
+    transition:.35s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 12px 30px rgba(147,51,234,.45);
+
+}
+.table tbody tr{
+
+    transition:.35s;
+
+}
+
+.table tbody tr:hover{
+
+    background:rgba(168,85,247,.12);
+
+    transform:scale(1.01);
+
+}
+.chart-card:hover{
+
+    border:1px solid rgba(192,132,252,.45);
+
+}
+select,
+input{
+
+    transition:.35s;
+
+}
+
+select:hover,
+input:hover{
+
+    border-color:#b388ff;
+
+    box-shadow:0 0 15px rgba(168,85,247,.25);
+
+}
+.report-icon,
+.card-icon{
+
+    transition:.4s;
+
+}
+
+.report-box:hover .report-icon,
+.kpi-card:hover .card-icon{
+
+    transform:rotate(-10deg) scale(1.25);
+
+    color:#d8b4fe;
+

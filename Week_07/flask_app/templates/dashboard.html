@@ -1,0 +1,395 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="glass-card hero-section">
+
+    <div class="hero-left">
+
+        <span class="hero-tag">
+
+            Hotel Booking Intelligence
+
+        </span>
+
+        <h1>
+
+            Business Analytics Dashboard
+
+        </h1>
+
+        <p>
+
+            Monitor hotel performance, revenue, customer behaviour,
+            booking trends and business insights using interactive
+            Plotly analytics.
+
+        </p>
+
+    </div>
+
+    <div class="hero-right">
+
+
+
+    </div>
+
+</section>
+
+<!-- ================= KPI ================= -->
+
+<section class="kpi-grid">
+
+    <div class="glass-card kpi-card booking">
+
+        <span>Total Bookings</span>
+
+        <h2>
+
+            {{ kpi.total_bookings }}
+
+        </h2>
+
+        <i class="fa-solid fa-calendar-days"></i>
+
+    </div>
+
+    <div class="glass-card kpi-card revenue">
+
+        <span>Total Revenue</span>
+
+        <h2>
+
+            ${{ "%.0f"|format(kpi.revenue) }}
+
+        </h2>
+
+        <i class="fa-solid fa-dollar-sign"></i>
+
+    </div>
+
+    <div class="glass-card kpi-card adr">
+
+        <span>Average ADR</span>
+
+        <h2>
+
+            ${{ "%.2f"|format(kpi.adr) }}
+
+        </h2>
+
+        <i class="fa-solid fa-money-bill-wave"></i>
+
+    </div>
+
+    <div class="glass-card kpi-card guests">
+
+        <span>Total Guests</span>
+
+        <h2>
+
+            {{ kpi.total_guests }}
+
+        </h2>
+
+        <i class="fa-solid fa-users"></i>
+
+    </div>
+
+    <div class="glass-card kpi-card stay">
+
+        <span>Average Stay</span>
+
+        <h2>
+
+            {{ "%.1f"|format(kpi.stay) }}
+
+        </h2>
+
+        <i class="fa-solid fa-bed"></i>
+
+    </div>
+
+    <div class="glass-card kpi-card cancel">
+
+        <span>Cancellation Rate</span>
+
+        <h2>
+
+            {{ "%.1f"|format(kpi.cancellation_rate) }}%
+
+        </h2>
+
+        <i class="fa-solid fa-ban"></i>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ANALYTICS DASHBOARD ================= -->
+
+<div class="dashboard-grid">
+
+    <!-- Row 1 -->
+    <div class="glass-card chart-large">
+        <h3>Revenue Trend</h3>
+        {{ revenue_chart|safe }}
+    </div>
+
+    <div class="glass-card chart-small">
+        <h3>Hotel Distribution</h3>
+        {{ hotel_chart|safe }}
+    </div>
+     
+  
+
+    <!-- Row 3 -->
+    <div class="glass-card">
+        <h3>ADR Distribution</h3>
+        {{ adr_chart|safe }}
+    </div>
+
+    <div class="glass-card">
+        <h3>Market Segment</h3>
+        {{ market_chart|safe }}
+    </div>
+
+    <div class="glass-card">
+        <h3>Lead Time Distribution</h3>
+        {{ lead_histogram|safe }}
+    </div>
+
+    <!-- Row 4 -->
+    <div class="glass-card chart-wide">
+        <h3>Lead Time vs ADR</h3>
+        {{ scatter_chart|safe }}
+    </div>
+
+    <div class="glass-card">
+        <h3>Guest Distribution</h3>
+        {{ guest_chart|safe }}
+    </div>
+
+    <!-- Row 5 -->
+    <div class="glass-card chart-full">
+        <h3>Correlation Heatmap</h3>
+        {{ heatmap|safe }}
+    </div>
+
+    <!-- Row 6 -->
+    <div class="glass-card">
+        <h3>Top Countries</h3>
+        {{ country_chart|safe }}
+    </div>
+
+    <div class="glass-card">
+        <h3>Stay Duration</h3>
+        {{ stay_chart|safe }}
+    </div>
+
+    <div class="glass-card">
+        <h3>Cancellation Rate</h3>
+        {{ cancellation_chart|safe }}
+    </div>
+
+
+
+</div>
+    <div class="insight-panel glass-card">
+
+        <h3>
+
+            Business Insights
+
+        </h3>
+
+        <div class="insight-box">
+
+            <i class="fa-solid fa-arrow-trend-up"></i>
+
+            <div>
+
+                <h5>
+
+                    Revenue Growth
+
+                </h5>
+
+                <p>
+
+                    Revenue is highest during the peak travel season.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="insight-box">
+
+            <i class="fa-solid fa-hotel"></i>
+
+            <div>
+
+                <h5>
+
+                    Hotel Performance
+
+                </h5>
+
+                <p>
+
+                    City Hotels receive more bookings than Resort Hotels.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="insight-box">
+
+            <i class="fa-solid fa-users"></i>
+
+            <div>
+
+                <h5>
+
+                    Customer Behaviour
+
+                </h5>
+
+                <p>
+
+                    Repeat guests show a lower cancellation rate.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="insight-box">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <div>
+
+                <h5>
+
+                    Recommendation
+
+                </h5>
+
+                <p>
+
+                    Offer loyalty discounts to increase repeat bookings.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOTTOM ================= -->
+
+<section class="dashboard-bottom">
+
+    <div class="chart-large glass-card">
+
+        <div class="chart-header">
+
+            <h3>
+
+                Executive Summary
+
+            </h3>
+
+        </div>
+
+        <div class="summary-grid">
+
+            <div class="summary-item">
+
+                <h5>
+
+                    Best Booking Month
+
+                </h5>
+
+                <span>
+
+                    August
+
+                </span>
+
+            </div>
+
+            <div class="summary-item">
+
+                <h5>
+
+                    Highest Revenue
+
+                </h5>
+
+                <span>
+
+                    City Hotel
+
+                </span>
+
+            </div>
+
+            <div class="summary-item">
+
+                <h5>
+
+                    Peak Season
+
+                </h5>
+
+                <span>
+
+                    Summer
+
+                </span>
+
+            </div>
+
+            <div class="summary-item">
+
+                <h5>
+
+                    Customer Satisfaction
+
+                </h5>
+
+                <span>
+
+                    Excellent
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+

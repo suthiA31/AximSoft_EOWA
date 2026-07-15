@@ -1,0 +1,968 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid px-2">
+
+    <!-- ================================= -->
+    <!-- PAGE HEADER -->
+    <!-- ================================= -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold mb-1">
+                <i class="fa-solid fa-chart-line text-primary"></i>
+                Booking Analytics
+            </h2>
+
+            <p class="text-muted mb-0">
+                Explore booking trends and hotel performance.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- ================================= -->
+    <!-- KPI CARDS -->
+    <!-- ================================= -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="kpi-card booking">
+
+                <div>
+
+                    <h6>Total Bookings</h6>
+
+                    <h2>{{kpi.total}}</h2>
+
+                </div>
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="kpi-card adr">
+
+                <div>
+
+                    <h6>Confirmed</h6>
+
+                    <h2>{{kpi.confirmed}}</h2>
+
+                </div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="kpi-card cancel">
+
+                <div>
+
+                    <h6>Cancelled</h6>
+
+                    <h2>{{kpi.cancelled}}</h2>
+
+                </div>
+
+                <i class="fa-solid fa-ban"></i>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="kpi-card stay">
+
+                <div>
+
+                    <h6>Average Lead Time</h6>
+
+                    <h2>{{kpi.lead}}</h2>
+
+                </div>
+
+                <i class="fa-solid fa-clock"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================================= -->
+    <!-- MINI SUMMARY -->
+    <!-- ================================= -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-lg-4">
+
+            <div class="mini-card">
+
+                <h6>Highest Booking Month</h6>
+
+                <h3>August</h3>
+
+                <span class="badge bg-success mt-2">
+
+                    ▲ 18%
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="mini-card">
+
+                <h6>Highest ADR</h6>
+
+                <h3>$145.82</h3>
+
+                <span class="badge bg-primary mt-2">
+
+                    City Hotel
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="mini-card">
+
+                <h6>Cancellation Rate</h6>
+
+                <h3>37.14%</h3>
+
+                <span class="badge bg-danger mt-2">
+
+                    High
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================================= -->
+    <!-- INSIGHTS -->
+    <!-- ================================= -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-lg-4">
+
+            <div class="dashboard-card h-100">
+
+                <h5 class="mb-3">
+
+                    <i class="fa-solid fa-lightbulb text-warning"></i>
+
+                    Booking Insights
+
+                </h5>
+
+                <ul class="dashboard-list">
+
+                    <li>Highest bookings occur during summer.</li>
+
+                    <li>City Hotel dominates reservations.</li>
+
+                    <li>Long lead time increases cancellations.</li>
+
+                    <li>OTA channels generate maximum bookings.</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="dashboard-card h-100">
+
+                <h5 class="mb-3">
+
+                    <i class="fa-solid fa-briefcase text-success"></i>
+
+                    Business Suggestions
+
+                </h5>
+
+                <ul class="dashboard-list">
+
+                    <li>Use dynamic pricing.</li>
+
+                    <li>Reward repeat guests.</li>
+
+                    <li>Launch seasonal campaigns.</li>
+
+                    <li>Reduce cancellations with reminders.</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="dashboard-card h-100">
+
+                <h5 class="mb-3">
+
+                    <i class="fa-solid fa-chart-pie text-info"></i>
+
+                    Model Statistics
+
+                </h5>
+
+                <table class="table table-borderless align-middle">
+
+                    <tr>
+
+                        <td>Correlation</td>
+
+                        <td class="fw-bold">0.78</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Confidence</td>
+
+                        <td class="fw-bold">95%</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Tests</td>
+
+                        <td class="fw-bold">8</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Status</td>
+
+                        <td class="text-success fw-bold">
+
+                            Passed
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================================= -->
+    <!-- CHART ROW 1 -->
+    <!-- ================================= -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-lg-8">
+
+            <div class="dashboard-card chart-card">
+
+                <h5 class="mb-3">
+
+                    Monthly Booking Trend
+
+                </h5>
+
+                {{chart1|safe}}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="dashboard-card chart-card">
+
+                <h5 class="mb-3">
+
+                    Hotel Type Comparison
+
+                </h5>
+
+                {{chart2|safe}}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================================= -->
+    <!-- CHART ROW 2 -->
+    <!-- ================================= -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5 class="mb-3">
+
+                    Top Booking Countries
+
+                </h5>
+
+                {{chart3|safe}}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5 class="mb-3">
+
+                    Market Segment Analysis
+
+                </h5>
+
+                {{chart4|safe}}
+
+            </div>
+
+        </div>
+
+    </div>
+<!-- ================= PERFORMANCE DASHBOARD ================= -->
+
+    <!-- ================================= -->
+    <!-- PERFORMANCE DASHBOARD -->
+    <!-- ================================= -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card text-center">
+
+                <i class="fa-solid fa-arrow-trend-up fa-3x text-success mb-3"></i>
+
+                <h6>Booking Growth</h6>
+
+                <h2 class="fw-bold text-success">+18.7%</h2>
+
+                <p class="text-muted mb-0">
+                    Compared to Previous Month
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card text-center">
+
+                <i class="fa-solid fa-money-bill-wave fa-3x text-primary mb-3"></i>
+
+                <h6>Average ADR</h6>
+
+                <h2 class="fw-bold">
+
+                    $ {{ "%.2f"|format(kpi.adr) }}
+
+                </h2>
+
+                <p class="text-muted mb-0">
+
+                    Average Daily Rate
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card text-center">
+
+                <i class="fa-solid fa-hotel fa-3x text-warning mb-3"></i>
+
+                <h6>Average Stay</h6>
+
+                <h2 class="fw-bold">
+
+                    {{kpi.stay}} Days
+
+                </h2>
+
+                <p class="text-muted mb-0">
+
+                    Stay Duration
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card text-center">
+
+                <i class="fa-solid fa-earth-americas fa-3x text-info mb-3"></i>
+
+                <h6>Countries</h6>
+
+                <h2 class="fw-bold">
+
+                    {{countries|length}}
+
+                </h2>
+
+                <p class="text-muted mb-0">
+
+                    Booking Countries
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- ADVANCED ANALYTICS -->
+    <!-- ================================= -->
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    <i class="fa-solid fa-chart-column text-primary"></i>
+
+                    Booking Season
+
+                </h5>
+
+                {{ booking_season_chart|safe }}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    <i class="fa-solid fa-clock text-warning"></i>
+
+                    Lead Time Distribution
+
+                </h5>
+
+                {{ lead_time_chart|safe }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    Cancellation Trend
+
+                </h5>
+
+                {{ cancellation_month_chart|safe }}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    Lead Time vs ADR
+
+                </h5>
+
+                {{ booking_scatter|safe }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    ADR by Hotel
+
+                </h5>
+
+                {{ booking_box|safe }}
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card chart-card">
+
+                <h5>
+
+                    Hotel Season Heatmap
+
+                </h5>
+
+                {{ booking_heatmap|safe }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- BOOKING SCORE -->
+    <!-- ================================= -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card">
+
+                <h4>
+
+                    Booking Performance Score
+
+                </h4>
+
+                <div class="progress mt-4" style="height:28px;">
+
+                    <div
+                        class="progress-bar bg-success"
+                        style="width:87%;">
+
+                        87%
+
+                    </div>
+
+                </div>
+
+                <p class="mt-4 mb-0">
+
+                    Booking performance is excellent with consistent seasonal demand and strong ADR.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card">
+
+                <h4>
+
+                    Booking Quality
+
+                </h4>
+
+                <table class="table table-borderless">
+
+                    <tr>
+
+                        <td>Confirmed</td>
+
+                        <td class="fw-bold text-success">
+
+                            {{kpi.confirmed}}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Cancelled</td>
+
+                        <td class="fw-bold text-danger">
+
+                            {{kpi.cancelled}}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Lead Time</td>
+
+                        <td>
+
+                            {{kpi.lead}}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>ADR</td>
+
+                        <td>
+
+                            $ {{kpi.adr}}
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- STRATEGIC DECISIONS -->
+    <!-- ================================= -->
+
+    <div class="dashboard-card mb-5">
+
+        <h4 class="mb-4">
+
+            <i class="fa-solid fa-lightbulb text-warning"></i>
+
+            Strategic Business Decisions
+
+        </h4>
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="mini-card">
+
+                    <h5>
+
+                        Dynamic Pricing
+
+                    </h5>
+
+                    <p>
+
+                        Increase room prices during peak seasons.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="mini-card">
+
+                    <h5>
+
+                        Loyalty Program
+
+                    </h5>
+
+                    <p>
+
+                        Reward repeat guests with exclusive benefits.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="mini-card">
+
+                    <h5>
+
+                        Reduce Cancellations
+
+                    </h5>
+
+                    <p>
+
+                        Send reminder emails and flexible offers.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="mini-card">
+
+                    <h5>
+
+                        Revenue Growth
+
+                    </h5>
+
+                    <p>
+
+                        Promote premium rooms during holidays.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- EXECUTIVE SUMMARY -->
+    <!-- ================================= -->
+
+    <div class="dashboard-card mb-5">
+
+        <h4 class="mb-4">
+
+            Executive Summary
+
+        </h4>
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <h6>Peak Season</h6>
+
+                    <h3>Summer</h3>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <h6>Top Hotel</h6>
+
+                    <h3>City Hotel</h3>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <h6>Best Segment</h6>
+
+                    <h3>Online TA</h3>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="mini-card">
+
+                    <h6>Revenue Driver</h6>
+
+                    <h3>Weekend Stay</h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- TABLE -->
+    <!-- ================================= -->
+
+    <div class="dashboard-card mb-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <h4>
+
+                Booking Records
+
+            </h4>
+            
+
+        </div>
+
+        <div class="table-responsive">
+
+            {{table|safe}}
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- FINDINGS -->
+    <!-- ================================= -->
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card h-100">
+
+                <h4>
+
+                    Key Findings
+
+                </h4>
+
+                <ol>
+
+                    <li>City Hotel receives the highest bookings.</li>
+
+                    <li>Summer contributes the largest reservations.</li>
+
+                    <li>OTA is the dominant booking channel.</li>
+
+                    <li>Higher lead time increases cancellations.</li>
+
+                    <li>Weekend stays generate higher ADR.</li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="dashboard-card h-100">
+
+                <h4>
+
+                    Recommendations
+
+                </h4>
+
+                <ol>
+
+                    <li>Implement dynamic pricing.</li>
+
+                    <li>Promote early booking discounts.</li>
+
+                    <li>Expand loyalty rewards.</li>
+
+                    <li>Strengthen OTA partnerships.</li>
+
+                    <li>Reduce cancellation risk through flexible booking.</li>
+
+                </ol>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
