@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header mb-4">
+
+    <h2>
+
+        <i class="fa-solid fa-chart-simple"></i>
+
+        Analytics Dashboard
+
+    </h2>
+
+    <p>
+
+        Interactive exploratory data analysis and model insights.
+
+    </p>
+
+</div>
+
+<div class="row g-4">
+
+    <div class="col-lg-6">
+
+        <div class="glass-card chart-card">
+
+            {{ sale_chart|safe }}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="glass-card chart-card">
+
+            {{ quality_chart|safe }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row g-4 mt-1">
+
+    <div class="col-lg-6">
+
+        <div class="glass-card chart-card">
+
+            {{ living_chart|safe }}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="glass-card chart-card">
+
+            {{ feature_chart|safe }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row g-4 mt-1">
+
+    <div class="col-lg-12">
+
+        <div class="glass-card chart-card">
+
+            {{ heatmap_chart|safe }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-4">
+
+    <div class="col-lg-12">
+
+        <div class="glass-card">
+
+            <h4>
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                Key Business Insights
+
+            </h4>
+
+            <div class="row mt-4">
+
+                <div class="col-md-4">
+
+                    <div class="glass-card text-center">
+
+                        <i class="fa-solid fa-house fa-3x text-info mb-3"></i>
+
+                        <h5>Overall Quality</h5>
+
+                        <p>
+
+                            Higher quality homes consistently achieve higher selling prices.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="glass-card text-center">
+
+                        <i class="fa-solid fa-chart-line fa-3x text-success mb-3"></i>
+
+                        <h5>Living Area</h5>
+
+                        <p>
+
+                            Ground living area has a strong positive relationship with sale price.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="glass-card text-center">
+
+                        <i class="fa-solid fa-building fa-3x text-warning mb-3"></i>
+
+                        <h5>Basement</h5>
+
+                        <p>
+
+                            Larger basement areas generally contribute to increased property value.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

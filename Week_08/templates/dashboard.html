@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header mb-4">
+
+    <h2>
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        Advanced Regression Analytics Dashboard
+
+    </h2>
+
+    <p>
+
+        House Price Prediction & Model Optimization Platform
+
+    </p>
+
+</div>
+
+<!-- KPI Cards -->
+
+<div class="row g-4 mb-4">
+
+    <div class="col-lg-2 col-md-4">
+
+        <div class="glass-card kpi-card">
+
+            <div class="icon">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <h6>Total Records</h6>
+
+            <h3>{{ kpi.records }}</h3>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2 col-md-4">
+
+        <div class="glass-card kpi-card">
+
+            <div class="icon">
+
+                <i class="fa-solid fa-table-columns"></i>
+
+            </div>
+
+            <h6>Features</h6>
+
+            <h3>{{ kpi.features }}</h3>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2 col-md-4">
+
+        <div class="glass-card kpi-card">
+
+            <div class="icon">
+
+                <i class="fa-solid fa-trophy"></i>
+
+            </div>
+
+            <h6>Best Model</h6>
+
+            <h4>{{ kpi.best_model }}</h4>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2 col-md-4">
+
+        <div class="glass-card kpi-card">
+
+            <div class="icon">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+            </div>
+
+            <h6>R² Score</h6>
+
+            <h3>{{ kpi.r2 }}</h3>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2 col-md-4">
+
+        <div class="glass-card kpi-card">
+
+            <div class="icon">
+
+                <i class="fa-solid fa-wave-square"></i>
+
+            </div>
+
+            <h6>RMSE</h6>
+
+            <h3>{{ kpi.rmse }}</h3>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2 col-md-4">
+
+        <div class="glass-card kpi-card">
+
+            <div class="icon">
+
+                <i class="fa-solid fa-check-circle"></i>
+
+            </div>
+
+            <h6>MAE</h6>
+
+            <h3>{{ kpi.mae }}</h3>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Charts Row 1 -->
+
+<div class="row g-4 mb-4">
+
+    <div class="col-lg-6">
+
+        <div class="glass-card chart-card">
+
+            {{ sale_chart|safe }}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="glass-card chart-card">
+
+            {{ quality_chart|safe }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Charts Row 2 -->
+
+<div class="row g-4 mb-4">
+
+    <div class="col-lg-6">
+
+        <div class="glass-card chart-card">
+
+            {{ living_chart|safe }}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+
+        <div class="glass-card chart-card">
+
+            {{ feature_chart|safe }}
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bottom Row -->
+
+<div class="row g-4">
+
+    <div class="col-lg-8">
+
+        <div class="glass-card chart-card">
+
+            {{ comparison_chart|safe }}
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="glass-card insight-card">
+
+            <h4>
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                Business Insights
+
+            </h4>
+
+            <ul>
+
+                <li>
+
+                    <strong>🏆 Best Model</strong><br>
+
+                    {{ kpi.best_model }} achieved the highest prediction performance.
+
+                </li>
+
+                <li>
+
+                    <strong>📈 Model Quality</strong><br>
+
+                    Current R² Score: {{ kpi.r2 }}
+
+                </li>
+
+                <li>
+
+                    <strong>🏠 Important Features</strong><br>
+
+                    Overall Quality, Living Area and Basement Area have the strongest influence on house prices.
+
+                </li>
+
+                <li>
+
+                    <strong>💡 Recommendation</strong><br>
+
+                    Improve overall house quality and usable living area to maximize resale value.
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

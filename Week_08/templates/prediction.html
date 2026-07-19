@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header mb-4">
+
+    <h2>
+
+        <i class="fa-solid fa-house-circle-check"></i>
+
+        House Price Prediction
+
+    </h2>
+
+    <p>
+
+        Enter the property details and estimate the selling price using the trained Random Forest model.
+
+    </p>
+
+</div>
+
+<div class="row g-4">
+
+    <!-- Prediction Form -->
+
+    <div class="col-lg-7">
+
+        <div class="glass-card">
+
+            <h4 class="mb-4">
+
+                <i class="fa-solid fa-sliders"></i>
+
+                Property Information
+
+            </h4>
+
+            <form action="{{ url_for('predict') }}" method="POST">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Overall Quality</label>
+
+                        <input type="number"
+
+                               class="form-control"
+
+                               name="OverallQual"
+
+                              placeholder="Example: 7 (Range 1-10)"
+
+                               min="1"
+                               max="10"required>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Living Area (sq ft)
+
+                        </label>
+
+                        <input type="number"
+
+                               class="form-control"
+
+                               name="GrLivArea"
+                               placeholder="Example: 1800 sq ft"
+
+                               required>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Garage Cars
+
+                        </label>
+
+                        <input type="number"
+
+                               class="form-control"
+
+                               name="GarageCars"
+                               placeholder="Example: 2"
+
+                               required>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Basement Area
+
+                        </label>
+
+                        <input type="number"
+
+                               class="form-control"
+
+                               name="TotalBsmtSF"
+
+                               placeholder="Example :950 sq ft"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Full Bathrooms
+
+                        </label>
+
+                        <input type="number"
+
+                               class="form-control"
+
+                               name="FullBath"
+                               placeholder="Example: 2"
+
+                               required>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Year Built
+
+                        </label>
+
+                        <input type="number"
+
+                               class="form-control"
+
+                               name="YearBuilt"
+                               placeholder="Example: 2005"
+
+                               required>
+
+                    </div>
+
+                </div>
+
+                <div class="mt-4">
+
+                    <button
+
+                        class="btn btn-primary btn-lg w-100">
+
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                        Predict Selling Price
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Result -->
+
+    <div class="col-lg-5">
+
+        <div class="glass-card prediction-card">
+
+            <div class="text-center">
+
+                <i class="fa-solid fa-sack-dollar prediction-icon"></i>
+
+                <h3 class="mt-3">
+
+                    Estimated Price
+
+                </h3>
+
+                <hr>
+
+                {% if prediction %}
+
+                <h1 class="prediction-value">
+
+                    ₹ {{ "{:,.0f}".format(prediction) }}
+
+                </h1>
+
+                {% else %}
+
+                <h2 class="text-secondary">
+
+                    Waiting for Prediction...
+
+                </h2>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <div class="glass-card mt-4">
+
+            <h5>
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                Model Information
+
+            </h5>
+
+            <table class="table table-borderless text-white mt-3">
+
+                <tr>
+
+                    <td>Algorithm</td>
+
+                    <td>Random Forest</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Features</td>
+
+                    <td>6</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Target</td>
+
+                    <td>SalePrice</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>R² Score</td>
+
+                    <td>0.79</td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,206 @@
+/* ===========================
+   GENERAL
+=========================== */
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eef2f7;
+    color:#333;
+}
+
+.container{
+    margin-top:30px;
+    margin-bottom:40px;
+}
+
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+    background:linear-gradient(90deg,#4b0082,#7b2cbf)!important;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.navbar-brand{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.nav-link{
+    color:white!important;
+    margin-left:12px;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#ffd43b!important;
+}
+
+
+/* ===========================
+   PAGE TITLE
+=========================== */
+
+h2{
+    font-weight:bold;
+    color:#4b0082;
+}
+
+.text-muted{
+    font-size:16px;
+}
+
+
+/* ===========================
+   KPI CARDS
+=========================== */
+
+.card{
+    border:none;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 25px rgba(0,0,0,.18);
+}
+
+.card-header{
+    font-weight:bold;
+    font-size:18px;
+}
+
+.card-body h3{
+    color:#6a0dad;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.card-body h5{
+    color:#6a0dad;
+    font-weight:bold;
+}
+
+
+/* ===========================
+   ICONS
+=========================== */
+
+.fa-solid{
+    margin-bottom:10px;
+}
+
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.btn{
+    border-radius:10px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.04);
+}
+
+
+/* ===========================
+   TABLES
+=========================== */
+
+.table{
+    text-align:center;
+    vertical-align:middle;
+}
+
+.table th{
+    background:#4b0082;
+    color:white;
+}
+
+.table-hover tbody tr:hover{
+    background:#efe7ff;
+}
+
+
+/* ===========================
+   FORMS
+=========================== */
+
+.form-control{
+    border-radius:10px;
+}
+
+.form-control:focus{
+    border-color:#7b2cbf;
+    box-shadow:0 0 10px rgba(123,44,191,.3);
+}
+
+
+/* ===========================
+   CHARTS
+=========================== */
+
+.js-plotly-plot{
+    border-radius:15px;
+    background:white;
+    padding:15px;
+    box-shadow:0 6px 15px rgba(0,0,0,.08);
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+    margin-top:50px;
+    background:#4b0082;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+
+/* ===========================
+   LINKS
+=========================== */
+
+a{
+    text-decoration:none;
+}
+
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+    .navbar-brand{
+        font-size:18px;
+    }
+
+    h2{
+        font-size:26px;
+    }
+
+    .card{
+        margin-bottom:20px;
+    }
+
+    .btn{
+        width:100%;
+        margin-top:10px;
+    }
+
+}

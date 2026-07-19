@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header mb-5">
+
+    <h2>
+
+        <i class="fa-solid fa-file-arrow-down"></i>
+
+        Reports Center
+
+    </h2>
+
+    <p>
+
+        Download generated project reports.
+
+    </p>
+
+</div>
+
+<div class="row g-4">
+
+    <div class="col-lg-4">
+
+        <div class="glass-card text-center">
+
+            <i class="fa-solid fa-chart-column fa-4x mb-3 text-info"></i>
+
+            <h4>
+
+                Evaluation Report
+
+            </h4>
+
+            <a
+
+                href="/download/evaluation"
+
+                class="btn btn-primary mt-3">
+
+                Download
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="glass-card text-center">
+
+            <i class="fa-solid fa-scale-balanced fa-4x mb-3 text-warning"></i>
+
+            <h4>
+
+                Comparison Report
+
+            </h4>
+
+            <a
+
+                href="/download/comparison"
+
+                class="btn btn-primary mt-3">
+
+                Download
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="glass-card text-center">
+
+            <i class="fa-solid fa-brain fa-4x mb-3 text-success"></i>
+
+            <h4>
+
+                Model Report
+
+            </h4>
+
+            <a
+
+                href="/download/model"
+
+                class="btn btn-primary mt-3">
+
+                Download
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="glass-card mt-4">
+
+<h4>
+
+Business Recommendations
+
+</h4>
+
+<ul>
+
+<li>
+
+Focus on improving Overall Quality, as it has the highest impact on selling price.
+
+</li>
+
+<li>
+
+Increasing usable living area can significantly improve market value.
+
+</li>
+
+<li>
+
+Homes with larger basements and garages generally attract higher prices.
+
+</li>
+
+<li>
+
+Regular renovation of older properties can increase resale value.
+
+</li>
+
+</ul>
+
+</div>
+
+{% endblock %}
