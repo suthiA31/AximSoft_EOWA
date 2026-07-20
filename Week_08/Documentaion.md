@@ -25,7 +25,9 @@ Numerical Features:
 
 Categorical Features:
 - 43
+# Home Page
 
+![Home Page](/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/reports/images/s1.png)
 ---
 
 # Phase 1: Data Cleaning
@@ -139,7 +141,9 @@ Training Process
 - Performance Evaluation
 
 ---
+# Prediction Page
 
+![Prediction Page](/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/reports/images/s2.png)
 # Phase 5: Model Evaluation
 
 The following metrics were used.
