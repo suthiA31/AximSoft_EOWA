@@ -17,8 +17,8 @@ Total Records:
 - Rows : 1460
 -Columns : 81
 
-Total Features:
-- 76
+After Cleaning Total Features:
+- 76,1460
 
 Numerical Features:
 - 38
@@ -27,17 +27,16 @@ Categorical Features:
 - 43
 # Home Page
 
-![Home Page](/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/reports/images/s1.png)
+![Home Page](ss_image/s1.png)
 ---
 
-# Phase 1: Data Cleaning
+# Phase 1&2: Data Cleaning& Understanding
 
 The following preprocessing steps were performed to improve data quality.
 
 ### Missing Value Analysis
 
 - Total columns with missing values: 19
-- Total missing values before cleaning: 17
 
 Missing value handling methods used:
 
@@ -130,7 +129,9 @@ Models Used
 2. Decision Tree Regressor
 3. Random Forest Regressor
 4. Gradient Boosting Regressor
-5. XGBoost Regressor (if used)
+5. XGBoost Regressor
+6. LightGBM
+7. Catboost
 
 Training Process
 
@@ -143,7 +144,7 @@ Training Process
 ---
 # Prediction Page
 
-![Prediction Page](/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/reports/images/s2.png)
+![Prediction Page](ss_image/s2.png)
 # Phase 5: Model Evaluation
 
 The following metrics were used.
@@ -157,16 +158,17 @@ The following metrics were used.
 
 | Model | MAE | RMSE | R² Score |
 |--------|------|------|-----------|
-| Linear Regression | | | |
-| Decision Tree | | | |
-| Random Forest | | | |
-| Gradient Boosting | | | |
-| XGBoost | | | |
+| Linear Regression | 15100.268756| 21431.638655| 0.855598|
+| Decision Tree | 22403.885714| 32546.308937| 0.666984|
+| Random Forest | 13789.298214| 20474.826468|0.868204 |
+| Gradient Boosting | 13022.987317|18736.201139 |0.889637 |
+| XGBoost |13791.554688 |20234.368386 | 0.871282|
+|CatBoost	|11392.195621	|2.777812e+08	|16666.769874	|0.912670
 
 ## Best Performing Model
 
 Model Name:
-- Random Forest Regressor
+- CatBoost Regressor
 
 Reason
 
