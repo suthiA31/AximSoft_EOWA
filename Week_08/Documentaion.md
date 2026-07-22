@@ -163,7 +163,7 @@ The following metrics were used.
 | Random Forest | 13789.298214| 20474.826468|0.868204 |
 | Gradient Boosting | 13022.987317|18736.201139 |0.889637 |
 | XGBoost |13791.554688 |20234.368386 | 0.871282|
-|CatBoost	|11392.195621	|2.777812e+08	|16666.769874	|0.912670
+|CatBoost	|11392.195621	|2.777812e+08	|0.912670
 
 ## Best Performing Model
 
