@@ -30,7 +30,8 @@ df = load_data()
 
 comparison = load_comparison()
 
-model = joblib.load("/home/aximsoft/Documents/EOWA/Week_08/Notebooks/dataset/models/best_model.pkl")
+model = joblib.load("/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/models/best_model1.pkl")
+
 
 
 # -------------------------------------------------
@@ -58,17 +59,7 @@ def dashboard():
 
         "dashboard.html",
 
-        kpi=kpis,
-
-        sale_chart=saleprice_chart(df),
-
-        quality_chart=quality_chart(df),
-
-        living_chart=living_chart(df),
-
-        feature_chart=feature_chart(),
-
-        comparison_chart=comparison_chart(comparison_df)
+        kpi=kpis
 
     )
 
@@ -105,21 +96,17 @@ def prediction():
 )
 
 def predict():
-
     values = np.array([[
-
         float(request.form["OverallQual"]),
-
         float(request.form["GrLivArea"]),
-
         float(request.form["GarageCars"]),
-
         float(request.form["TotalBsmtSF"]),
-
         float(request.form["FullBath"]),
-
-        float(request.form["YearBuilt"])
-
+        float(request.form["YearBuilt"]),
+        float(request.form["1stFlrSF"]),
+        float(request.form["TotRmsAbvGrd"]),
+        float(request.form["Fireplaces"]),
+        float(request.form["LotArea"])
     ]])
 
     prediction = model.predict(values)[0]
@@ -141,21 +128,13 @@ def predict():
 @app.route("/analytics")
 def analytics():
 
-    df = load_data()
+
 
     return render_template(
 
         "analytics.html",
 
-        sale_chart=saleprice_chart(df),
 
-        quality_chart=quality_chart(df),
-
-        living_chart=living_chart(df),
-
-        feature_chart=feature_chart(),
-
-        heatmap_chart=heatmap_chart(df)
 
     )
 
@@ -169,7 +148,7 @@ def analytics():
 @app.route("/comparison")
 def comparison():
 
-    comparison_df = load_comparison()
+
 
     return render_template(
 
@@ -177,7 +156,6 @@ def comparison():
 
         comparison=comparison_df,
 
-        comparison_chart=comparison_chart(comparison_df)
 
     )
 
@@ -202,7 +180,7 @@ def evaluation_report():
 
     return send_file(
 
-        "/home/aximsoft/Documents/EOWA/Week_08/Notebooks/dataset/reports/model_evaluation.pdf",
+        "/home/aximsoft/Documents/AximSoft_EOWA//Week_08/Notebooks/dataset/reports/model_evaluation.pdf",
 
         as_attachment=True
 
@@ -214,7 +192,7 @@ def comparison_report():
 
     return send_file(
 
-        "/home/aximsoft/Documents/EOWA/Week_08/Notebooks/dataset/reports/model_comparison.pdf",
+        "/home/aximsoft/Documents/AximSoft_EOWA//Week_08/Notebooks/dataset/reports/model_comparison.pdf",
 
         as_attachment=True
 
@@ -226,7 +204,27 @@ def model_report():
 
     return send_file(
 
-        "/home/aximsoft/Documents/EOWA/Week_08/Notebooks/dataset/reports/model_interpretation.pdf",
+        "/home/aximsoft/Documents/AximSoft_EOWA//Week_08/Notebooks/dataset/reports/model_interpretation.pdf",
+
+        as_attachment=True
+
+    )
+@app.route("/download/EDA")
+def eda_report():
+
+    return send_file(
+
+        "/home/aximsoft/Documents/AximSoft_EOWA//Week_08/Notebooks/dataset/reports/eda_report.pdf",
+
+        as_attachment=True
+
+    )
+@app.route("/download/Preprocessing")
+def Preprocessing_report():
+
+    return send_file(
+
+        "/home/aximsoft/Documents/AximSoft_EOWA//Week_08/Notebooks/dataset/reports/preprocessing_report.pdf",
 
         as_attachment=True
 

@@ -5,61 +5,66 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 from plotly.subplots import make_subplots
+from analytics.data_loader import *
+
+model = model()
+
+df=load_data()
+comparison_df=load_comparison()
 
 
-model = joblib.load("/home/aximsoft/Documents/EOWA/Week_08/Notebooks/dataset/models/best_model.pkl")
-def layout(fig,title):
+
+
+
+import os
+
+CHART_FOLDER = "static/charts"
+
+os.makedirs(CHART_FOLDER, exist_ok=True)
+
+def layout(fig, title, filename):
 
     fig.update_layout(
-
         title=title,
-
         template="plotly_dark",
-
         paper_bgcolor="rgba(0,0,0,0)",
-
         plot_bgcolor="rgba(0,0,0,0)",
-
         font=dict(color="white"),
-
-        margin=dict(l=20,r=20,t=50,b=20),
-
+        margin=dict(l=20, r=20, t=50, b=20),
         height=430
-
     )
 
-    return fig.to_html(full_html=False)
+    path = os.path.join(CHART_FOLDER, filename)
+
+    fig.write_image(path, width=1000, height=500)
+
+    return filename
+
 def saleprice_chart(df):
 
-    fig=px.histogram(
-
+    fig = px.histogram(
         df,
-
         x="SalePrice",
-
         nbins=40,
-
         color_discrete_sequence=["#A855F7"]
-
     )
 
-    return layout(fig,"Sale Price Distribution")
+    return layout(fig,
+                  "Sale Price Distribution",
+                  "saleprice.png")
 def feature_chart():
 
     features=[
-
         "OverallQual",
-
         "GrLivArea",
-
         "GarageCars",
-
         "TotalBsmtSF",
-
         "FullBath",
-
-        "YearBuilt"
-
+        "YearBuilt",
+        "1stFlrSF",
+        "TotRmsAbvGrd",
+        "Fireplaces",
+        "LotArea"
     ]
 
     importance=pd.Series(
@@ -80,7 +85,9 @@ def feature_chart():
 
     )
 
-    return layout(fig,"Feature Importance")
+    return layout(fig,
+                  "Feature Importance",
+                  "feature.png")
 def comparison_chart(comparison):
 
     fig=px.bar(
@@ -95,7 +102,7 @@ def comparison_chart(comparison):
 
     )
 
-    return layout(fig,"Regression Model Comparison")
+    return layout(fig,"Regression Model Comparison","Comparison.png")
 def heatmap_chart(df):
 
     corr = df.select_dtypes(include="number").corr()
@@ -112,7 +119,9 @@ def heatmap_chart(df):
 
     )
 
-    return layout(fig, "Correlation Heatmap")
+    return layout(fig,
+                  "Correlation Heatmap",
+                  "heatmap.png")
 def actual_predicted_chart(y_test, prediction):
 
     fig = px.scatter(
@@ -149,7 +158,7 @@ def actual_predicted_chart(y_test, prediction):
 
     )
 
-    return layout(fig, "Actual vs Predicted")
+    return layout(fig, "Actual vs Predicted","Actual vs Predicted.png")
 def residual_chart(y_test, prediction):
 
     residuals = y_test - prediction
@@ -182,7 +191,7 @@ def residual_chart(y_test, prediction):
 
     )
 
-    return layout(fig, "Residual Plot")
+    return layout(fig, "Residual Plot","Residual.png")
 def quality_chart(df):
 
     data = (
@@ -206,15 +215,9 @@ def quality_chart(df):
 
     )
 
-
-    return layout(
-
-        fig,
-
-        "Overall Quality Distribution"
-
-    )
-
+    return layout(fig,
+                  "Overall Quality Distribution",
+                  "quality.png")
 def living_chart(df):
 
     fig = px.scatter(
@@ -231,11 +234,24 @@ def living_chart(df):
 
     )
 
+    return layout(fig,
+                  "Living Area vs Sale Price",
+                  "living.png")
+saleprice_chart(df)
 
-    return layout(
+quality_chart(df)
 
-        fig,
+living_chart(df)
 
-        "Living Area vs Sale Price"
+feature_chart()
+comparison_chart(comparison_df)
+sale_chart = saleprice_chart(df),
 
-    )
+quality_chart = quality_chart(df),
+
+living_chart = living_chart(df),
+
+feature_chart = feature_chart(),
+
+heatmap_chart = heatmap_chart(df)
+comparison_chart=comparison_chart(comparison_df)

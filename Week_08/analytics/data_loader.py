@@ -1,7 +1,8 @@
 import pandas as pd
+import joblib
 
 
-DATA_PATH = "/home/aximsoft/Documents/EOWA/Week_08/Notebooks/dataset/house_prices_cleaned.csv"
+DATA_PATH = "/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/house_prices_cleaned.csv"
 
 
 def load_data():
@@ -11,4 +12,7 @@ def load_data():
 
 def load_comparison():
 
-    return pd.read_csv("/home/aximsoft/Documents/EOWA/Week_08/Notebooks/dataset/reports/model_comparison.csv")
+    return pd.read_csv("/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/reports/model_comparison.csv")
+def model():
+    model = joblib.load("/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/models/best_model1.pkl")
+    return model

@@ -13,7 +13,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import inch
 
 import pandas as pd
-comparison = pd.read_csv("/home/aximsoft/Documents/EOWA/Week_08/Notebooks/dataset/reports/model_comparison.csv")
+comparison = pd.read_csv("/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/reports/model_comparison.csv")
 comparison = pd.DataFrame({
 
     "Model":[
@@ -61,7 +61,7 @@ styles = getSampleStyleSheet()
 
 doc = SimpleDocTemplate(
 
-    "/home/aximsoft/Documents/EOWA/Week_08/Notebooks/dataset/reports/model_evaluation.pdf"
+    "/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/reports/model_evaluation.pdf"
 
 )
 
