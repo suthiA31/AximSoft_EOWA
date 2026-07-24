@@ -61,7 +61,7 @@ comparison = pd.DataFrame({
 styles = getSampleStyleSheet()
 
 doc = SimpleDocTemplate(
-    "/home/aximsoft/Documents/EOWA/Week_08/Notebooks/dataset/reports/model_comparison.pdf"
+    "/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/reports/model_comparison.pdf"
 )
 
 story = []

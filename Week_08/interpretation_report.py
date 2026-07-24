@@ -39,7 +39,7 @@ importance = pd.DataFrame({
 styles = getSampleStyleSheet()
 
 doc = SimpleDocTemplate(
-    "/home/aximsoft/Documents/EOWA/Week_08/Notebooks/dataset/reports/model_interpretation.pdf"
+    "/home/aximsoft/Documents/AximSoft_EOWA/Week_08/Notebooks/dataset/reports/model_interpretation.pdf"
 )
 
 story = []

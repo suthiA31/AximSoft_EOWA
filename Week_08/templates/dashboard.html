@@ -142,7 +142,8 @@
 
         <div class="glass-card chart-card">
 
-            {{ sale_chart|safe }}
+            <img src="{{ url_for('static', filename='charts/saleprice.png') }}"
+            style="width:100%; height:100%; object-fit:cover; object-position: center">
 
         </div>
 
@@ -152,7 +153,7 @@
 
         <div class="glass-card chart-card">
 
-            {{ quality_chart|safe }}
+            <img src="{{ url_for('static', filename='charts/quality.png') }}"style="width:100%; height:100%; object-fit:cover; object-position: center">
 
         </div>
 
@@ -168,7 +169,7 @@
 
         <div class="glass-card chart-card">
 
-            {{ living_chart|safe }}
+            <img src="{{ url_for('static', filename='charts/living.png') }}"style="width:100%; height:100%; object-fit:cover; object-position: center">
 
         </div>
 
@@ -178,7 +179,8 @@
 
         <div class="glass-card chart-card">
 
-            {{ feature_chart|safe }}
+
+<img src="{{ url_for('static', filename='charts/feature.png') }}"style="width:100%; height:100%; object-fit:cover; object-position: center">
 
         </div>
 
@@ -194,7 +196,7 @@
 
         <div class="glass-card chart-card">
 
-            {{ comparison_chart|safe }}
+    <img src="{{ url_for('static', filename='charts/heatmap.png') }}">
 
         </div>
 
