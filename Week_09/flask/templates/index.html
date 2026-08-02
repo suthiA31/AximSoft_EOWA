@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Skin Disease Diagnosis{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+
+<div class="row align-items-center">
+
+    <div class="col-lg-6">
+
+        <h1 class="display-4 fw-bold mb-3">
+
+            🌸 Skin Disease Diagnosis Platform
+
+        </h1>
+
+        <p class="lead text-muted">
+
+            AI-powered multi-class skin disease classification using Deep Learning and Explainable AI.
+
+        </p>
+
+        <p>
+
+            Upload a dermoscopic image and let the trained model identify the skin disease with confidence scores and Grad-CAM visualization.
+
+        </p>
+
+        <a href="{{ url_for('predict') }}" class="btn btn-pink btn-lg mt-3">
+
+            <i class="bi bi-upload"></i>
+
+            Start Diagnosis
+
+        </a>
+
+    </div>
+
+    <div class="col-lg-6 text-center">
+
+        <img src="{{ url_for('static', filename='images/doctor.png') }}"
+             class="img-fluid"
+             style="max-height:450px;">
+
+    </div>
+
+</div>
+
+<hr class="my-5">
+
+<!-- Feature Cards -->
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+
+        <div class="card p-4 h-100 text-center">
+
+            <i class="bi bi-image-fill display-4 text-pink"></i>
+
+            <h4 class="mt-3">
+
+                Image Diagnosis
+
+            </h4>
+
+            <p>
+
+                Upload a skin image and receive an instant prediction.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card p-4 h-100 text-center">
+
+            <i class="bi bi-graph-up-arrow display-4 text-pink"></i>
+
+            <h4 class="mt-3">
+
+                AI Analytics
+
+            </h4>
+
+            <p>
+
+                Explore model performance, evaluation metrics, and visualizations.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card p-4 h-100 text-center">
+
+            <i class="bi bi-fire display-4 text-pink"></i>
+
+            <h4 class="mt-3">
+
+                Explainable AI
+
+            </h4>
+
+            <p>
+
+                Understand predictions using Grad-CAM heatmaps and visual explanations.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<hr class="my-5">
+
+<!-- Project Statistics -->
+
+<div class="row text-center g-4">
+
+    <div class="col-md-3">
+
+        <div class="card p-4">
+
+            <h2 class="text-pink">
+
+                10,015
+
+            </h2>
+
+            <h5>Total Images</h5>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card p-4">
+
+            <h2 class="text-pink">
+
+                7
+
+            </h2>
+
+            <h5>Skin Diseases</h5>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card p-4">
+
+            <h2 class="text-pink">
+
+                ResNet50
+
+            </h2>
+
+            <h5>Best Model</h5>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card p-4">
+
+            <h2 class="text-pink">
+
+                93%
+
+            </h2>
+
+            <h5>Accuracy</h5>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

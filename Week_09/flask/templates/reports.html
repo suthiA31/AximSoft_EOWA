@@ -1,0 +1,366 @@
+{% extends "base.html" %}
+
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h1 class="text-center text-pink mb-5">
+        <i class="bi bi-file-earmark-text-fill"></i>
+        Reports Center
+    </h1>
+
+    <div class="row g-4">
+
+        <!-- Diagnosis Report -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow h-100 border-0">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-file-medical-fill display-3 text-danger"></i>
+
+                    <h4 class="mt-3">
+                        Diagnosis Report
+                    </h4>
+
+                    <p class="text-muted">
+                        Generated after every prediction.
+                        Includes uploaded image, disease,
+                        confidence score, probabilities,
+                        Grad-CAM heatmap and recommendation.
+                    </p>
+
+                    <a href="/download_diagnosis"
+                       class="btn btn-pink">
+
+                        <i class="bi bi-download"></i>
+
+                        Download
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Data Preprocessing -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow h-100 border-0">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-database-fill-gear display-3 text-primary"></i>
+
+                    <h4 class="mt-3">
+                        Data Preprocessing
+                    </h4>
+
+                    <p class="text-muted">
+                        Complete preprocessing pipeline,
+                        cleaning, normalization,
+                        image resizing,
+                        encoding,
+                        augmentation and dataset preparation.
+                    </p>
+
+                    <a href="/download_preprocessing"
+                       class="btn btn-pink">
+
+                        <i class="bi bi-download"></i>
+
+                        Download
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Model Training -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow h-100 border-0">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-cpu-fill display-3 text-success"></i>
+
+                    <h4 class="mt-3">
+                        Model Training
+                    </h4>
+
+                    <p class="text-muted">
+                        CNN architectures,
+                        transfer learning,
+                        hyperparameter tuning,
+                        optimization,
+                        callbacks and training results.
+                    </p>
+
+                    <a href="/download_training"
+                       class="btn btn-pink">
+
+                        <i class="bi bi-download"></i>
+
+                        Download
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Explainable AI -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow h-100 border-0">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-fire display-3 text-warning"></i>
+
+                    <h4 class="mt-3">
+                        Explainable AI
+                    </h4>
+
+                    <p class="text-muted">
+                        Detailed explanation of Grad-CAM,
+                        heatmap generation,
+                        feature localization
+                        and model interpretation.
+                    </p>
+
+                    <a href="/download_xai"
+                       class="btn btn-pink">
+
+                        <i class="bi bi-download"></i>
+
+                        Download
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Model Comparison -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow h-100 border-0">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-bar-chart-fill display-3 text-info"></i>
+
+                    <h4 class="mt-3">
+                        Model Comparison
+                    </h4>
+
+                    <p class="text-muted">
+                        Performance comparison of
+                        Basic CNN,
+                        BatchNorm,
+                        Deep CNN,
+                        MobileNetV2,
+                        ResNet50,
+                        DenseNet and EfficientNet.
+                    </p>
+
+                    <a href="/download_comparison"
+                       class="btn btn-pink">
+
+                        <i class="bi bi-download"></i>
+
+                        Download
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Evaluation Report -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow h-100 border-0">
+
+                <div class="card-body text-center">
+
+                    <i class="bi bi-clipboard-data-fill display-3 text-secondary"></i>
+
+                    <h4 class="mt-3">
+                        Evaluation Report
+                    </h4>
+
+                    <p class="text-muted">
+                        Accuracy,
+                        Precision,
+                        Recall,
+                        F1 Score,
+                        ROC-AUC,
+                        confusion matrix,
+                        ROC curve and evaluation metrics.
+                    </p>
+
+                    <a href="/download_evaluation"
+                       class="btn btn-pink">
+
+                        <i class="bi bi-download"></i>
+
+                        Download
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Summary Table -->
+
+    <div class="card shadow mt-5 border-0">
+
+        <div class="card-body">
+
+            <h3 class="text-pink mb-4">
+                <i class="bi bi-table"></i>
+                Available Reports
+            </h3>
+
+            <table class="table table-hover table-bordered align-middle">
+
+                <thead class="table-light">
+
+                    <tr>
+
+                        <th>Report</th>
+
+                        <th>Description</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Diagnosis Report</td>
+                        <td>Prediction, confidence score, Grad-CAM and recommendation.</td>
+                        <td><span class="badge bg-success">Ready</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Data Preprocessing</td>
+                        <td>Dataset preparation, augmentation and preprocessing workflow.</td>
+                        <td><span class="badge bg-success">Ready</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Model Training</td>
+                        <td>Training configuration, hyperparameters and optimization.</td>
+                        <td><span class="badge bg-success">Ready</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Explainable AI</td>
+                        <td>Grad-CAM visualization and explainability report.</td>
+                        <td><span class="badge bg-success">Ready</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Model Comparison</td>
+                        <td>Performance comparison of all trained models.</td>
+                        <td><span class="badge bg-success">Ready</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Evaluation Report</td>
+                        <td>Confusion Matrix, ROC Curve and evaluation metrics.</td>
+                        <td><span class="badge bg-success">Ready</span></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- Report Features -->
+
+    <div class="card shadow mt-5 border-0">
+
+        <div class="card-body">
+
+            <h3 class="text-pink mb-4">
+                <i class="bi bi-stars"></i>
+                Report Highlights
+            </h3>
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <ul class="list-group">
+
+                        <li class="list-group-item">✔ Automatic PDF Generation</li>
+                        <li class="list-group-item">✔ Disease Prediction Summary</li>
+                        <li class="list-group-item">✔ Confidence & Probability Scores</li>
+                        <li class="list-group-item">✔ Grad-CAM Heatmap</li>
+                        <li class="list-group-item">✔ Clinical Recommendation</li>
+                        <li class="list-group-item">✔ Dataset Statistics</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <ul class="list-group">
+
+                        <li class="list-group-item">✔ Training Configuration</li>
+                        <li class="list-group-item">✔ Hyperparameter Details</li>
+                        <li class="list-group-item">✔ Model Comparison</li>
+                        <li class="list-group-item">✔ Accuracy & ROC Metrics</li>
+                        <li class="list-group-item">✔ Explainable AI Analysis</li>
+                        <li class="list-group-item">✔ Downloadable PDF Reports</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,571 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h1 class="text-center text-pink mb-5">
+    <i class="bi bi-speedometer2"></i>
+    Dashboard
+</h1>
+
+<!-- =======================
+SUMMARY CARDS
+======================= -->
+
+<div class="row g-4">
+
+<div class="col-md-3">
+<div class="dashboard-card">
+<i class="bi bi-images display-5"></i>
+<h2>10,015</h2>
+<p>Total Images</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="dashboard-card">
+<i class="bi bi-grid-3x3-gap display-5"></i>
+<h2>7</h2>
+<p>Disease Classes</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="dashboard-card">
+<i class="bi bi-cpu-fill display-5"></i>
+<h2>7</h2>
+<p>Models Trained</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="dashboard-card">
+<i class="bi bi-award-fill display-5"></i>
+<h2>72.39%</h2>
+<p>Best Accuracy</p>
+</div>
+</div>
+
+</div>
+
+<!-- =======================
+DATASET SUMMARY
+======================= -->
+
+<div class="card mt-5 shadow">
+
+<div class="card-body">
+
+<h3 class="text-pink mb-4">
+Dataset Summary
+</h3>
+
+<table class="table table-bordered">
+
+<tr>
+<th>Total Images</th>
+<td>10015</td>
+</tr>
+
+<tr>
+<th>Training Images</th>
+<td>7009</td>
+</tr>
+
+<tr>
+<th>Validation Images</th>
+<td>1503</td>
+</tr>
+
+<tr>
+<th>Testing Images</th>
+<td>1503</td>
+</tr>
+
+<tr>
+<th>Image Size</th>
+<td>128 × 128</td>
+</tr>
+
+<tr>
+<th>Total Classes</th>
+<td>7</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- =======================
+CHARTS
+======================= -->
+
+<div class="row mt-5">
+
+<div class="col-md-6">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h4 class="text-center text-pink">
+Class Distribution
+</h4>
+
+<canvas id="classChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h4 class="text-center text-pink">
+Dataset Split
+</h4>
+
+<canvas id="splitChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =======================
+MODEL COMPARISON
+======================= -->
+
+<div class="card mt-5 shadow">
+
+<div class="card-body">
+
+<h3 class="text-pink mb-4">
+Model Comparison
+</h3>
+
+<canvas id="accuracyChart"></canvas>
+
+</div>
+
+</div>
+
+<!-- =======================
+METRICS
+======================= -->
+
+<div class="row mt-5">
+
+<div class="col-md-3">
+
+<div class="dashboard-card">
+
+<h2>68.35%</h2>
+
+<p>Precision</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="dashboard-card">
+
+<h2>72.39%</h2>
+
+<p>Recall</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="dashboard-card">
+
+<h2>68.21%</h2>
+
+<p>F1 Score</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="dashboard-card">
+
+<h2>83.49%</h2>
+
+<p>ROC-AUC</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =======================
+PIPELINE
+======================= -->
+
+<div class="card mt-5 shadow">
+
+<div class="card-body">
+
+<h3 class="text-pink mb-4">
+Project Workflow
+</h3>
+
+<div class="row text-center">
+
+<div class="col">
+<i class="bi bi-folder2-open display-6"></i>
+<p>Dataset</p>
+</div>
+
+<div class="col">
+<i class="bi bi-brush display-6"></i>
+<p>Preprocessing</p>
+</div>
+
+<div class="col">
+<i class="bi bi-cpu display-6"></i>
+<p>Training</p>
+</div>
+
+<div class="col">
+<i class="bi bi-bar-chart display-6"></i>
+<p>Evaluation</p>
+</div>
+
+<div class="col">
+<i class="bi bi-lightning display-6"></i>
+<p>Prediction</p>
+</div>
+
+<div class="col">
+<i class="bi bi-fire display-6"></i>
+<p>Grad-CAM</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =======================
+SYSTEM FEATURES
+======================= -->
+
+<div class="card mt-5 shadow">
+
+<div class="card-body">
+
+<h3 class="text-pink mb-4">
+System Features
+</h3>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<ul>
+
+<li>✔ Upload Skin Image</li>
+
+<li>✔ Disease Classification</li>
+
+<li>✔ Confidence Score</li>
+
+<li>✔ Probability Distribution</li>
+
+</ul>
+
+</div>
+
+<div class="col-md-6">
+
+<ul>
+
+<li>✔ Grad-CAM Visualization</li>
+
+<li>✔ Model Comparison</li>
+
+<li>✔ Analytics Dashboard</li>
+
+<li>✔ Download Reports</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =======================
+CHART JS
+======================= -->
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+// =========================
+// Accuracy Chart
+// =========================
+
+new Chart(document.getElementById("accuracyChart"), {
+
+    type: "bar",
+
+    data: {
+
+        labels: [
+            "Basic CNN",
+            "BatchNorm",
+            "DeepCNN",
+            "MobileNetV2",
+            "ResNet50",
+            "DenseNet",
+            "EfficientNet"
+        ],
+
+        datasets: [{
+
+            label: "Accuracy (%)",
+
+            data: [
+                67.27,
+                61.67,
+                67.53,
+                59.08,
+                66.93,
+                20.09,
+                72.39
+            ],
+
+            backgroundColor: [
+                "#FFB6C1",
+                "#FF69B4",
+                "#F8A5C2",
+                "#FFC0CB",
+                "#FF8FAB",
+                "#F9A8D4",
+                "#EC4899"
+            ],
+
+            borderColor: [
+                "#DB2777",
+                "#DB2777",
+                "#DB2777",
+                "#DB2777",
+                "#DB2777",
+                "#DB2777",
+                "#DB2777"
+            ],
+
+            borderWidth:2,
+            borderRadius:10
+
+        }]
+
+    },
+
+    options:{
+
+        responsive:true,
+
+        plugins:{
+            legend:{
+                labels:{
+                    color:"#DB2777"
+                }
+            }
+        },
+
+        scales:{
+
+            y:{
+                beginAtZero:true,
+
+                grid:{
+                    color:"#FFE4EC"
+                },
+
+                ticks:{
+                    color:"#DB2777"
+                }
+            },
+
+            x:{
+
+                grid:{
+                    display:false
+                },
+
+                ticks:{
+                    color:"#DB2777"
+                }
+
+            }
+
+        }
+
+    }
+
+});
+
+// =========================
+// Dataset Split
+// =========================
+
+new Chart(document.getElementById("splitChart"),{
+
+    type:"pie",
+
+    data:{
+
+        labels:[
+            "Train",
+            "Validation",
+            "Test"
+        ],
+
+        datasets:[{
+
+            data:[
+                7009,
+                1503,
+                1503
+            ],
+
+            backgroundColor:[
+                "#EC4899",
+                "#FF8FAB",
+                "#FFD6E8"
+            ],
+
+            borderColor:"#ffffff",
+
+            borderWidth:3
+
+        }]
+
+    },
+
+    options:{
+
+        plugins:{
+
+            legend:{
+
+                position:"bottom",
+
+                labels:{
+                    color:"#DB2777"
+                }
+
+            }
+
+        }
+
+    }
+
+});
+
+// =========================
+// Class Distribution
+// =========================
+
+new Chart(document.getElementById("classChart"),{
+
+    type:"doughnut",
+
+    data:{
+
+        labels:[
+            "AKIEC",
+            "BCC",
+            "BKL",
+            "DF",
+            "MEL",
+            "NV",
+            "VASC"
+        ],
+
+        datasets:[{
+
+            data:[
+                327,
+                514,
+                1099,
+                115,
+                1113,
+                6705,
+                142
+            ],
+
+            backgroundColor:[
+                "#FF69B4",
+                "#FF8FAB",
+                "#FFAFC8",
+                "#FFC2D1",
+                "#FFD6E0",
+                "#F9A8D4",
+                "#FBCFE8"
+            ],
+
+            borderColor:"#ffffff",
+
+            borderWidth:2
+
+        }]
+
+    },
+
+    options:{
+
+        plugins:{
+
+            legend:{
+
+                position:"bottom",
+
+                labels:{
+                    color:"#DB2777"
+                }
+
+            }
+
+        }
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

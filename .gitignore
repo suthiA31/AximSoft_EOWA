@@ -1,1 +1,27 @@
-.ipynb_checkpoints/
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+
+# Models
+model/
+*.keras
+*.h5
+
+# Reports
+reports/
+static/reports/
+
+# Uploads
+static/uploads/
+
+# GradCAM
+static/gradcam/
+
+# Word Documents
+*.docx
+
+# Temporary files
+.~lock*

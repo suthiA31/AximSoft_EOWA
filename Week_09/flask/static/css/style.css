@@ -1,0 +1,215 @@
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#FFF5F8;
+
+    color:#444;
+
+}
+
+.text-pink{
+
+    color:#E91E63;
+
+}
+
+.navbar{
+
+    border-bottom:3px solid #F8BBD0;
+
+}
+
+.nav-link{
+
+    font-weight:500;
+
+    margin-left:12px;
+
+    color:#555 !important;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    color:#E91E63 !important;
+
+}
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.btn-pink{
+
+    background:#EC407A;
+
+    color:white;
+
+    border:none;
+
+    border-radius:30px;
+
+    padding:12px 30px;
+
+    font-weight:600;
+
+}
+
+.btn-pink:hover{
+
+    background:#D81B60;
+
+    color:white;
+
+}
+
+.footer{
+
+    background:white;
+
+    border-top:2px solid #F8BBD0;
+
+}
+.progress{
+
+    height:22px;
+
+    border-radius:20px;
+
+    background:#F8BBD0;
+
+}
+
+.progress-bar{
+
+    background:#EC407A !important;
+
+    font-weight:bold;
+
+}
+
+img{
+
+    border-radius:20px;
+
+}
+
+.alert{
+
+    border-radius:15px;
+
+}
+#preview{
+
+    border-radius:20px;
+
+    margin-top:20px;
+
+    transition:.3s;
+
+}
+
+#preview:hover{
+
+    transform:scale(1.02);
+
+}
+
+.spinner-border{
+
+    width:4rem;
+
+    height:4rem;
+
+}
+
+.card{
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+.explain-card{
+
+    border-radius:20px;
+
+}
+
+.card img{
+
+    border-radius:15px;
+
+    transition:.3s;
+
+}
+
+.card img:hover{
+
+    transform:scale(1.03);
+
+}
+
+.alert-warning{
+
+    border-radius:15px;
+
+}
+.dashboard-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    padding:30px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.dashboard-card i{
+
+    color:#ec407a;
+
+    margin-bottom:15px;
+
+}
+
+.dashboard-card h2{
+
+    color:#ec407a;
+
+    font-weight:bold;
+
+}
+
+.dashboard-card p{
+
+    font-size:18px;
+
+    margin:0;
+
+}

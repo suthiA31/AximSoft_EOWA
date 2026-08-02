@@ -1,0 +1,277 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h1 class="text-center text-pink mb-5">
+        <i class="bi bi-bar-chart-line-fill"></i>
+        Analytics Dashboard
+    </h1>
+
+    <!-- Statistics -->
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <i class="bi bi-images display-5"></i>
+                <h2>10015</h2>
+                <p>Total Images</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <i class="bi bi-grid-3x3-gap display-5"></i>
+                <h2>7</h2>
+                <p>Classes</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <i class="bi bi-award-fill display-5"></i>
+                <h2>96.4%</h2>
+                <p>Best Accuracy</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="dashboard-card">
+                <i class="bi bi-cpu-fill display-5"></i>
+                <h2>ResNet50</h2>
+                <p>Best Model</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Charts -->
+
+    <div class="row mt-5">
+
+        <div class="col-lg-6 mb-4">
+
+            <div class="card shadow p-4">
+
+                <h4 class="text-center text-pink">
+
+                    Class Distribution
+
+                </h4>
+
+                <canvas id="classChart"></canvas>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 mb-4">
+
+            <div class="card shadow p-4">
+
+                <h4 class="text-center text-pink">
+
+                    Model Accuracy
+
+                </h4>
+
+                <canvas id="accuracyChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-6 mb-4">
+
+            <div class="card shadow p-4">
+
+                <h4 class="text-center text-pink">
+
+                    Precision vs Recall
+
+                </h4>
+
+                <canvas id="metricChart"></canvas>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 mb-4">
+
+            <div class="card shadow p-4">
+
+                <h4 class="text-center text-pink">
+
+                    Training History
+
+                </h4>
+
+                <canvas id="lossChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+// Class Distribution
+
+new Chart(document.getElementById("classChart"),{
+
+type:"pie",
+
+data:{
+
+labels:[
+"AKIEC",
+"BCC",
+"BKL",
+"DF",
+"NV",
+"MEL",
+"VASC"
+],
+
+datasets:[{
+
+data:[327,514,1099,115,6705,1113,142],
+
+backgroundColor:[
+"#F06292",
+"#EC407A",
+"#F48FB1",
+"#F8BBD0",
+"#FCE4EC",
+"#E91E63",
+"#F06292"
+]
+
+}]
+
+}
+
+});
+
+// Accuracy
+
+new Chart(document.getElementById("accuracyChart"),{
+
+type:"bar",
+
+data:{
+
+labels:[
+"Basic CNN",
+"Deep CNN",
+"BatchNorm",
+"Dropout",
+"ResNet50"
+],
+
+datasets:[{
+
+label:"Accuracy",
+
+data:[
+82,
+87,
+90,
+91,
+96
+]
+
+}]
+
+}
+
+});
+
+// Precision Recall
+
+new Chart(document.getElementById("metricChart"),{
+
+type:"radar",
+
+data:{
+
+labels:[
+"Accuracy",
+"Precision",
+"Recall",
+"F1 Score"
+],
+
+datasets:[{
+
+label:"Best Model",
+
+data:[
+96,
+95,
+95,
+95
+]
+
+}]
+
+}
+
+});
+
+// Loss
+
+new Chart(document.getElementById("lossChart"),{
+
+type:"line",
+
+data:{
+
+labels:[
+1,2,3,4,5,6,7,8,9,10
+],
+
+datasets:[{
+
+label:"Validation Loss",
+
+data:[
+0.82,
+0.69,
+0.54,
+0.41,
+0.32,
+0.27,
+0.24,
+0.21,
+0.18,
+0.15
+],
+
+fill:false
+
+}]
+
+}
+
+});
+
+</script>
+
+{% endblock %}
