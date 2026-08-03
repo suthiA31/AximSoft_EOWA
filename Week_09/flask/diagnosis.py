@@ -20,7 +20,7 @@ os.makedirs(REPORT_FOLDER, exist_ok=True)
 
 def create_diagnosis_report(
         uploaded_image,
-        gradcam_image,
+
         prediction,
         confidence,
         probabilities,
@@ -166,24 +166,7 @@ def create_diagnosis_report(
 
     # ---------------------------------------
 
-    if os.path.exists(gradcam_image):
 
-        story.append(
-            Paragraph(
-                "<b>Grad-CAM Visualization</b>",
-                styles["Heading2"]
-            )
-        )
-
-        story.append(
-            Image(
-                gradcam_image,
-                width=200,
-                height=200
-            )
-        )
-
-    # ---------------------------------------
 
     story.append(Spacer(1,30))
 

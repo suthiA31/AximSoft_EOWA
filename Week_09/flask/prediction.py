@@ -6,7 +6,7 @@ import keras
 # Load Model
 # ============================================
 
-MODEL_PATH = "model/resnetmodel_Lr.keras"
+MODEL_PATH = "model/resnet_SGD.keras"
 model= keras.models.load_model(MODEL_PATH)
 
 # ============================================
@@ -27,7 +27,7 @@ CLASS_NAMES = [
 # Image Size
 # ============================================
 
-IMG_SIZE = (128, 128)
+IMG_SIZE = (224, 224)
 
 # ============================================
 # Preprocess Image
