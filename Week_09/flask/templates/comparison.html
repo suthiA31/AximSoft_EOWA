@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+
+{% block title %}Model Analytics{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+<h2 class="text-center text-pink mb-5">
+<i class="bi bi-cpu-fill"></i>
+Deep Learning Model Analytics
+</h2>
+
+<!-- =============================== -->
+<!-- Performance Table -->
+<!-- =============================== -->
+
+<div class="card shadow border-0 mb-5">
+
+<div class="card-header bg-pink text-white">
+
+<h4 class="mb-0">
+Performance Comparison
+</h4>
+
+</div>
+
+<div class="card-body">
+
+<table class="table table-hover table-bordered text-center">
+
+<thead class="table-light">
+
+<tr>
+
+<th>Model</th>
+<th>Accuracy</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1 Score</th>
+<th>ROC-AUC</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>EfficientNetB0</td>
+<td><span class="badge bg-success">72.39%</span></td>
+<td>68.35%</td>
+<td>72.39%</td>
+<td>68.21%</td>
+<td>83.49%</td>
+</tr>
+
+<tr>
+<td>Deep CNN V2</td>
+<td>67.53%</td>
+<td>49.61%</td>
+<td>59.08%</td>
+<td>67.53%</td>
+<td>80.60%</td>
+</tr>
+
+<tr>
+<td>Basic CNN</td>
+<td>67.27%</td>
+<td>68.37%</td>
+<td>67.27%</td>
+<td>65.51%</td>
+<td>86.14%</td>
+</tr>
+
+<tr>
+<td>ResNet50</td>
+<td>66.93%</td>
+<td>44.80%</td>
+<td>66.93%</td>
+<td>53.67%</td>
+<td>51.02%</td>
+</tr>
+
+<tr>
+<td>Batch Normalization CNN</td>
+<td>61.68%</td>
+<td>76.94%</td>
+<td>61.68%</td>
+<td>66.01%</td>
+<td>90.32%</td>
+</tr>
+
+<tr>
+<td>MobileNetV2</td>
+<td>59.08%</td>
+<td>72.50%</td>
+<td>59.08%</td>
+<td>62.96%</td>
+<td>85.33%</td>
+</tr>
+
+<tr>
+<td>DenseNet121</td>
+<td>20.09%</td>
+<td>61.09%</td>
+<td>20.09%</td>
+<td>28.43%</td>
+<td>59.98%</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- =============================== -->
+
+<div class="row">
+
+<div class="col-md-6 mb-4">
+
+<div class="card shadow border-0">
+
+<div class="card-body text-center">
+
+<h4>ROC Curve</h4>
+
+<img src="{{ url_for('static', filename='images/cefficinetnert_ROC_Curve_1.png') }}"
+     class="img-fluid rounded">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<div class="card shadow border-0">
+
+<div class="card-body text-center">
+
+<h4>Confusion Matrix</h4>
+
+<img src="{{ url_for('static',filename='images/confusion_matrix 1.png') }}"
+class="img-fluid rounded">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =============================== -->
+
+<div class="row">
+
+<div class="col-md-6">
+
+<div class="card shadow border-0">
+
+<div class="card-body text-center">
+
+<h4>Grad-CAM</h4>
+
+<img src="{{ url_for('static',filename='images/GRAD-CAM.png') }}"
+class="img-fluid rounded">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="card shadow border-0">
+
+<div class="card-body text-center">
+
+<h4>Grad-CAM Overlay</h4>
+
+<img src="{{ url_for('static',filename='images/GRADCAM_OVERLAY.png') }}"
+class="img-fluid rounded">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =============================== -->
+
+<div class="card shadow border-0 mt-5">
+
+<div class="card-body">
+
+<h3 class="text-pink">
+
+<i class="bi bi-award-fill"></i>
+
+Best Performing Model
+
+</h3>
+
+<hr>
+
+<h4>EfficientNetB0</h4>
+
+<p>
+
+The EfficientNetB0 model achieved the highest overall
+classification performance among all evaluated CNN
+architectures.
+
+</p>
+
+<ul>
+
+<li>✔ Accuracy : <b>72.39%</b></li>
+
+<li>✔ Precision : <b>68.35%</b></li>
+
+<li>✔ Recall : <b>72.39%</b></li>
+
+<li>✔ F1 Score : <b>68.21%</b></li>
+
+<li>✔ ROC-AUC : <b>83.49%</b></li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
