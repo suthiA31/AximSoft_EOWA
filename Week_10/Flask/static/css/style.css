@@ -1,0 +1,253 @@
+:root {
+
+    --olive: #6B7D3A;
+    --dark-olive: #4F6028;
+    --light-green: #EEF3E3;
+    --soft-green: #DDE7C7;
+    --white: #FFFFFF;
+    --text: #26301C;
+    --border: #D9E1CC;
+
+}
+
+
+body {
+
+    background-color: #F8FAF5;
+
+    color: var(--text);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+}
+
+
+/* Navbar */
+
+.navbar {
+
+    background-color: var(--white);
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.navbar-brand {
+
+    color:
+        var(--dark-olive);
+
+    font-weight:
+        700;
+
+}
+
+
+.nav-link {
+
+    color:
+        #596348;
+
+    margin-left:
+        15px;
+
+}
+
+
+.nav-link:hover {
+
+    color:
+        var(--olive);
+
+}
+
+
+/* Page title */
+
+.page-title {
+
+    font-weight:
+        700;
+
+    color:
+        var(--dark-olive);
+
+}
+
+
+.subtitle {
+
+    color:
+        #78806D;
+
+}
+
+
+/* Cards */
+
+.stat-card {
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        14px;
+
+    padding:
+        22px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(70, 85, 40, 0.06);
+
+}
+
+
+.stat-title {
+
+    color:
+        #7A826F;
+
+    font-size:
+        14px;
+
+}
+
+
+.stat-value {
+
+    color:
+        var(--dark-olive);
+
+    font-size:
+        28px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* Chart cards */
+
+.chart-card {
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        14px;
+
+    padding:
+        20px;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.chart-title {
+
+    color:
+        var(--dark-olive);
+
+    font-weight:
+        600;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+/* Buttons */
+
+.btn-olive {
+
+    background:
+        var(--olive);
+
+    border:
+        none;
+
+    color:
+        white;
+
+}
+
+
+.btn-olive:hover {
+
+    background:
+        var(--dark-olive);
+
+    color:
+        white;
+
+}
+
+
+/* Select */
+
+.form-select {
+
+    border:
+        1px solid
+        var(--border);
+
+}
+
+
+.form-select:focus {
+
+    border-color:
+        var(--olive);
+
+    box-shadow:
+        0 0 0 0.2rem
+        rgba(107, 125, 58, 0.15);
+
+}
+
+
+/* Images */
+
+.analytics-img {
+
+    width:
+        100%;
+
+    border-radius:
+        10px;
+
+}
+
+
+/* Footer */
+
+footer {
+
+    text-align:
+        center;
+
+    padding:
+        25px;
+
+    color:
+        #7A826F;
+
+}

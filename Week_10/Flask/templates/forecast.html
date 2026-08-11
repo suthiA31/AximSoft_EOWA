@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Electricity Forecast</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7ef;
+            color: #283618;
+        }
+
+        .navbar {
+            background: #556b2f;
+            color: white;
+            padding: 18px 35px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        .title {
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+
+        .chart-container {
+            height: 400px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #6b8e23;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f0f4e8;
+        }
+
+        .forecast-value {
+            font-weight: bold;
+            color: #556b2f;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="navbar">
+
+    ⚡ Electricity Demand Forecast
+
+</div>
+
+
+<div class="container">
+
+
+    <div class="title">
+
+        <h1>Next 24 Hours Forecast</h1>
+
+        <p>
+            Forecast generated using the final GRU model.
+        </p>
+
+    </div>
+
+
+    <!-- Chart -->
+
+    <div class="card">
+
+        <h2>Forecast Trend</h2>
+
+        <div class="chart-container">
+
+            <canvas id="forecastChart"></canvas>
+
+        </div>
+
+    </div>
+
+
+    <!-- Forecast Table -->
+
+    <div class="card">
+
+        <h2>Forecast Values</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Time</th>
+
+                    <th>Forecast Demand (MW)</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for row in forecast %}
+
+                <tr>
+
+                    <td>
+                        {{ row.timestamp }}
+                    </td>
+
+                    <td class="forecast-value">
+
+                        {{ "%.2f"|format(row.demand) }}
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+    const timestamps = [
+        {% for row in forecast %}
+            "{{ row.timestamp }}",
+        {% endfor %}
+    ];
+
+
+    const demand = [
+        {% for row in forecast %}
+            {{ row.demand }},
+        {% endfor %}
+    ];
+
+
+    const ctx =
+        document
+        .getElementById("forecastChart");
+
+
+    new Chart(ctx, {
+
+        type: "line",
+
+        data: {
+
+            labels: timestamps,
+
+            datasets: [{
+
+                label: "Forecast Demand (MW)",
+
+                data: demand,
+
+                borderColor: "#6b8e23",
+
+                backgroundColor:
+                    "rgba(107, 142, 35, 0.15)",
+
+                borderWidth: 3,
+
+                fill: true,
+
+                tension: 0.35,
+
+                pointRadius: 3
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            plugins: {
+
+                legend: {
+                    display: true
+                }
+
+            },
+
+            scales: {
+
+                x: {
+
+                    title: {
+                        display: true,
+                        text: "Time"
+                    }
+
+                },
+
+                y: {
+
+                    title: {
+                        display: true,
+                        text: "Demand (MW)"
+                    }
+
+                }
+
+            }
+
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,280 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mb-4">
+
+    <h2 class="page-title">
+        Electricity Demand Dashboard
+    </h2>
+
+    <p class="subtitle">
+        Overview of electricity consumption and forecasting performance
+    </p>
+
+</div>
+
+
+<!-- Statistics -->
+
+<div class="row g-3 mb-4">
+
+    <div class="col-md-3">
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                Latest Demand
+            </div>
+
+            <div class="stat-value">
+                28,500 MW
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-3">
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                Best Model
+            </div>
+
+            <div class="stat-value">
+                GRU
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-3">
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                MAE
+            </div>
+
+            <div class="stat-value">
+                1,340 MW
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-3">
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                RMSE
+            </div>
+
+            <div class="stat-value">
+                1,927 MW
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Main chart -->
+
+<div class="chart-card">
+
+    <h5 class="chart-title">
+        Historical Electricity Demand
+    </h5>
+
+    <canvas id="demandChart"></canvas>
+
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h5 class="chart-title">
+                Model Performance
+            </h5>
+
+            <canvas id="modelChart"></canvas>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h5 class="chart-title">
+                Demand Trend
+            </h5>
+
+            <canvas id="trendChart"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const olive = "#6B7D3A";
+const lightGreen = "#DDE7C7";
+
+
+new Chart(
+    document.getElementById("demandChart"),
+    {
+
+        type: "line",
+
+        data: {
+
+            labels: [
+                "00",
+                "04",
+                "08",
+                "12",
+                "16",
+                "20",
+                "24"
+            ],
+
+            datasets: [
+
+                {
+                    label: "Demand (MW)",
+
+                    data: [
+                        24000,
+                        23000,
+                        25000,
+                        27000,
+                        25000,
+                        29000,
+                        26000
+                    ],
+
+                    borderColor: olive,
+
+                    backgroundColor: "rgba(107,125,58,0.12)",
+
+                    fill: true,
+
+                    tension: 0.4
+                }
+
+            ]
+
+        }
+
+    }
+);
+
+
+new Chart(
+    document.getElementById("modelChart"),
+    {
+
+        type: "bar",
+
+        data: {
+
+            labels: [
+                "RNN",
+                "LSTM",
+                "GRU",
+                "Bi-LSTM"
+            ],
+
+            datasets: [
+
+                {
+                    label: "MAE",
+
+                    data: [
+                        1685,
+                        1512,
+                        1407,
+                        1340
+                    ],
+
+                    backgroundColor: olive
+
+                }
+
+            ]
+
+        }
+
+    }
+);
+
+
+new Chart(
+    document.getElementById("trendChart"),
+    {
+
+        type: "line",
+
+        data: {
+
+            labels: [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun"
+            ],
+
+            datasets: [
+
+                {
+                    label: "Average Demand",
+
+                    data: [
+                        25000,
+                        25500,
+                        24800,
+                        26000,
+                        27000,
+                        28000
+                    ],
+
+                    borderColor: "#4F6028",
+
+                    tension: 0.4
+
+                }
+
+            ]
+
+        }
+
+    }
+);
+
+</script>
+
+{% endblock %}
