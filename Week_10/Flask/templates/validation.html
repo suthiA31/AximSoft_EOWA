@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mb-4">
+
+    <h2 class="page-title">
+        Forecast Validation
+    </h2>
+
+    <p class="subtitle">
+        Evaluate model performance on unseen demand data
+    </p>
+
+</div>
+
+
+<!-- Metrics -->
+
+<div class="row g-3 mb-4">
+
+    <div class="col-md-4">
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                MAE
+            </div>
+
+            <div class="stat-value">
+                1,340 MW
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                RMSE
+            </div>
+
+            <div class="stat-value">
+                1,927 MW
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                MAPE
+            </div>
+
+            <div class="stat-value">
+                4.25%
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Validation charts -->
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h5 class="chart-title">
+                30-Day Actual vs Forecast
+            </h5>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/30-Day ElectricityDemand: Actual_vs_Forecast.png'
+                ) }}"
+                class="analytics-img"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h5 class="chart-title">
+                60-Day Actual vs Forecast
+            </h5>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/30-Day ElectricityDemand: Actual_vs_Forecast.png'
+                ) }}"
+                class="analytics-img"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h5 class="chart-title">
+                Daily MAE
+            </h5>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/daily_mae.png'
+                ) }}"
+                class="analytics-img"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h5 class="chart-title">
+                Forecast Error Distribution
+            </h5>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/forcast_error_distribution.png'
+                ) }}"
+                class="analytics-img"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mb-4">
+
+    <h2 class="page-title">
+        Demand Analytics
+    </h2>
+
+    <p class="subtitle">
+        Historical electricity demand patterns and trends
+    </p>
+
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h5 class="chart-title">
+                Daily Demand Pattern
+            </h5>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/Average_Daily_cosume.png'
+                ) }}"
+                class="analytics-img"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h5 class="chart-title">
+                Weekly Demand Pattern
+            </h5>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/AverageElectricityDemandbyDayof_Week.png'
+                ) }}"
+                class="analytics-img"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h5 class="chart-title">
+                Monthly Demand Trend
+            </h5>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/AvgDemand_Month.png'
+                ) }}"
+                class="analytics-img"
+            >
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6">
+
+        <div class="chart-card">
+
+            <h5 class="chart-title">
+                Forecast Error Distribution
+            </h5>
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/forcast_error_distribution.png'
+                ) }}"
+                class="analytics-img"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
