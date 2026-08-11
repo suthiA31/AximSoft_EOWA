@@ -1,6 +1,6 @@
-# ⚡ End-to-End Electricity Demand Forecasting using Deep Learning
+# End-to-End Electricity Demand Forecasting using Deep Learning
 
-## 📌 Project Overview
+##  Project Overview
 
 This project develops an end-to-end **electricity demand forecasting system** using historical hourly electricity consumption data and deep learning techniques.
 
@@ -21,7 +21,7 @@ The main objective is to predict future electricity demand from historical deman
 
 ---
 
-# 📊 Dataset
+#  Dataset
 
 ### Hourly Energy Consumption - PJM
 
@@ -48,7 +48,7 @@ pjm_processed.csv
 
 ---
 
-# 🏗️ Project Architecture
+#  Project Architecture
 
 ```text
 Raw Electricity Data
@@ -339,7 +339,7 @@ The window then moves forward and creates another training sample.
 
 ---
 
-# 🤖 Models
+#  Models
 
 ## RNN
 
@@ -415,7 +415,7 @@ Bidirectional
 
 ---
 
-# 🔹 Phase 6 - Model Improvement
+# Phase 6 - Model Improvement
 
 After developing the initial models, multiple experiments are performed to improve forecasting performance.
 
@@ -469,7 +469,7 @@ The optimizer that provides better validation performance can be selected for fu
 
 ---
 
-# 🔹 Phase 7 - Forecast Validation
+#  Phase 7 - Forecast Validation
 
 The dataset is divided chronologically to prevent future information from entering the training process.
 
@@ -678,7 +678,7 @@ The page displays:
 
 ---
 
-# 📁 Project Structure
+# Project Structure
 
 ```text
 Week_10/
@@ -727,7 +727,7 @@ Week_10/
 
 ---
 
-# 🛠️ Installation
+# Installation
 
 Clone the repository:
 
@@ -769,7 +769,7 @@ pip install -r requirements.txt
 
 ---
 
-# 📦 Requirements
+#  Requirements
 
 The major libraries used in the project are:
 
@@ -813,7 +813,7 @@ The Flask application can then be accessed through the local development server.
 
 ---
 
-# 🔀 Git and GitHub
+#  Git and GitHub
 
 Git is used for version control and project collaboration.
 
@@ -865,7 +865,7 @@ The final outcome of this project is an end-to-end electricity demand forecastin
 
 ---
 
-# 🎯 Conclusion
+#  Conclusion
 
 This project demonstrates how deep learning can be applied to electricity demand forecasting using historical time-series data.
 
@@ -877,7 +877,7 @@ The best forecasting model is selected based on its ability to generalize to uns
 
 ---
 
-# 👨‍💻 Technologies Used
+#  Technologies Used
 
 ```text
 Python
@@ -896,7 +896,7 @@ GitHub
 
 ---
 
-# 📌 Project Status
+#  Project Status
 
 ```text
 Phase 1  → Data Understanding       ✅
@@ -905,9 +905,9 @@ Phase 3  → EDA                      ✅
 Phase 4  → Baseline Models          ✅
 Phase 5  → Deep Learning            ✅
 Phase 6  → Model Improvement        ✅
-Phase 7  → Forecast Validation      🔄
-Phase 8  → Model Evaluation         🔄
-Phase 9  → Flask Dashboard          🔄
+Phase 7  → Forecast Validation      ✅
+Phase 8  → Model Evaluation         ✅
+Phase 9  → Flask Dashboard          ✅
 ```
 
 > Update the status icons as each phase is finalized.
