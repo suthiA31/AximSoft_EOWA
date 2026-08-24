@@ -1,0 +1,42 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Models
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.keras
+*.joblib
+*.pt
+*.pth
+*.onnx
+
+# Datasets
+*.csv
+*.xlsx
+*.xls
+*.json
+
+# NumPy train/test files
+*.npy
+*.npz
+
+# Large ML files
+*.zip
+*.tar
+*.gz
+
+# Virtual environments
+venv/
+env/
+.venv/
+tfenv/
