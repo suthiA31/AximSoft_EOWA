@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<section class="page-header">
+
+    <div class="container">
+
+        <span>
+            MODEL LABORATORY
+        </span>
+
+        <h1>
+            Model Comparison
+        </h1>
+
+        <p>
+            Compare baseline and optimized
+            deep learning performance.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="container page-content">
+
+
+    <div class="dashboard-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span>
+                    PERFORMANCE
+                </span>
+
+                <h3>
+                    Baseline Models
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-responsive">
+
+            <table class="table custom-table">
+
+                <thead>
+
+                    <tr>
+
+                        {% if baseline %}
+
+                            {% for key in baseline[0].keys() %}
+
+                            <th>
+                                {{ key }}
+                            </th>
+
+                            {% endfor %}
+
+                        {% endif %}
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for row in baseline %}
+
+                    <tr>
+
+                        {% for value in row.values() %}
+
+                        <td>
+                            {{ value }}
+                        </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="dashboard-card mt-4">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span>
+                    OPTIMIZATION
+                </span>
+
+                <h3>
+                    Optimized Model
+                </h3>
+
+            </div>
+
+            <div class="best-badge">
+                BEST MODEL: Bi-LSTM
+            </div>
+
+        </div>
+
+
+        <div class="table-responsive">
+
+            <table class="table custom-table">
+
+                <thead>
+
+                    <tr>
+
+                        {% if optimized %}
+
+                            {% for key in optimized[0].keys() %}
+
+                            <th>
+                                {{ key }}
+                            </th>
+
+                            {% endfor %}
+
+                        {% endif %}
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for row in optimized %}
+
+                    <tr>
+
+                        {% for value in row.values() %}
+
+                        <td>
+                            {{ value }}
+                        </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

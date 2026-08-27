@@ -1,0 +1,452 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <div class="container">
+
+        <span>TEXT INTELLIGENCE</span>
+
+        <h1>Review Analytics</h1>
+
+        <p>
+            Explore sentiment patterns, review characteristics
+            and language insights from the IMDb dataset.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="container page-content">
+
+
+    <!-- =========================================
+         ANALYTICS KPI
+    ========================================== -->
+
+    <div class="analytics-kpis">
+
+        <div class="analytics-kpi">
+
+            <span>DATASET</span>
+
+            <strong>50K</strong>
+
+            <p>Movie Reviews</p>
+
+        </div>
+
+
+        <div class="analytics-kpi">
+
+            <span>SENTIMENTS</span>
+
+            <strong>2</strong>
+
+            <p>Positive & Negative</p>
+
+        </div>
+
+
+        <div class="analytics-kpi">
+
+            <span>DATA BALANCE</span>
+
+            <strong>50 / 50</strong>
+
+            <p>Balanced Classes</p>
+
+        </div>
+
+
+        <div class="analytics-kpi">
+
+            <span>TEXT TYPE</span>
+
+            <strong>IMDb</strong>
+
+            <p>Movie Reviews</p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         DISTRIBUTION
+    ========================================== -->
+
+    <div class="analytics-section-title">
+
+        <span>01 / DATASET OVERVIEW</span>
+
+        <h2>Sentiment & Review Distribution</h2>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+        <!-- SENTIMENT -->
+
+        <div class="col-lg-5">
+
+            <div class="analytics-card">
+
+                <div class="analytics-card-header">
+
+                    <div>
+
+                        <span>SENTIMENT</span>
+
+                        <h3>Review Distribution</h3>
+
+                    </div>
+
+                    <div class="chart-number">
+                        50 / 50
+                    </div>
+
+                </div>
+
+
+                <div class="chart-container pie-chart">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='analytics/sentiment_distribution.png'
+                        ) }}"
+                        alt="Sentiment Distribution"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LENGTH -->
+
+        <div class="col-lg-7">
+
+            <div class="analytics-card">
+
+                <div class="analytics-card-header">
+
+                    <div>
+
+                        <span>TEXT LENGTH</span>
+
+                        <h3>Review Length Distribution</h3>
+
+                    </div>
+
+                    <div class="chart-icon">
+                        TEXT
+                    </div>
+
+                </div>
+
+
+                <div class="chart-container">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='analytics/review_length.png'
+                        ) }}"
+                        alt="Review Length Distribution"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         SENTIMENT LENGTH
+    ========================================== -->
+
+    <div class="analytics-section-title section-space">
+
+        <span>02 / TEXT CHARACTERISTICS</span>
+
+        <h2>How Review Length Changes With Sentiment</h2>
+
+    </div>
+
+
+    <div class="analytics-card">
+
+        <div class="analytics-card-header">
+
+            <div>
+
+                <span>COMPARATIVE ANALYSIS</span>
+
+                <h3>Word Count by Sentiment</h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="wide-chart-container">
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='analytics/sentiment_review_length.png'
+                ) }}"
+                alt="Review Length by Sentiment"
+            >
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         VOCABULARY
+    ========================================== -->
+
+    <div class="analytics-section-title section-space">
+
+        <span>03 / LANGUAGE INTELLIGENCE</span>
+
+        <h2>Positive & Negative Vocabulary</h2>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+        <div class="col-lg-6">
+
+            <div class="analytics-card vocabulary-card">
+
+                <div class="analytics-card-header">
+
+                    <div>
+
+                        <span>POSITIVE SIGNAL</span>
+
+                        <h3>Most Frequent Positive Words</h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chart-container">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='analytics/positive_words.png'
+                        ) }}"
+                        alt="Positive Words"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="col-lg-6">
+
+            <div class="analytics-card vocabulary-card">
+
+                <div class="analytics-card-header">
+
+                    <div>
+
+                        <span>NEGATIVE SIGNAL</span>
+
+                        <h3>Most Frequent Negative Words</h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chart-container">
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename='analytics/negative_words.png'
+                        ) }}"
+                        alt="Negative Words"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         WORD CLOUD
+    ========================================== -->
+
+    <div class="analytics-section-title section-space">
+
+        <span>04 / VOCABULARY MAP</span>
+
+        <h2>Language Landscape</h2>
+
+    </div>
+
+
+    <div class="analytics-card wordcloud-card">
+
+        <div class="analytics-card-header">
+
+            <div>
+
+                <span>WORD FREQUENCY</span>
+
+                <h3>IMDb Review Vocabulary</h3>
+
+            </div>
+
+            <p>
+                Frequently occurring terms
+            </p>
+
+        </div>
+
+
+        <div class="wordcloud-container">
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='analytics/wordcloud.png'
+                ) }}"
+                alt="IMDb Review Word Cloud"
+            >
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         INSIGHTS
+    ========================================== -->
+
+    <div class="analytics-section-title section-space">
+
+        <span>05 / DATA INSIGHTS</span>
+
+        <h2>Key Findings</h2>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+        <div class="col-md-4">
+
+            <div class="insight-card">
+
+                <div class="insight-index">
+                    01
+                </div>
+
+                <h3>
+                    Balanced Dataset
+                </h3>
+
+                <p>
+                    The IMDb dataset contains an evenly
+                    distributed set of positive and negative
+                    reviews, supporting balanced model training.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="col-md-4">
+
+            <div class="insight-card">
+
+                <div class="insight-index">
+                    02
+                </div>
+
+                <h3>
+                    Variable Review Length
+                </h3>
+
+                <p>
+                    Reviews vary substantially in length,
+                    creating different contextual patterns
+                    for sequence-based neural networks.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="col-md-4">
+
+            <div class="insight-card">
+
+                <div class="insight-index">
+                    03
+                </div>
+
+                <h3>
+                    Distinct Vocabulary
+                </h3>
+
+                <p>
+                    Positive and negative reviews demonstrate
+                    different vocabulary patterns that can
+                    contribute to sentiment classification.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+{% endblock %}

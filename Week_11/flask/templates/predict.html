@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<section class="page-header">
+
+    <div class="container">
+
+        <span>
+            AI SENTIMENT ENGINE
+        </span>
+
+        <h1>
+            Sentiment Prediction
+        </h1>
+
+        <p>
+            Enter a movie review and let the
+            Bi-LSTM model analyze its emotional tone.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="container page-content">
+
+    <div class="row g-4">
+
+
+        <div class="col-lg-7">
+
+            <div class="dashboard-card">
+
+                <span>
+                    REVIEW ANALYZER
+                </span>
+
+                <h3>
+                    What does the reviewer feel?
+                </h3>
+
+
+                <form
+                    method="POST"
+                >
+
+                    <textarea
+                        name="review"
+                        class="review-input"
+                        placeholder="Paste a movie review here..."
+                        required
+                    >{{ review }}</textarea>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary-custom w-100"
+                    >
+                        Analyze Sentiment →
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-5">
+
+
+            {% if result %}
+
+
+            <div class="result-card">
+
+                <span>
+                    PREDICTION RESULT
+                </span>
+
+
+                <div
+                    class="
+                    sentiment-result
+                    {% if result.sentiment == 'Positive' %}
+                    positive-result
+                    {% else %}
+                    negative-result
+                    {% endif %}
+                    "
+                >
+
+                    {{ result.sentiment }}
+
+                </div>
+
+
+                <p>
+                    Model confidence
+                </p>
+
+                <div class="confidence-number">
+
+                    {{ "%.2f"|format(result.confidence) }}%
+
+                </div>
+
+
+                <div class="probability-row">
+
+                    <div>
+
+                        <span>
+                            Positive
+                        </span>
+
+                        <strong>
+                            {{ "%.2f"|format(result.positive) }}%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar positive-bar"
+                            style="width: {{ result.positive }}%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="probability-row">
+
+                    <div>
+
+                        <span>
+                            Negative
+                        </span>
+
+                        <strong>
+                            {{ "%.2f"|format(result.negative) }}%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar negative-bar"
+                            style="width: {{ result.negative }}%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            {% else %}
+
+
+            <div class="empty-result">
+
+                <div class="empty-icon">
+                    AI
+                </div>
+
+                <h3>
+                    Ready to analyze
+                </h3>
+
+                <p>
+                    Your prediction and confidence
+                    scores will appear here.
+                </p>
+
+            </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

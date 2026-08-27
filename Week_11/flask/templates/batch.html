@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<section class="page-header">
+
+    <div class="container">
+
+        <span>
+            BULK ANALYSIS
+        </span>
+
+        <h1>
+            Batch Prediction
+        </h1>
+
+        <p>
+            Upload a CSV file and analyze
+            multiple reviews automatically.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="container page-content">
+
+
+    <div class="dashboard-card">
+
+        <span>
+            CSV UPLOAD
+        </span>
+
+        <h3>
+            Upload your reviews
+        </h3>
+
+        <p>
+            Your CSV must contain a column named
+            <strong>review</strong>.
+        </p>
+
+
+        <form
+            method="POST"
+            enctype="multipart/form-data"
+        >
+
+            <div class="upload-box">
+
+                <input
+                    type="file"
+                    name="file"
+                    accept=".csv"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn btn-primary-custom"
+            >
+                Analyze CSV →
+            </button>
+
+        </form>
+
+
+        {% if error %}
+
+        <div class="alert alert-danger mt-4">
+
+            {{ error }}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+
+    {% if results %}
+
+
+    <div class="dashboard-card mt-4">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span>
+                    RESULTS
+                </span>
+
+                <h3>
+                    Prediction Preview
+                </h3>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('download') }}"
+                class="btn btn-primary-custom"
+            >
+                Download Results
+            </a>
+
+        </div>
+
+
+        <div class="table-responsive">
+
+            <table class="table custom-table">
+
+                <thead>
+
+                    <tr>
+
+                        {% for key in results[0].keys() %}
+
+                        <th>
+                            {{ key }}
+                        </th>
+
+                        {% endfor %}
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for row in results %}
+
+                    <tr>
+
+                        {% for value in row.values() %}
+
+                        <td>
+                            {{ value }}
+                        </td>
+
+                        {% endfor %}
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    {% endif %}
+
+
+</section>
+
+
+{% endblock %}
