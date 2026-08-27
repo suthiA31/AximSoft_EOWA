@@ -40,3 +40,14 @@ venv/
 env/
 .venv/
 tfenv/
+# Week 11
+Week_11/**/*.csv
+Week_11/**/*.pkl
+Week_11/**/*.keras
+Week_11/**/*.npy
+# Week 11
+Week_11/**/*.csv
+Week_11/**/*.pkl
+Week_11/**/*.keras
+Week_11/**/*.npy
+Week_11/**/.venv*/
