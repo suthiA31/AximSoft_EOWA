@@ -1,0 +1,428 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid bg-light min-vh-100">
+
+    <!-- HERO SECTION -->
+    <section class="container py-5">
+
+        <div class="row align-items-center g-5 py-4">
+
+            <!-- Hero Text -->
+            <div class="col-lg-7">
+
+                <div class="mb-3">
+                    <span class="badge bg-primary px-3 py-2">
+                        AI CUSTOMER INTELLIGENCE PLATFORM
+                    </span>
+                </div>
+
+                <h1 class="display-4 fw-bold mb-4">
+                    Understand customers.
+                    <span class="text-primary">
+                        Predict risk.
+                    </span>
+                </h1>
+
+                <p class="lead text-secondary mb-4">
+                    A lightweight intelligence platform combining
+                    customer analytics, machine learning,
+                    explainable AI, semantic retrieval and
+                    local generative AI.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    <a
+                        href="/customer"
+                        class="btn btn-primary btn-lg px-4"
+                    >
+                        Explore Customers
+                    </a>
+
+                    <a
+                        href="/assistant"
+                        class="btn btn-outline-dark btn-lg px-4"
+                    >
+                        Ask AI Assistant
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Intelligence Engine -->
+            <div class="col-lg-5">
+
+                <div class="card border-0 shadow-lg">
+
+                    <div class="card-body p-4">
+
+                        <div class="text-uppercase text-primary fw-bold small mb-2">
+                            Intelligence Engine
+                        </div>
+
+                        <h3 class="fw-bold mb-4">
+                            Local AI
+                        </h3>
+
+                        <div class="list-group list-group-flush">
+
+                            <div class="list-group-item px-0 py-3">
+                                <span class="me-2">🤖</span>
+                                ML Prediction
+                            </div>
+
+                            <div class="list-group-item px-0 py-3">
+                                <span class="me-2">🌳</span>
+                                Decision Tree + SHAP
+                            </div>
+
+                            <div class="list-group-item px-0 py-3">
+                                <span class="me-2">🔎</span>
+                                FAISS + RAG
+                            </div>
+
+                            <div class="list-group-item px-0 py-3">
+                                <span class="me-2">🧠</span>
+                                Local LLM
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PLATFORM OVERVIEW -->
+    <section class="container py-5">
+
+        <div class="mb-4">
+
+            <span class="text-primary fw-bold small">
+                PLATFORM OVERVIEW
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                One workspace. Four intelligence layers.
+            </h2>
+
+        </div>
+
+
+        <!-- STATS -->
+        <div class="row g-4 mb-5">
+
+            <!-- Customers -->
+            <div class="col-6 col-lg-3">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="display-6 fw-bold text-primary">
+                            {{ customer_count }}
+                        </div>
+
+                        <div class="text-muted mt-2">
+                            Customers
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ML -->
+            <div class="col-6 col-lg-3">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="display-6 fw-bold text-success">
+                            ML
+                        </div>
+
+                        <div class="text-muted mt-2">
+                            Churn Prediction
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SHAP -->
+            <div class="col-6 col-lg-3">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="display-6 fw-bold text-warning">
+                            SHAP
+                        </div>
+
+                        <div class="text-muted mt-2">
+                            Explainable AI
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RAG -->
+            <div class="col-6 col-lg-3">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="display-6 fw-bold text-info">
+                            RAG
+                        </div>
+
+                        <div class="text-muted mt-2">
+                            Knowledge Retrieval
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FEATURE CARDS -->
+        <div class="row g-4">
+
+            <!-- Customer Intelligence -->
+            <div class="col-md-6 col-lg-4">
+
+                <a
+                    href="/customer"
+                    class="text-decoration-none text-dark"
+                >
+
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body p-4">
+
+                            <div class="mb-3">
+                                <span class="badge bg-primary">
+                                    01
+                                </span>
+                            </div>
+
+                            <h4 class="fw-bold">
+                                Customer Intelligence
+                            </h4>
+
+                            <p class="text-muted">
+                                Search a customer and explore
+                                profile, services, contract,
+                                tenure and charges.
+                            </p>
+
+                            <span class="text-primary fw-semibold">
+                                Open Customer →
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- Explainable AI -->
+            <div class="col-md-6 col-lg-4">
+
+                <a
+                    href="/explain"
+                    class="text-decoration-none text-dark"
+                >
+
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body p-4">
+
+                            <div class="mb-3">
+                                <span class="badge bg-success">
+                                    02
+                                </span>
+                            </div>
+
+                            <h4 class="fw-bold">
+                                Explainable AI
+                            </h4>
+
+                            <p class="text-muted">
+                                Understand the important factors
+                                behind the churn prediction using
+                                Decision Tree SHAP.
+                            </p>
+
+                            <span class="text-success fw-semibold">
+                                View Explanations →
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- AI Assistant -->
+            <div class="col-md-6 col-lg-4">
+
+                <a
+                    href="/assistant"
+                    class="text-decoration-none text-dark"
+                >
+
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body p-4">
+
+                            <div class="mb-3">
+                                <span class="badge bg-info text-dark">
+                                    03
+                                </span>
+                            </div>
+
+                            <h4 class="fw-bold">
+                                AI Assistant
+                            </h4>
+
+                            <p class="text-muted">
+                                Ask questions about customer risk,
+                                policies, billing and retention.
+                            </p>
+
+                            <span class="text-info fw-semibold">
+                                Ask AI →
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ARCHITECTURE -->
+        <div class="card border-0 shadow-sm mt-5">
+
+            <div class="card-body p-4">
+
+                <div class="mb-4">
+
+                    <span class="text-primary fw-bold small">
+                        SYSTEM ARCHITECTURE
+                    </span>
+
+                    <h3 class="fw-bold mt-2">
+                        How the intelligence engine works
+                    </h3>
+
+                </div>
+
+
+                <div class="row g-2 text-center align-items-center">
+
+                    <div class="col-6 col-md">
+                        <div class="border rounded p-3 bg-light fw-semibold">
+                            🗄️ SQLite
+                        </div>
+                    </div>
+
+                    <div class="col-auto d-none d-md-block">
+                        →
+                    </div>
+
+                    <div class="col-6 col-md">
+                        <div class="border rounded p-3 bg-light fw-semibold">
+                            🤖 ML
+                        </div>
+                    </div>
+
+                    <div class="col-auto d-none d-md-block">
+                        →
+                    </div>
+
+                    <div class="col-6 col-md">
+                        <div class="border rounded p-3 bg-light fw-semibold">
+                            🌳 SHAP
+                        </div>
+                    </div>
+
+                    <div class="col-auto d-none d-md-block">
+                        →
+                    </div>
+
+                    <div class="col-6 col-md">
+                        <div class="border rounded p-3 bg-light fw-semibold">
+                            🔎 FAISS
+                        </div>
+                    </div>
+
+                    <div class="col-auto d-none d-md-block">
+                        →
+                    </div>
+
+                    <div class="col-6 col-md">
+                        <div class="border rounded p-3 bg-light fw-semibold">
+                            📚 RAG
+                        </div>
+                    </div>
+
+                    <div class="col-auto d-none d-md-block">
+                        →
+                    </div>
+
+                    <div class="col-6 col-md">
+                        <div class="border rounded p-3 bg-light fw-semibold">
+                            🧠 Local LLM
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

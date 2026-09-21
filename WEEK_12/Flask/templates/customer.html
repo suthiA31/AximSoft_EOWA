@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+
+        <span class="eyebrow">
+            CUSTOMER INTELLIGENCE
+        </span>
+
+        <h1>Customer Profile</h1>
+
+        <p>
+            Search and inspect a customer's verified profile.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="search-box">
+
+    <form method="GET">
+
+        <input
+            type="text"
+            name="customer_id"
+            placeholder="Enter Customer ID"
+            value="{{ customer_id }}"
+            required
+        >
+
+        <button type="submit">
+            Search Customer
+        </button>
+
+    </form>
+
+</div>
+
+
+{% if profile %}
+
+<div class="profile-grid">
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <h3>Customer Information</h3>
+        </div>
+
+        <div class="info-list">
+
+            <div>
+                <span>Customer ID</span>
+                <strong>{{ profile.customerID }}</strong>
+            </div>
+
+            <div>
+                <span>Gender</span>
+                <strong>{{ profile.gender }}</strong>
+            </div>
+
+            <div>
+                <span>Partner</span>
+                <strong>{{ profile.Partner }}</strong>
+            </div>
+
+            <div>
+                <span>Dependents</span>
+                <strong>{{ profile.Dependents }}</strong>
+            </div>
+
+            <div>
+                <span>Senior Citizen</span>
+                <strong>{{ profile.SeniorCitizen }}</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <h3>Subscription</h3>
+        </div>
+
+        <div class="info-list">
+
+            <div>
+                <span>Contract</span>
+                <strong>{{ profile.Contract }}</strong>
+            </div>
+
+            <div>
+                <span>Tenure</span>
+                <strong>{{ profile.tenure }} months</strong>
+            </div>
+
+            <div>
+                <span>Payment Method</span>
+                <strong>{{ profile.PaymentMethod }}</strong>
+            </div>
+
+            <div>
+                <span>Internet Service</span>
+                <strong>{{ profile.InternetService }}</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <h3>Charges</h3>
+        </div>
+
+        <div class="charge-display">
+
+            <span>Monthly Charges</span>
+
+            <strong>
+                {{ profile.MonthlyCharges }}
+            </strong>
+
+            <span>Total Charges</span>
+
+            <strong>
+                {{ profile.TotalCharges }}
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <div class="panel-header">
+            <h3>Churn Prediction</h3>
+        </div>
+
+        {% if prediction %}
+
+        <div class="risk-card">
+
+            <span>Predicted Risk</span>
+
+            <strong>
+                {{ prediction.risk }}
+            </strong>
+
+            <div class="probability">
+
+                {{ "%.1f"|format(
+                    prediction.probability * 100
+                ) }}%
+
+            </div>
+
+            <small>
+                Model probability
+            </small>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+
+<div class="panel service-panel">
+
+    <div class="panel-header">
+
+        <div>
+            <h3>Services</h3>
+            <p>Subscribed customer services</p>
+        </div>
+
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service-item">
+            Phone Service
+            <strong>{{ profile.PhoneService }}</strong>
+        </div>
+
+        <div class="service-item">
+            Multiple Lines
+            <strong>{{ profile.MultipleLines }}</strong>
+        </div>
+
+        <div class="service-item">
+            Online Security
+            <strong>{{ profile.OnlineSecurity }}</strong>
+        </div>
+
+        <div class="service-item">
+            Online Backup
+            <strong>{{ profile.OnlineBackup }}</strong>
+        </div>
+
+        <div class="service-item">
+            Device Protection
+            <strong>{{ profile.DeviceProtection }}</strong>
+        </div>
+
+        <div class="service-item">
+            Tech Support
+            <strong>{{ profile.TechSupport }}</strong>
+        </div>
+
+        <div class="service-item">
+            Streaming TV
+            <strong>{{ profile.StreamingTV }}</strong>
+        </div>
+
+        <div class="service-item">
+            Streaming Movies
+            <strong>{{ profile.StreamingMovies }}</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% elif customer_id %}
+
+<div class="empty-state">
+
+    <div>🔎</div>
+
+    <h3>Customer not found</h3>
+
+    <p>
+        Check the Customer ID and try again.
+    </p>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

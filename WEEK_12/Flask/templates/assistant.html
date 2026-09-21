@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="ai-page">
+
+    <div class="ai-header">
+
+        <div class="ai-orb">
+            ✦
+        </div>
+
+        <span class="eyebrow">
+            LOCAL GENERATIVE AI
+        </span>
+
+        <h1>Ask CustomerIQ</h1>
+
+        <p>
+            Ask questions about customer risk,
+            explanations and business policies.
+        </p>
+
+    </div>
+
+
+    <div class="ai-card">
+
+        <form method="POST">
+
+            <label>
+                Customer ID
+            </label>
+
+            <input
+                type="text"
+                name="customer_id"
+                placeholder="Optional for general policy questions"
+                value="{{ customer_id }}"
+            >
+
+
+            <label>
+                Your Question
+            </label>
+
+            <textarea
+                name="question"
+                rows="5"
+                placeholder="Why is this customer at high risk?"
+                required
+            >{{ question }}</textarea>
+
+
+            <div class="example-prompts">
+
+                <button
+                    type="button"
+                    onclick="setQuestion(
+                    'Why is this customer at high risk?'
+                    )">
+
+                    Why is this customer at high risk?
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="setQuestion(
+                    'What factors are increasing the customer churn probability?'
+                    )">
+
+                    What factors increase risk?
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="setQuestion(
+                    'What policy applies to this customer?'
+                    )">
+
+                    What policy applies?
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="setQuestion(
+                    'Explain this customer churn risk in simple terms.'
+                    )">
+
+                    Explain simply
+
+                </button>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="ask-button">
+
+                ✦ Ask CustomerIQ
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    {% if answer %}
+
+    <div class="ai-response">
+
+        <div class="response-header">
+
+            <div class="response-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <span>AI RESPONSE</span>
+
+                <h3>
+                    Customer Intelligence
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="response-body">
+
+            {{ answer }}
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+    <div class="ai-note">
+
+        <span>●</span>
+
+        Responses are grounded in the local
+        customer data, ML model, SHAP explanations
+        and knowledge base.
+
+    </div>
+
+</div>
+
+
+<script>
+
+function setQuestion(question) {
+
+    document.querySelector(
+        'textarea[name="question"]'
+    ).value = question;
+
+}
+
+</script>
+
+{% endblock %}

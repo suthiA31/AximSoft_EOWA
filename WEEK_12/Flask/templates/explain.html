@@ -1,0 +1,978 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid py-4">
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <div class="mb-4">
+
+        <h1 class="fw-bold">
+            Explainable AI 🔎
+        </h1>
+
+        <p class="text-muted mb-0">
+            Understand how the AI model reached a customer's churn prediction.
+        </p>
+
+    </div>
+
+
+    <!-- =========================================================
+         HOW IT WORKS
+    ========================================================== -->
+
+    <div class="card shadow-sm border-0 mb-4">
+
+        <div class="card-body p-4">
+
+            <h4 class="fw-bold mb-4">
+                How it works
+            </h4>
+
+            <div class="row g-3">
+
+                <!-- Customer -->
+                <div class="col-md-3">
+
+                    <div class="border rounded-3 p-4 text-center h-100">
+
+                        <div class="fs-1 mb-2">
+                            👤
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Customer Data
+                        </h5>
+
+                        <p class="text-muted small mb-0">
+                            Services, contract, tenure and charges
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Model -->
+                <div class="col-md-3">
+
+                    <div class="border rounded-3 p-4 text-center h-100">
+
+                        <div class="fs-1 mb-2">
+                            🤖
+                        </div>
+
+                        <h5 class="fw-bold">
+                            AI Model
+                        </h5>
+
+                        <p class="text-muted small mb-0">
+                            Analyzes customer characteristics
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Prediction -->
+                <div class="col-md-3">
+
+                    <div class="border rounded-3 p-4 text-center h-100">
+
+                        <div class="fs-1 mb-2">
+                            📊
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Churn Prediction
+                        </h5>
+
+                        <p class="text-muted small mb-0">
+                            Probability and risk level
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SHAP -->
+                <div class="col-md-3">
+
+                    <div class="border rounded-3 p-4 text-center h-100">
+
+                        <div class="fs-1 mb-2">
+                            🔎
+                        </div>
+
+                        <h5 class="fw-bold">
+                            SHAP Explanation
+                        </h5>
+
+                        <p class="text-muted small mb-0">
+                            Important contributing factors
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         CUSTOMER SEARCH
+    ========================================================== -->
+
+    <div class="card shadow-sm border-0 mb-4">
+
+        <div class="card-body p-4">
+
+            <h3 class="fw-bold mb-2">
+                Analyze a Customer
+            </h3>
+
+            <p class="text-muted">
+                Enter a Customer ID to see the churn prediction
+                and the factors that influenced it.
+            </p>
+
+
+            <form method="POST"
+                  action="{{ url_for('explain') }}">
+
+                <div class="row g-3">
+
+                    <div class="col-lg-8">
+
+                        <input
+                            type="text"
+                            name="customer_id"
+                            class="form-control form-control-lg"
+                            placeholder="Example: 6388-TABGU"
+                            value="{{ customer_id or '' }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="col-lg-4">
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-lg w-100">
+
+                            🔍 Explain Customer
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         ERROR MESSAGE
+    ========================================================== -->
+
+    {% if error %}
+
+    <div class="alert alert-danger shadow-sm mb-4">
+
+        <div class="fw-bold">
+            Unable to analyze customer
+        </div>
+
+        <div class="mt-1">
+            {{ error }}
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+    <!-- =========================================================
+         INITIAL HELP
+    ========================================================== -->
+
+    {% if not prediction and not error %}
+
+    <div class="card shadow-sm border-0">
+
+        <div class="card-body p-4">
+
+            <h3 class="fw-bold mb-4">
+                What will you see?
+            </h3>
+
+            <div class="row g-4">
+
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="text-center p-3">
+
+                        <div class="fs-1">
+                            📈
+                        </div>
+
+                        <h5 class="fw-bold mt-3">
+                            Churn Probability
+                        </h5>
+
+                        <p class="text-muted small">
+                            The model's estimated probability
+                            that the customer will churn.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="text-center p-3">
+
+                        <div class="fs-1">
+                            ⚠️
+                        </div>
+
+                        <h5 class="fw-bold mt-3">
+                            Risk Level
+                        </h5>
+
+                        <p class="text-muted small">
+                            A simple interpretation of the
+                            model prediction.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="text-center p-3">
+
+                        <div class="fs-1">
+                            🔬
+                        </div>
+
+                        <h5 class="fw-bold mt-3">
+                            SHAP Factors
+                        </h5>
+
+                        <p class="text-muted small">
+                            Features that contributed to
+                            the prediction.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-lg-3">
+
+                    <div class="text-center p-3">
+
+                        <div class="fs-1">
+                            💡
+                        </div>
+
+                        <h5 class="fw-bold mt-3">
+                            Explanation
+                        </h5>
+
+                        <p class="text-muted small">
+                            A simple business explanation
+                            of the prediction.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+    <!-- =========================================================
+         RESULTS
+    ========================================================== -->
+
+    {% if prediction %}
+
+    <div class="mt-4">
+
+
+        <!-- =====================================================
+             PREDICTION SUMMARY
+        ====================================================== -->
+
+        <div class="row g-4 mb-4">
+
+
+            <!-- Probability -->
+            <div class="col-lg-4">
+
+                <div class="card shadow-sm border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <span class="text-muted small">
+                            Churn Probability
+                        </span>
+
+
+                        {% set probability =
+                            prediction.get("probability", 0)
+                        %}
+
+
+                        {% set percent =
+                            prediction.get(
+                                "percent",
+                                probability * 100
+                            )
+                        %}
+
+
+                        <div class="display-4 fw-bold text-primary mt-2">
+
+                            {{ "%.1f"|format(percent|float) }}%
+
+                        </div>
+
+
+                        <div class="progress mt-3"
+                             style="height: 10px;">
+
+                            <div
+                                class="progress-bar"
+                                role="progressbar"
+                                style="width: {{ percent|float }}%;">
+                            </div>
+
+                        </div>
+
+
+                        <div class="small text-muted mt-2">
+
+                            Estimated probability of churn
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Risk -->
+            <div class="col-lg-4">
+
+                <div class="card shadow-sm border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <span class="text-muted small">
+                            Risk Level
+                        </span>
+
+
+                        <div class="mt-3">
+
+                            {% if prediction.get("prediction") == "High Risk" %}
+
+                            <span class="badge bg-danger fs-6 px-3 py-2">
+                                ⚠️ High Risk
+                            </span>
+
+                            {% else %}
+
+                            <span class="badge bg-success fs-6 px-3 py-2">
+                                ✓ Low Risk
+                            </span>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <p class="text-muted mt-3 mb-0">
+
+                            The model estimates a
+                            {{ "%.1f"|format(percent|float) }}%
+                            probability of churn.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Customer -->
+            <div class="col-lg-4">
+
+                <div class="card shadow-sm border-0 h-100">
+
+                    <div class="card-body p-4">
+
+                        <span class="text-muted small">
+                            Customer
+                        </span>
+
+
+                        <h4 class="fw-bold mt-2">
+
+                            {{ prediction.get(
+                                "customer_id",
+                                customer_id
+                            ) }}
+
+                        </h4>
+
+
+                        {% if profile %}
+
+                        <div class="small text-muted mt-3">
+
+
+                            {% if profile.get("Contract") %}
+
+                            <div class="mb-1">
+
+                                <strong>
+                                    Contract:
+                                </strong>
+
+                                {{ profile.get("Contract") }}
+
+                            </div>
+
+                            {% endif %}
+
+
+                            {% if profile.get("tenure") is not none %}
+
+                            <div class="mb-1">
+
+                                <strong>
+                                    Tenure:
+                                </strong>
+
+                                {{ profile.get("tenure") }}
+                                months
+
+                            </div>
+
+                            {% endif %}
+
+
+                            {% if profile.get("MonthlyCharges") is not none %}
+
+                            <div class="mb-1">
+
+                                <strong>
+                                    Monthly Charges:
+                                </strong>
+
+                                {{ profile.get("MonthlyCharges") }}
+
+                            </div>
+
+                            {% endif %}
+
+
+                            {% if profile.get("InternetService") %}
+
+                            <div class="mb-1">
+
+                                <strong>
+                                    Internet:
+                                </strong>
+
+                                {{ profile.get("InternetService") }}
+
+                            </div>
+
+                            {% endif %}
+
+
+                        </div>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             WHY THIS PREDICTION
+        ====================================================== -->
+
+        <div class="card shadow-sm border-0 mb-4">
+
+            <div class="card-body p-4">
+
+                <h3 class="fw-bold mb-2">
+                    🔎 Why this prediction?
+                </h3>
+
+                <p class="text-muted mb-4">
+
+                    SHAP shows how individual customer features
+                    influenced the model's prediction.
+
+                </p>
+
+
+                {% if shap and shap.get("all") %}
+
+
+                <div class="row g-3">
+
+                    {% for factor in shap.get("all", [])[:6] %}
+
+                    {% set shap_value =
+                        factor.get("shap_value", 0)|float
+                    %}
+
+
+                    {% set shap_width =
+                        (shap_value|abs * 1000)
+                    %}
+
+
+                    {% if shap_width > 100 %}
+
+                        {% set shap_width = 100 %}
+
+                    {% endif %}
+
+
+                    <div class="col-lg-6">
+
+                        <div class="border rounded-3 p-3 h-100">
+
+
+                            <!-- Feature header -->
+                            <div class="d-flex justify-content-between
+                                        align-items-start gap-3">
+
+                                <strong>
+
+                                    {{ factor.get(
+                                        "feature",
+                                        "Unknown Feature"
+                                    ) }}
+
+                                </strong>
+
+
+                                {% if shap_value >= 0 %}
+
+                                <span class="badge bg-danger text-nowrap">
+
+                                    ↑ Higher churn
+
+                                </span>
+
+                                {% else %}
+
+                                <span class="badge bg-success text-nowrap">
+
+                                    ↓ Lower churn
+
+                                </span>
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <!-- Progress -->
+                            <div class="progress mt-3"
+                                 style="height: 8px;">
+
+                                <div
+                                    class="progress-bar
+                                    {% if shap_value >= 0 %}
+                                        bg-danger
+                                    {% else %}
+                                        bg-success
+                                    {% endif %}"
+                                    style="width: {{ shap_width }}%;">
+                                </div>
+
+                            </div>
+
+
+                            <!-- Value -->
+                            <div class="small text-muted mt-2">
+
+                                SHAP contribution:
+
+                                {% if shap_value >= 0 %}
+                                    +
+                                {% endif %}
+
+                                {{ "%.4f"|format(shap_value) }}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+
+                {% else %}
+
+                <div class="alert alert-info mb-0">
+
+                    No SHAP explanation is available
+                    for this customer.
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             HUMAN EXPLANATION
+        ====================================================== -->
+
+        <div class="card shadow-sm border-0 mb-4">
+
+            <div class="card-body p-4">
+
+                <span class="text-muted small">
+                    Customer Churn Assessment
+                </span>
+
+
+                {% if prediction.get("prediction") == "High Risk" %}
+
+                <h3 class="fw-bold mt-2">
+                    This customer is currently predicted
+                    to be at higher churn risk.
+                </h3>
+
+                {% else %}
+
+                <h3 class="fw-bold mt-2">
+                    This customer is currently predicted
+                    to be at lower churn risk.
+                </h3>
+
+                {% endif %}
+
+
+                <p class="lead text-muted mt-3 mb-0">
+
+                    The model estimates a
+                    {{ "%.1f"|format(percent|float) }}%
+                    probability of churn based on the
+                    customer's characteristics.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             MAIN INFLUENCING FACTORS
+        ====================================================== -->
+
+        <div class="card shadow-sm border-0 mb-4">
+
+            <div class="card-body p-4">
+
+                <h3 class="fw-bold mb-2">
+                    🧠 What is influencing this prediction?
+                </h3>
+
+                <p class="text-muted">
+                    The factors below had the largest influence
+                    on the model's prediction.
+                </p>
+
+
+                {% if shap %}
+
+                <div class="row g-3 mt-2">
+
+
+                    <!-- Positive factors -->
+                    {% for factor in shap.get("positive", [])[:3] %}
+
+                    <div class="col-md-6 col-lg-4">
+
+                        <div class="border rounded-3 p-3 h-100">
+
+                            <div class="fs-4">
+                                ⚠️
+                            </div>
+
+                            <h6 class="fw-bold mt-2">
+
+                                {{ factor.get(
+                                    "feature",
+                                    "Unknown Feature"
+                                ) }}
+
+                            </h6>
+
+                            <p class="text-muted small mb-0">
+
+                                This factor pushes the
+                                prediction toward higher
+                                churn risk.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+
+                    <!-- Negative factors -->
+                    {% for factor in shap.get("negative", [])[:3] %}
+
+                    <div class="col-md-6 col-lg-4">
+
+                        <div class="border rounded-3 p-3 h-100">
+
+                            <div class="fs-4">
+                                ✅
+                            </div>
+
+                            <h6 class="fw-bold mt-2">
+
+                                {{ factor.get(
+                                    "feature",
+                                    "Unknown Feature"
+                                ) }}
+
+                            </h6>
+
+                            <p class="text-muted small mb-0">
+
+                                This factor pushes the
+                                prediction toward lower
+                                churn risk.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             TECHNICAL SHAP
+        ====================================================== -->
+
+        <div class="card shadow-sm border-0 mb-5">
+
+            <div class="card-body p-4">
+
+                <details>
+
+                    <summary
+                        class="fw-bold"
+                        style="cursor: pointer;">
+
+                        🔬 View technical SHAP details
+
+                    </summary>
+
+
+                    <p class="text-muted mt-3">
+
+                        These are the SHAP contribution values
+                        generated by the model.
+
+                    </p>
+
+
+                    {% if shap and shap.get("all") %}
+
+                    <div class="table-responsive">
+
+                        <table class="table table-hover align-middle">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Feature
+                                    </th>
+
+                                    <th>
+                                        SHAP Value
+                                    </th>
+
+                                    <th>
+                                        Impact
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                {% for factor in shap.get("all", []) %}
+
+                                {% set shap_value =
+                                    factor.get(
+                                        "shap_value",
+                                        0
+                                    )|float
+                                %}
+
+
+                                <tr>
+
+                                    <td class="fw-medium">
+
+                                        {{ factor.get(
+                                            "feature",
+                                            "Unknown Feature"
+                                        ) }}
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <code>
+
+                                            {% if shap_value >= 0 %}
+                                                +
+                                            {% endif %}
+
+                                            {{ "%.5f"|format(
+                                                shap_value
+                                            ) }}
+
+                                        </code>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        {% if shap_value >= 0 %}
+
+                                        <span class="badge bg-danger">
+
+                                            Higher churn
+
+                                        </span>
+
+                                        {% else %}
+
+                                        <span class="badge bg-success">
+
+                                            Lower churn
+
+                                        </span>
+
+                                        {% endif %}
+
+                                    </td>
+
+                                </tr>
+
+                                {% endfor %}
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    {% else %}
+
+                    <div class="alert alert-info mt-3 mb-0">
+
+                        No technical SHAP values are available.
+
+                    </div>
+
+                    {% endif %}
+
+                </details>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
